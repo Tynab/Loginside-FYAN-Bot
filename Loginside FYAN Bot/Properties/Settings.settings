@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Loginside_FYAN_Bot.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Tmr_In" Type="System.String" Scope="User">
+      <Value Profile="(Default)">21:00</Value>
+    </Setting>
+    <Setting Name="Tmr_Out" Type="System.String" Scope="User">
+      <Value Profile="(Default)">21:02</Value>
+    </Setting>
+    <Setting Name="Name_User" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yamia</Value>
+    </Setting>
+    <Setting Name="Dom_User" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NEPHILIM</Value>
+    </Setting>
+    <Setting Name="Pwd_User" Type="System.String" Scope="User">
+      <Value Profile="(Default)">yamian10071993</Value>
+    </Setting>
+    <Setting Name="Id_Ins" Type="System.String" Scope="User">
+      <Value Profile="(Default)">102594</Value>
+    </Setting>
+    <Setting Name="Pwd_Ins" Type="System.String" Scope="User">
+      <Value Profile="(Default)">y@m1An10071993</Value>
+    </Setting>
+    <Setting Name="Sec_Key" Type="System.String" Scope="User">
+      <Value Profile="(Default)">YJ57DVFQZY6M7WX5L7EUJ4DMXR4CD3QC</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
