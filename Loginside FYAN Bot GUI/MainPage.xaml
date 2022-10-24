@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Loginside_FYAN_Bot_GUI.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Grid WidthRequest="800"
+                  HeightRequest="300">
+                <Image Source="dotnet_bot.png"
+                       SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                       HeightRequest="200"
+                       TranslationX="200"
+                       TranslationY="50"
+                       HorizontalOptions="Start">
+                    <Image.Shadow>
+                        <Shadow Brush="yellow"
+                                Offset="-100,10"
+                                Radius="70"
+                                Opacity="1" />
+                    </Image.Shadow>
+                </Image>
+
+                <Label Text="FYAN Bot trên MAUI, xin chào!"
+                   SemanticProperties.HeadingLevel="Level1"
+                   FontSize="32"
+                   TranslationX="-100"
+                   FontFamily="tahoma"
+                   HorizontalOptions="End" />
+
+                <Entry x:Name="tbtId"
+                   WidthRequest="300"
+                   HeightRequest="20"
+                   Placeholder="Nhập ID"
+                   FontFamily="verdana"
+                   HorizontalOptions="End"
+                   TranslationX="-50"
+                   HorizontalTextAlignment="Center" />
+
+                <Entry x:Name="tbtPwd"
+                   WidthRequest="300"
+                   HeightRequest="20"
+                   Placeholder="Nhập mật khẩu"
+                   FontFamily="verdana"
+                   HorizontalOptions="End"
+                   TranslationX="-50"
+                   TranslationY="50"
+                   IsPassword="True"
+                   HorizontalTextAlignment="Center" />
+
+                <Entry x:Name="tbtSecKey"
+                   WidthRequest="300"
+                   HeightRequest="20"
+                   Placeholder="Nhập Secret Key"
+                   FontFamily="verdana"
+                   HorizontalOptions="End"
+                   TranslationX="-50"
+                   TranslationY="100"
+                   HorizontalTextAlignment="Center" />
+                
+                <Button x:Name="CounterBtn"
+                        WidthRequest="150"
+                        HeightRequest="40"
+                        Text="Cài đặt"
+                        SemanticProperties.Hint="Counts the number of times you click"
+                        Clicked="OnCounterClicked"
+                        TranslationY="200"
+                        HorizontalOptions="Center" />
+                
+                <Label Text="Welcome to .NET Multi-platform App UI"
+                       SemanticProperties.HeadingLevel="Level2"
+                       SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                       FontSize="18"
+                       TranslationY="300"
+                       HorizontalOptions="Center" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
