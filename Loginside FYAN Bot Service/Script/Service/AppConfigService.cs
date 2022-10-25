@@ -13,21 +13,26 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         #endregion
 
         #region Methods
-        public string Getter(string key) => !string.IsNullOrWhiteSpace(AppSettings[key]) ? AppSettings[key].ToString() : "";
+        public string Getter(string key) => _configuration.AppSettings.Settings[key].Value?.ToString();
 
         public void Setter<T>(string key, T value)
         {
-            if (value != null)
+            try
             {
+                _configuration.AppSettings.Settings[key].Value = value?.ToString();
+                _configuration.Save();
+            }
+            catch (Exception ex)
+            {
+                WriteLog("Bot error", ex.Message);
                 try
                 {
-                    _configuration.AppSettings.Settings[key].Value = value.ToString();
+                    _configuration.AppSettings.Settings.Add(key, value?.ToString());
                     _configuration.Save();
-                    RefreshSection("appSettings");
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    WriteLog("Setter app config error", ex.Message);
+                    WriteLog("Bot error", e.Message);
                 }
             }
         }

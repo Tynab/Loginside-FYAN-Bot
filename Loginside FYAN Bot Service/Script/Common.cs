@@ -48,7 +48,7 @@ namespace Loginside_FYAN_Bot_Service.Script
         /// </summary>
         /// <param name="time">Time string.</param>
         /// <returns>Hour.</returns>
-        internal static int GetHourFromAppConfig(string time)
+        internal static int? GetHourFromAppConfig(string time)
         {
             try
             {
@@ -57,7 +57,7 @@ namespace Loginside_FYAN_Bot_Service.Script
             catch (Exception ex)
             {
                 WriteLog("Getter hour error", ex.Message);
-                return 0;
+                return null;
             }
         }
 
@@ -66,7 +66,7 @@ namespace Loginside_FYAN_Bot_Service.Script
         /// </summary>
         /// <param name="time">Time string.</param>
         /// <returns>Minute.</returns>
-        internal static int GetMinuteFromAppConfig(string time)
+        internal static int? GetMinuteFromAppConfig(string time)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace Loginside_FYAN_Bot_Service.Script
             catch (Exception ex)
             {
                 WriteLog("Getter minute error", ex.Message);
-                return 0;
+                return null;
             }
         }
         #endregion

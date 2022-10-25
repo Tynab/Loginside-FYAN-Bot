@@ -35,91 +35,207 @@
 
                 <Grid>
 
-                    <Label SemanticProperties.HeadingLevel="Level1"
-                           Text="FYAN, xin chào!"
-                           TextColor="WhiteSmoke"
-                           FontSize="30"
-                           FontFamily="tahoma"
-                           HorizontalOptions="Center"
-                           VerticalOptions="Start"
-                           TranslationY="50" />
+                    <Grid HeightRequest="200"
+                          VerticalOptions="Start">
+                        
+                        <Label SemanticProperties.HeadingLevel="Level1"
+                               Text="FYAN, xin chào!"
+                               TextColor="WhiteSmoke"
+                               FontSize="30"
+                               FontFamily="tahoma"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" />
+                        
+                    </Grid>
 
-                    <Grid WidthRequest="400"
-                          HorizontalOptions="Start">
+                    <Grid HeightRequest="300"
+                          VerticalOptions="Start"
+                          TranslationY="200">
 
-                        <skia:SKLottieView Source="dotnet_bot.json"
-                                           RepeatCount="-1"
-                                           SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                                           WidthRequest="300"
-                                           HeightRequest="300"
-                                           HorizontalOptions="End">
-                        </skia:SKLottieView>
+                        <Grid WidthRequest="300"
+                              HorizontalOptions="Start">
+
+                            <skia:SKLottieView Source="dotnet_bot.json"
+                                               RepeatCount="-1"
+                                               SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                                               WidthRequest="300"
+                                               HeightRequest="300">
+                            </skia:SKLottieView>
+
+                        </Grid>
+
+                        <Grid WidthRequest="500"
+                              HorizontalOptions="End">
+
+                            <Grid WidthRequest="400"
+                                  HeightRequest="50"
+                                  VerticalOptions="Start">
+
+                                <Grid WidthRequest="100"
+                                      HorizontalOptions="Start">
+
+                                    <Label Text="Check In"
+                                           VerticalOptions="Center"
+                                           FontSize="17" />
+
+                                </Grid>
+
+                                <Grid WidthRequest="300"
+                                      HorizontalOptions="End">
+
+                                    <Entry x:Name="txtInHour"
+                                           WidthRequest="140"
+                                           HeightRequest="35"
+                                           FontFamily="verdana"
+                                           Placeholder="giờ"
+                                           Keyboard="Numeric"
+                                           BackgroundColor="#222222"
+                                           HorizontalOptions="Start"
+                                           HorizontalTextAlignment="Center" />
+
+                                    <Label Text=":"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           FontSize="17" />
+
+                                    <Entry x:Name="txtInMinute"
+                                           WidthRequest="140"
+                                           HeightRequest="35"
+                                           FontFamily="verdana"
+                                           Placeholder="phút"
+                                           Keyboard="Numeric"
+                                           BackgroundColor="#222222"
+                                           HorizontalOptions="End"
+                                           HorizontalTextAlignment="Center" />
+
+                                </Grid>
+
+                            </Grid>
+
+                            <Grid WidthRequest="400"
+                                  HeightRequest="50"
+                                  VerticalOptions="Start"
+                                  TranslationY="50">
+
+                                <Grid WidthRequest="100"
+                                      HorizontalOptions="Start">
+
+                                    <Label Text="Check Out"
+                                           VerticalOptions="Center"
+                                           FontSize="17" />
+
+                                </Grid>
+
+                                <Grid WidthRequest="300"
+                                      HorizontalOptions="End">
+
+                                    <Entry x:Name="txtOutHour"
+                                           WidthRequest="140"
+                                           HeightRequest="35"
+                                           FontFamily="verdana"
+                                           Placeholder="giờ"
+                                           Keyboard="Numeric"
+                                           BackgroundColor="#222222"
+                                           HorizontalOptions="Start"
+                                           HorizontalTextAlignment="Center" />
+
+                                    <Label Text=":"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           FontSize="17" />
+
+                                    <Entry x:Name="txtOutMinute"
+                                           WidthRequest="140"
+                                           HeightRequest="35"
+                                           FontFamily="verdana"
+                                           Placeholder="phút"
+                                           Keyboard="Numeric"
+                                           BackgroundColor="#222222"
+                                           HorizontalOptions="End"
+                                           HorizontalTextAlignment="Center" />
+
+                                </Grid>
+
+                            </Grid>
+
+                            <Grid WidthRequest="400"
+                                  HeightRequest="50"
+                                  VerticalOptions="Start"
+                                  TranslationY="100">
+
+                                <Entry x:Name="txtSecKey"
+                                       WidthRequest="400"
+                                       HeightRequest="35"
+                                       FontFamily="verdana"
+                                       Placeholder="Secret Key"
+                                       BackgroundColor="#222222"
+                                       HorizontalOptions="Center"
+                                       HorizontalTextAlignment="Center" />
+
+                            </Grid>
+
+                            <Grid WidthRequest="400"
+                                  HeightRequest="50"
+                                  VerticalOptions="Start"
+                                  TranslationY="150">
+
+                                <Entry x:Name="txtId"
+                                       WidthRequest="190"
+                                       HeightRequest="35"
+                                       Placeholder="ID"
+                                       FontFamily="verdana"
+                                       Keyboard="Numeric"
+                                       BackgroundColor="#222222"
+                                       HorizontalOptions="Start"
+                                       HorizontalTextAlignment="Center" />
+
+                                <Entry x:Name="txtPwd"
+                                       WidthRequest="190"
+                                       HeightRequest="35"
+                                       FontFamily="verdana"
+                                       Placeholder="Mật khẩu"
+                                       BackgroundColor="#222222"
+                                       IsPassword="True"
+                                       HorizontalOptions="End"
+                                       HorizontalTextAlignment="Center" />
+
+                            </Grid>
+
+                            <Grid WidthRequest="400"
+                                  HeightRequest="100"
+                                  VerticalOptions="Start"
+                                  TranslationY="200">
+
+                                <Button x:Name="btnSet"
+                                        SemanticProperties.Hint="Counts the number of times you click"
+                                        WidthRequest="140"
+                                        HeightRequest="40"
+                                        Text="Thiết lập"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        Clicked="OnBtnSetClicked" />
+
+                            </Grid>
+
+                        </Grid>
+                        
 
                     </Grid>
 
-                    <Grid WidthRequest="400"
-                          HorizontalOptions="End">
+                    <Grid HeightRequest="100"
+                          VerticalOptions="Start"
+                          TranslationY="500">
 
-                        <Entry x:Name="txtId"
-                               WidthRequest="300"
-                               HeightRequest="35"
-                               Placeholder="Nhập ID"
-                               FontFamily="verdana"
-                               Keyboard="Numeric"
-                               BackgroundColor="#222222"
+                        <Label SemanticProperties.HeadingLevel="Level2"
+                               SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                               Text="Welcome to .NET Multi-platform App UI"
+                               FontSize="13"
+                               TextColor="Silver"
                                HorizontalOptions="Center"
-                               VerticalOptions="Start"
-                               HorizontalTextAlignment="Center"
-                               TranslationX="-50"
-                               TranslationY="170" />
-
-                        <Entry x:Name="txtPwd"
-                               WidthRequest="300"
-                               HeightRequest="35"
-                               FontFamily="verdana"
-                               Placeholder="Nhập mật khẩu"
-                               BackgroundColor="#222222"
-                               IsPassword="True"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Start"
-                               HorizontalTextAlignment="Center"
-                               TranslationX="-50"
-                               TranslationY="230" />
-
-                        <Entry x:Name="txtSecKey"
-                               WidthRequest="300"
-                               HeightRequest="35"
-                               FontFamily="verdana"
-                               Placeholder="Nhập Secret Key"
-                               BackgroundColor="#222222"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Start"
-                               HorizontalTextAlignment="Center"
-                               TranslationX="-50"
-                               TranslationY="290" />
-
-                        <Button x:Name="btnSet"
-                                SemanticProperties.Hint="Counts the number of times you click"
-                                WidthRequest="140"
-                                HeightRequest="40"
-                                Text="Thiết lập"
-                                FontAttributes="Bold"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Start"
-                                TranslationX="-50"
-                                TranslationY="380"
-                                Clicked="OnBtnSetClicked" />
+                               VerticalOptions="End"
+                               TranslationY="-10"/>
 
                     </Grid>
-                    
-                    <Label SemanticProperties.HeadingLevel="Level2"
-                           SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                           Text="Welcome to .NET Multi-platform App UI"
-                           FontSize="13"
-                           TextColor="Silver"
-                           HorizontalOptions="Center"
-                           VerticalOptions="End"
-                           TranslationY="-10"/>
                     
                 </Grid>
 

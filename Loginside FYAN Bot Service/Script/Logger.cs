@@ -13,7 +13,7 @@ namespace Loginside_FYAN_Bot_Service.Script
         /// <param name="message">Message.</param>
         internal static void WriteLog(string caption, string message)
         {
-            var logPath = $@"{CurrentDomain.BaseDirectory}\Log";
+            var logPath = $@"{CurrentDomain.BaseDirectory}\log";
             var logAdr = $@"{logPath}\" + Today.ToString("dd-MM-yyyy") + ".txt";
             CrtDirAdv(logPath);
             if (Exists(logAdr))

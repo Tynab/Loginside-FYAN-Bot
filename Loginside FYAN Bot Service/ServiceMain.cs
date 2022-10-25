@@ -49,7 +49,7 @@ namespace Loginside_FYAN_Bot_Service
         // On timer bot
         private void OnTmrBotEvent(object sender, ElapsedEventArgs e)
         {
-            if (Today.DayOfWeek != Sunday)
+            if (Today.DayOfWeek != Sunday && Now.Hour > 0)
             {
                 var tmrIn = _appConfigService.Getter(tmr_in);
                 var tmrOut = _appConfigService.Getter(tmr_out);

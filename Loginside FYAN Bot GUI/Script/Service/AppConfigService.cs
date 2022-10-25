@@ -2,33 +2,49 @@
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static System.AppDomain;
 using static System.Configuration.ConfigurationManager;
+using static System.Configuration.ConfigurationUserLevel;
+using static System.IO.Directory;
 
 namespace Loginside_FYAN_Bot_GUI.Script.Service
 {
-    internal class AppConfigService : IAppConfigService
+    public class AppConfigService : IAppConfigService
     {
         #region Fields
-        //private readonly Configuration _configuration = OpenExeConfiguration($@"{CurrentDomain.BaseDirectory}\{BOT_NAME}.exe.config");
-        //private Configuration _configuration = OpenExeConfiguration(@"D:\cc.exe.config");
+        private readonly Configuration _configuration;
+        #endregion
+
+        #region Constructors
+        public AppConfigService()
+        {
+            var exeConfigurationFileMap = new ExeConfigurationFileMap
+            {
+                ExeConfigFilename = $@"{GetParent(CurrentDomain.BaseDirectory)}\{BOT_NAME}.exe.config"
+            };
+            _configuration = OpenMappedExeConfiguration(exeConfigurationFileMap, None);
+        }
         #endregion
 
         #region Methods
-        public string Getter(string key) => !string.IsNullOrWhiteSpace(AppSettings[key]) ? AppSettings[key].ToString() : "";
+        public string Getter(string key) => _configuration.AppSettings.Settings[key].Value?.ToString();
 
-        public void Setter(string key, string value)
+        public void Setter<T>(string key, T value)
         {
-            if (!string.IsNullOrWhiteSpace(value))
+            try
             {
+                _configuration.AppSettings.Settings[key].Value = value?.ToString();
+                _configuration.Save();
+            }
+            catch (Exception ex)
+            {
+                new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
                 try
                 {
-                    Configuration _configuration = OpenExeConfiguration(@"D:\cc.exe");
-                    _configuration.AppSettings.Settings[key].Value = value;
+                    _configuration.AppSettings.Settings.Add(key, value?.ToString());
                     _configuration.Save();
-                    //RefreshSection("appSettings");
                 }
-                catch (Exception ex)
+                catch (Exception e)
                 {
-                    new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
+                    new Page().DisplayAlert("LỖI", e.Message, "Đóng");
                 }
             }
         }
