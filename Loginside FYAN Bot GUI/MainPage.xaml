@@ -1,84 +1,132 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Loginside_FYAN_Bot_GUI.MainPage">
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="Loginside_FYAN_Bot_GUI.MainPage"
+             BackgroundColor="White">
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+        
+        <VerticalStackLayout Spacing="25"
+                             Padding="30,0"
+                             VerticalOptions="Center">
 
-            <Grid WidthRequest="800"
-                  HeightRequest="300">
-                <Image Source="dotnet_bot.png"
-                       SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                       HeightRequest="200"
-                       TranslationX="200"
-                       TranslationY="50"
-                       HorizontalOptions="Start">
-                    <Image.Shadow>
-                        <Shadow Brush="yellow"
-                                Offset="-100,10"
-                                Radius="70"
-                                Opacity="1" />
-                    </Image.Shadow>
-                </Image>
+            <Border StrokeThickness="4"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    WidthRequest="800"
+                    HeightRequest="600"
+                    BackgroundColor="#111111"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center">
+                <Border.Stroke>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="MidnightBlue"
+                                      Offset="0.1" />
+                        <GradientStop Color="Violet"
+                                      Offset="1.0" />
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <Border.Shadow>
+                    <Shadow Brush="black"
+                            Offset="10,10"
+                            Radius="10"
+                            Opacity="0.7" />
+                </Border.Shadow>
 
-                <Label Text="FYAN Bot trên MAUI, xin chào!"
-                   SemanticProperties.HeadingLevel="Level1"
-                   FontSize="32"
-                   TranslationX="-100"
-                   FontFamily="tahoma"
-                   HorizontalOptions="End" />
+                <Grid>
 
-                <Entry x:Name="tbtId"
-                   WidthRequest="300"
-                   HeightRequest="20"
-                   Placeholder="Nhập ID"
-                   FontFamily="verdana"
-                   HorizontalOptions="End"
-                   TranslationX="-50"
-                   HorizontalTextAlignment="Center" />
+                    <Label SemanticProperties.HeadingLevel="Level1"
+                           Text="FYAN, xin chào!"
+                           TextColor="WhiteSmoke"
+                           FontSize="30"
+                           FontFamily="tahoma"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start"
+                           TranslationY="50" />
 
-                <Entry x:Name="tbtPwd"
-                   WidthRequest="300"
-                   HeightRequest="20"
-                   Placeholder="Nhập mật khẩu"
-                   FontFamily="verdana"
-                   HorizontalOptions="End"
-                   TranslationX="-50"
-                   TranslationY="50"
-                   IsPassword="True"
-                   HorizontalTextAlignment="Center" />
+                    <Grid WidthRequest="400"
+                          HorizontalOptions="Start">
 
-                <Entry x:Name="tbtSecKey"
-                   WidthRequest="300"
-                   HeightRequest="20"
-                   Placeholder="Nhập Secret Key"
-                   FontFamily="verdana"
-                   HorizontalOptions="End"
-                   TranslationX="-50"
-                   TranslationY="100"
-                   HorizontalTextAlignment="Center" />
-                
-                <Button x:Name="CounterBtn"
-                        WidthRequest="150"
-                        HeightRequest="40"
-                        Text="Cài đặt"
-                        SemanticProperties.Hint="Counts the number of times you click"
-                        Clicked="OnCounterClicked"
-                        TranslationY="200"
-                        HorizontalOptions="Center" />
-                
-                <Label Text="Welcome to .NET Multi-platform App UI"
-                       SemanticProperties.HeadingLevel="Level2"
-                       SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                       FontSize="18"
-                       TranslationY="300"
-                       HorizontalOptions="Center" />
-            </Grid>
+                        <skia:SKLottieView Source="dotnet_bot.json"
+                                           RepeatCount="-1"
+                                           SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                                           WidthRequest="300"
+                                           HeightRequest="300"
+                                           HorizontalOptions="End">
+                        </skia:SKLottieView>
+
+                    </Grid>
+
+                    <Grid WidthRequest="400"
+                          HorizontalOptions="End">
+
+                        <Entry x:Name="tbtId"
+                               WidthRequest="300"
+                               HeightRequest="35"
+                               Placeholder="Nhập ID"
+                               FontFamily="verdana"
+                               Keyboard="Numeric"
+                               BackgroundColor="#222222"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               HorizontalTextAlignment="Center"
+                               TranslationX="-50"
+                               TranslationY="170" />
+
+                        <Entry x:Name="tbtPwd"
+                               WidthRequest="300"
+                               HeightRequest="35"
+                               FontFamily="verdana"
+                               Placeholder="Nhập mật khẩu"
+                               BackgroundColor="#222222"
+                               IsPassword="True"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               HorizontalTextAlignment="Center"
+                               TranslationX="-50"
+                               TranslationY="230" />
+
+                        <Entry x:Name="tbtSecKey"
+                               WidthRequest="300"
+                               HeightRequest="35"
+                               FontFamily="verdana"
+                               Placeholder="Nhập Secret Key"
+                               BackgroundColor="#222222"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Start"
+                               HorizontalTextAlignment="Center"
+                               TranslationX="-50"
+                               TranslationY="290" />
+
+                        <Button x:Name="CounterBtn"
+                                SemanticProperties.Hint="Counts the number of times you click"
+                                WidthRequest="140"
+                                HeightRequest="40"
+                                Text="Thiết lập"
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Start"
+                                TranslationX="-50"
+                                TranslationY="380"
+                                Clicked="OnCounterClicked" />
+
+                    </Grid>
+                    
+                    <Label SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                           Text="Welcome to .NET Multi-platform App UI"
+                           FontSize="13"
+                           TextColor="Silver"
+                           HorizontalOptions="Center"
+                           VerticalOptions="End"
+                           TranslationY="-10"/>
+                    
+                </Grid>
+
+            </Border>
+
         </VerticalStackLayout>
+        
     </ScrollView>
 
 </ContentPage>
