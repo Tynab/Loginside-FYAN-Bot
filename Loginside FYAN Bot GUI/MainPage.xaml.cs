@@ -1,6 +1,10 @@
 ﻿using Loginside_FYAN_Bot_GUI.Script;
 using Loginside_FYAN_Bot_GUI.Script.Service;
+using System.ServiceProcess;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
+using static System.Environment;
+using static System.ServiceProcess.ServiceControllerStatus;
+using static System.TimeSpan;
 
 namespace Loginside_FYAN_Bot_GUI
 {
@@ -43,11 +47,13 @@ namespace Loginside_FYAN_Bot_GUI
                 _appConfigService.Setter(PWD_INS, txtPwd.Text);
                 _appConfigService.Setter(SEC_KEY, txtSecKey.Text);
                 DisplayAlert("THÔNG BÁO", "Thiết lập thành công!", "Đóng");
-                // default
+                // re-default
                 txtInHour.Text = inHour.ToString();
                 txtInMinute.Text = inMinute.ToString();
                 txtOutHour.Text = outHour.ToString();
                 txtOutMinute.Text = outMinute.ToString();
+                // restart service
+                RestartService(BOT_NAME, 3000);
             }
             catch (Exception ex)
             {
@@ -69,6 +75,27 @@ namespace Loginside_FYAN_Bot_GUI
         {
             _ = int.TryParse(s, out var rslt);
             return rslt = rslt is > 0 and < 60 ? rslt : 0;
+        }
+
+        // Restart service
+        private static void RestartService(string name, int ms)
+        {
+            try
+            {
+                var service = new ServiceController(name);
+                var ms1 = TickCount;
+                var timeout = FromMilliseconds(ms);
+                service.Stop();
+                service.WaitForStatus(Stopped, timeout);
+                var ms2 = TickCount;
+                timeout = FromMilliseconds(ms - (ms2 - ms1));
+                service.Start();
+                service.WaitForStatus(Running, timeout);
+            }
+            catch (Exception ex)
+            {
+                new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
+            }
         }
         #endregion
     }
