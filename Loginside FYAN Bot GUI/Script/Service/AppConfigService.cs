@@ -1,46 +1,35 @@
-﻿using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
+﻿using System.Configuration;
+using static Loginside_FYAN_Bot_GUI.Script.Constant;
+using static System.AppDomain;
 using static System.Configuration.ConfigurationManager;
 
 namespace Loginside_FYAN_Bot_GUI.Script.Service
 {
-    internal class AppConfigService
+    internal class AppConfigService : IAppConfigService
     {
         #region Fields
-        //public readonly Configuration _configuration = OpenExeConfiguration($@"{CurrentDomain.BaseDirectory}\{app_name}.exe");
-        public readonly Configuration _configuration = OpenExeConfiguration(GetExecutingAssembly().Location);
+        //private readonly Configuration _configuration = OpenExeConfiguration($@"{CurrentDomain.BaseDirectory}\{BOT_NAME}.exe.config");
+        //private Configuration _configuration = OpenExeConfiguration(@"D:\cc.exe.config");
         #endregion
 
         #region Methods
-        public string Getter(string key)
-        {
-            try
-            {
-                return AppSettings[key].ToString();
-            }
-            catch (Exception ex)
-            {
-                WriteLog("Getter app config error", ex.Message);
-                return null;
-            }
-        }
+        public string Getter(string key) => !string.IsNullOrWhiteSpace(AppSettings[key]) ? AppSettings[key].ToString() : "";
 
-        public void Setter<T>(string key, T value)
+        public void Setter(string key, string value)
         {
-            try
+            if (!string.IsNullOrWhiteSpace(value))
             {
-                _configuration.AppSettings.Settings[key].Value = value.ToString();
-                _configuration.Save();
-                RefreshSection("appSettings");
-            }
-            catch (Exception ex)
-            {
-                WriteLog("Setter app config error", ex.Message);
+                try
+                {
+                    Configuration _configuration = OpenExeConfiguration(@"D:\cc.exe");
+                    _configuration.AppSettings.Settings[key].Value = value;
+                    _configuration.Save();
+                    //RefreshSection("appSettings");
+                }
+                catch (Exception ex)
+                {
+                    new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
+                }
             }
         }
         #endregion

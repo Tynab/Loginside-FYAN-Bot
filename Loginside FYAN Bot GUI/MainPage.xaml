@@ -60,7 +60,7 @@
                     <Grid WidthRequest="400"
                           HorizontalOptions="End">
 
-                        <Entry x:Name="tbtId"
+                        <Entry x:Name="txtId"
                                WidthRequest="300"
                                HeightRequest="35"
                                Placeholder="Nhập ID"
@@ -73,7 +73,7 @@
                                TranslationX="-50"
                                TranslationY="170" />
 
-                        <Entry x:Name="tbtPwd"
+                        <Entry x:Name="txtPwd"
                                WidthRequest="300"
                                HeightRequest="35"
                                FontFamily="verdana"
@@ -86,7 +86,7 @@
                                TranslationX="-50"
                                TranslationY="230" />
 
-                        <Entry x:Name="tbtSecKey"
+                        <Entry x:Name="txtSecKey"
                                WidthRequest="300"
                                HeightRequest="35"
                                FontFamily="verdana"
@@ -98,7 +98,7 @@
                                TranslationX="-50"
                                TranslationY="290" />
 
-                        <Button x:Name="CounterBtn"
+                        <Button x:Name="btnSet"
                                 SemanticProperties.Hint="Counts the number of times you click"
                                 WidthRequest="140"
                                 HeightRequest="40"
@@ -108,7 +108,7 @@
                                 VerticalOptions="Start"
                                 TranslationX="-50"
                                 TranslationY="380"
-                                Clicked="OnCounterClicked" />
+                                Clicked="OnBtnSetClicked" />
 
                     </Grid>
                     

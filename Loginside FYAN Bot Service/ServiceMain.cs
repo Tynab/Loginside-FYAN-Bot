@@ -17,10 +17,7 @@ namespace Loginside_FYAN_Bot_Service
         private readonly IBotService _botService;
         #endregion
 
-        #region Contsructors
-        /// <summary>
-        /// Main
-        /// </summary>
+        #region Constructors
         public ServiceMain()
         {
             InitializeComponent();
