@@ -14,9 +14,9 @@
 ## CẤU HÌNH BUILD UNPACKAGE
 ```xml
 <!-- project -->
-	<PropertyGroup>
-		<WindowsPackageType>None</WindowsPackageType>
-	</PropertyGroup>
+<PropertyGroup>
+	<WindowsPackageType>None</WindowsPackageType>
+</PropertyGroup>
 ```
 ```json
 // launch setting
