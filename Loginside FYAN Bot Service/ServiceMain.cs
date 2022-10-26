@@ -51,17 +51,37 @@ namespace Loginside_FYAN_Bot_Service
         {
             if (Today.DayOfWeek != Sunday && Now.Hour > 0)
             {
-                var tmrIn = _appConfigService.Getter(tmr_in);
-                var tmrOut = _appConfigService.Getter(tmr_out);
-                if (Now.Hour == GetHourFromAppConfig(tmrIn) && Now.Minute == GetMinuteFromAppConfig(tmrIn))
+                var sInHour = GetHourConfig(tmr_in);
+                var sInMinute = GetMinuteConfig(tmr_in);
+                var sOutHour = GetHourConfig(tmr_out);
+                var sOutMinute = GetMinuteConfig(tmr_out);
+                if (Now.Hour == HourParse(sInHour) && Now.Minute == MinuteParse(sInMinute))
                 {
                     _botService.BotLogOI(true);
                 }
-                else if (Now.Hour == GetHourFromAppConfig(tmrOut) && Now.Minute == GetHourFromAppConfig(tmrOut))
+                else if (Now.Hour == HourParse(sOutHour) && Now.Minute == MinuteParse(sOutMinute))
                 {
                     _botService.BotLogOI(false);
                 }
             }
+        }
+        #endregion
+
+        #region Methods
+        // Get hour from config
+        private string GetHourConfig(string key)
+        {
+            var rsltFull = _appConfigService.Getter(key).Substring(0, 2);
+            var rsltRip = _appConfigService.Getter(key).Substring(0, 1);
+            return int.TryParse(rsltFull, out var _) ? rsltFull : int.TryParse(rsltRip, out var _) ? rsltRip : "00";
+        }
+
+        // Get minute from config
+        private string GetMinuteConfig(string key)
+        {
+            var rsltFull = _appConfigService.Getter(key).Substring(2);
+            var rsltRip = _appConfigService.Getter(key).Substring(3);
+            return int.TryParse(rsltFull, out var _) ? rsltFull : int.TryParse(rsltRip, out var _) ? rsltRip : "00";
         }
         #endregion
     }

@@ -19,12 +19,12 @@ namespace Loginside_FYAN_Bot_Service.Script
             if (Exists(logAdr))
             {
                 using var writer = AppendText(logAdr);
-                writer.WriteLine(Now.ToString("HH:mm:ss") + $"{caption}: {message}");
+                writer.WriteLine(Now.ToString("HH:mm:ss") + $" {caption}: {message}");
             }
             else
             {
                 using var writer = CreateText(logAdr);
-                writer.WriteLine(Now.ToString("HH:mm:ss") + $"{caption}: {message}");
+                writer.WriteLine(Now.ToString("HH:mm:ss") + $" {caption}: {message}");
             }
         }
     }

@@ -44,39 +44,25 @@ namespace Loginside_FYAN_Bot_Service.Script
 
         #region Numeric
         /// <summary>
-        /// Get hour from app config.
+        /// Parse to hour.
         /// </summary>
-        /// <param name="time">Time string.</param>
-        /// <returns>Hour.</returns>
-        internal static int? GetHourFromAppConfig(string time)
+        /// <param name="s">String</param>
+        /// <returns>Valid hour.</returns>
+        internal static int HourParse(string s)
         {
-            try
-            {
-                return int.Parse(time.Substring(0, 2));
-            }
-            catch (Exception ex)
-            {
-                WriteLog("Getter hour error", ex.Message);
-                return null;
-            }
+            _ = int.TryParse(s, out var rslt);
+            return rslt is > 0 and < 24 ? rslt : 0;
         }
 
         /// <summary>
-        /// Get minute from app config.
+        /// Parse to minute.
         /// </summary>
-        /// <param name="time">Time string.</param>
-        /// <returns>Minute.</returns>
-        internal static int? GetMinuteFromAppConfig(string time)
+        /// <param name="s">String.</param>
+        /// <returns>Valid minute</returns>
+        internal static int MinuteParse(string s)
         {
-            try
-            {
-                return int.Parse(time.Substring(3, 2));
-            }
-            catch (Exception ex)
-            {
-                WriteLog("Getter minute error", ex.Message);
-                return null;
-            }
+            _ = int.TryParse(s, out var rslt);
+            return rslt is > 0 and < 60 ? rslt : 0;
         }
         #endregion
     }

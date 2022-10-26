@@ -1,10 +1,9 @@
 ﻿using Loginside_FYAN_Bot_GUI.Script;
 using Loginside_FYAN_Bot_GUI.Script.Service;
-using System.ServiceProcess;
+using static Loginside_FYAN_Bot_GUI.Script.Common;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
-using static System.Environment;
-using static System.ServiceProcess.ServiceControllerStatus;
-using static System.TimeSpan;
+using static Microsoft.Maui.Controls.Application;
+using static System.Threading.Tasks.Task;
 
 namespace Loginside_FYAN_Bot_GUI
 {
@@ -18,10 +17,10 @@ namespace Loginside_FYAN_Bot_GUI
         public MainPage()
         {
             InitializeComponent();
-            txtInHour.Text = _appConfigService.Getter(TMR_IN)[..2];
-            txtInMinute.Text = _appConfigService.Getter(TMR_IN).Substring(3, 2);
-            txtOutHour.Text = _appConfigService.Getter(TMR_OUT)[..2];
-            txtOutMinute.Text = _appConfigService.Getter(TMR_OUT).Substring(3, 2);
+            txtInHour.Text = GetHourConfig(TMR_IN);
+            txtInMinute.Text = GetMinuteConfig(TMR_IN);
+            txtOutHour.Text = GetHourConfig(TMR_OUT);
+            txtOutMinute.Text = GetMinuteConfig(TMR_OUT);
             txtSecKey.Text = _appConfigService.Getter(SEC_KEY);
             txtId.Text = _appConfigService.Getter(ID_INS);
             txtPwd.Text = _appConfigService.Getter(PWD_INS);
@@ -30,72 +29,58 @@ namespace Loginside_FYAN_Bot_GUI
 
         #region Events
         // Button Set click
-        private void OnBtnSetClicked(object sender, EventArgs e)
+        private async void OnBtnSetClicked(object sender, EventArgs e)
         {
             try
             {
                 // check in
                 var inHour = HourParse(txtInHour.Text);
                 var inMinute = MinuteParse(txtInMinute.Text);
-                _appConfigService.Setter(TMR_IN, $"{inHour}:{inMinute}");
+                _appConfigService.Setter(TMR_IN, inHour.ToString("00") + ":" + inMinute.ToString("00"));
                 // check out
                 var outHour = HourParse(txtOutHour.Text);
                 var outMinute = MinuteParse(txtOutMinute.Text);
-                _appConfigService.Setter(TMR_OUT, $"{outHour}:{outMinute}");
+                _appConfigService.Setter(TMR_OUT, outHour.ToString("00") + ":" + outMinute.ToString("00"));
                 // account inside
                 _appConfigService.Setter(ID_INS, txtId.Text);
                 _appConfigService.Setter(PWD_INS, txtPwd.Text);
                 _appConfigService.Setter(SEC_KEY, txtSecKey.Text);
-                DisplayAlert("THÔNG BÁO", "Thiết lập thành công!", "Đóng");
+                // apply to service
+                var taskServ = Run(() => RestartService(BOT_NICK, 3000));
+                await DisplayAlert("THÔNG BÁO", "Thiết lập thành công!", "Đóng");
                 // re-default
-                txtInHour.Text = inHour.ToString();
-                txtInMinute.Text = inMinute.ToString();
-                txtOutHour.Text = outHour.ToString();
-                txtOutMinute.Text = outMinute.ToString();
-                // restart service
-                RestartService(BOT_NAME, 3000);
+                btnSet.IsEnabled = false;
+                txtInHour.Text = inHour.ToString("00");
+                txtInMinute.Text = inMinute.ToString("00");
+                txtOutHour.Text = outHour.ToString("00");
+                txtOutMinute.Text = outMinute.ToString("00");
+                // closing
+                await this.FadeTo(0, 1000);
+                taskServ.Wait();
+                Current.Quit();
             }
             catch (Exception ex)
             {
-                DisplayAlert("LỖI", ex.Message, "Đóng");
+                _ = DisplayAlert("LỖI", ex.Message, "Đóng");
             }
         }
         #endregion
 
         #region Methods
-        // Parse to hour
-        private static int HourParse(string s)
+        // Get hour from config
+        private string GetHourConfig(string key)
         {
-            _ = int.TryParse(s, out var rslt);
-            return rslt = rslt is > 0 and < 24 ? rslt : 0;
+            var rsltFull = _appConfigService.Getter(key)[..2];
+            var rsltRip = _appConfigService.Getter(key)[..1];
+            return int.TryParse(rsltFull, out var _) ? rsltFull : int.TryParse(rsltRip, out var _) ? rsltRip : "00";
         }
 
-        // Parse to minute
-        private static int MinuteParse(string s)
+        // Get minute from config
+        private string GetMinuteConfig(string key)
         {
-            _ = int.TryParse(s, out var rslt);
-            return rslt = rslt is > 0 and < 60 ? rslt : 0;
-        }
-
-        // Restart service
-        private static void RestartService(string name, int ms)
-        {
-            try
-            {
-                var service = new ServiceController(name);
-                var ms1 = TickCount;
-                var timeout = FromMilliseconds(ms);
-                service.Stop();
-                service.WaitForStatus(Stopped, timeout);
-                var ms2 = TickCount;
-                timeout = FromMilliseconds(ms - (ms2 - ms1));
-                service.Start();
-                service.WaitForStatus(Running, timeout);
-            }
-            catch (Exception ex)
-            {
-                new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
-            }
+            var rsltFull = _appConfigService.Getter(key)[2..];
+            var rsltRip = _appConfigService.Getter(key)[3..];
+            return int.TryParse(rsltFull, out var _) ? rsltFull : int.TryParse(rsltRip, out var _) ? rsltRip : "00";
         }
         #endregion
     }
