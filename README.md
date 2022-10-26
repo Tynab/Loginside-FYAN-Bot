@@ -2,7 +2,7 @@
 - Run on window startup (support window 11)
 - Bypass logon user
 - Auto get OTP with the Secret Key set on GUI
-- Auto login page inside of FPT Retail with the account set on GUI
+- Auto login page inside of FPT Retail with the account set on GUI (by chrome 107)
 - Checkin at the set time on GUI
 - Checkout at the set time on GUI
 
