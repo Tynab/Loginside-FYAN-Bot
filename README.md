@@ -14,7 +14,7 @@
 ## CẤU HÌNH BUILD UNPACKAGE
 ```xml
 <!-- project -->
-    <PropertyGroup>
+	<PropertyGroup>
 		<WindowsPackageType>None</WindowsPackageType>
 	</PropertyGroup>
 ```
