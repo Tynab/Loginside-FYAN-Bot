@@ -2,6 +2,7 @@
 {
     internal static class Constant
     {
+        internal const string APP_NAME = "Loginside FYAN Bot GUI";
         internal const string BOT_NAME = "Loginside FYAN Bot Service";
         internal const string BOT_NICK = "Loginside FYAN Bot";
         internal const string ID_INS = "Id_Ins";

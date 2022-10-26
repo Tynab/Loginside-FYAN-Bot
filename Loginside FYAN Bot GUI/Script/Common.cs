@@ -1,5 +1,8 @@
-﻿using System.ServiceProcess;
+﻿using System.Security.Principal;
+using System.ServiceProcess;
 using static System.Environment;
+using static System.Security.Principal.WindowsBuiltInRole;
+using static System.Security.Principal.WindowsIdentity;
 using static System.ServiceProcess.ServiceControllerStatus;
 using static System.TimeSpan;
 
@@ -7,6 +10,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
 {
     internal class Common
     {
+        #region Numeric
         /// <summary>
         /// Parse to hour.
         /// </summary>
@@ -28,7 +32,9 @@ namespace Loginside_FYAN_Bot_GUI.Script
             _ = int.TryParse(s, out var rslt);
             return rslt is > 0 and < 60 ? rslt : 0;
         }
+        #endregion
 
+        #region Windows
         /// <summary>
         /// Restart service.
         /// </summary>
@@ -38,20 +44,35 @@ namespace Loginside_FYAN_Bot_GUI.Script
         {
             try
             {
-                var service = new ServiceController(name);
-                var msStop = TickCount;
+                var servCtrl = new ServiceController(name);
                 var timeout = FromMilliseconds(ms);
-                service.Stop();
-                service.WaitForStatus(Stopped, timeout);
-                var msStart = TickCount;
-                timeout = FromMilliseconds(ms - (msStart - msStop));
-                service.Start();
-                service.WaitForStatus(Running, timeout);
+                if (servCtrl.Status == Running)
+                {
+                    var msStop = TickCount;
+                    servCtrl.Stop();
+                    servCtrl.WaitForStatus(Stopped, timeout);
+                    var msStart = TickCount;
+                    timeout = FromMilliseconds(ms - (msStart - msStop));
+                    servCtrl.Start();
+                    servCtrl.WaitForStatus(Running, timeout);
+                }
+                else
+                {
+                    servCtrl.Start();
+                    servCtrl.WaitForStatus(Stopped, timeout);
+                }
             }
             catch (Exception ex)
             {
                 new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
             }
         }
+
+        /// <summary>
+        /// Check app run admin.
+        /// </summary>
+        /// <returns>App run as admin.</returns>
+        public static bool IsAdministrator() => new WindowsPrincipal(GetCurrent()).IsInRole(Administrator);
+        #endregion
     }
 }
