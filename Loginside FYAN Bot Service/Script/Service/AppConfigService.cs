@@ -25,6 +25,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             catch (Exception ex)
             {
                 WriteLog("Bot error", ex.Message);
+                // try add new
                 try
                 {
                     _configuration.AppSettings.Settings.Add(key, value?.ToString());

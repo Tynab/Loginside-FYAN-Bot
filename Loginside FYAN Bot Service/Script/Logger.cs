@@ -16,6 +16,7 @@ namespace Loginside_FYAN_Bot_Service.Script
             var logPath = $@"{CurrentDomain.BaseDirectory}\log";
             var logAdr = $@"{logPath}\" + Today.ToString("dd-MM-yyyy") + ".txt";
             CrtDirAdv(logPath);
+            // create or mod
             if (Exists(logAdr))
             {
                 using var writer = AppendText(logAdr);

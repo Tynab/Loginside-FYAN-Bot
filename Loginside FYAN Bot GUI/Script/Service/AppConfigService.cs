@@ -37,6 +37,7 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
             catch (Exception ex)
             {
                 new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
+                // try add new
                 try
                 {
                     _configuration.AppSettings.Settings.Add(key, value?.ToString());

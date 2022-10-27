@@ -12,6 +12,7 @@ namespace Loginside_FYAN_Bot_GUI
         public App()
         {
             InitializeComponent();
+            // run as administrator
             if (IsAdministrator())
             {
                 MainPage = new AppShell();

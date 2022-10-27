@@ -55,6 +55,7 @@ namespace Loginside_FYAN_Bot_Service
                 var sInMinute = GetMinuteConfig(tmr_in);
                 var sOutHour = GetHourConfig(tmr_out);
                 var sOutMinute = GetMinuteConfig(tmr_out);
+                // on time
                 if (Now.Hour == HourParse(sInHour) && Now.Minute == MinuteParse(sInMinute))
                 {
                     _botService.BotLogOI(true);

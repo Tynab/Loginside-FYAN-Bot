@@ -31,6 +31,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             {
                 try
                 {
+                    _driver.Manage().Window.Maximize();
                     _driver.Navigate().GoToUrl(link_ins);
                     Sleep(3000);
                     var elemId = _driver.FindElement(Id(id_inp_id));
