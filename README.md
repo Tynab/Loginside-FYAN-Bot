@@ -70,7 +70,7 @@
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/1.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- System.ServiceProcess.ServiceController » 6.0.0
+- System.ServiceProcess.ServiceController » 7.0.0-rc.2.22472.3
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/5.png" align="left" width="3%" height="3%"></img>

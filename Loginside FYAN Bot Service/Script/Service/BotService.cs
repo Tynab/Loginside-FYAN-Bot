@@ -13,7 +13,6 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
     public class BotService : IBotService
     {
         #region Fields
-        public readonly IWebDriver _driver = new ChromeDriver();
         private readonly IAppConfigService _appConfigService;
         #endregion
 
@@ -31,25 +30,33 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             {
                 try
                 {
-                    _driver.Manage().Window.Maximize();
-                    _driver.Navigate().GoToUrl(link_ins);
-                    Sleep(3000);
-                    var elemId = _driver.FindElement(Id(id_inp_id));
+                    // load page
+                    using IWebDriver driver = new ChromeDriver();
+                    driver.Manage().Window.Maximize();
+                    driver.Navigate().GoToUrl(link_ins);
+                    Sleep(7000);
+                    // enter Id
+                    var elemId = driver.FindElement(Id(id_inp_id));
                     elemId.SendKeys(id);
                     Sleep(300);
-                    var elemPwd = _driver.FindElement(Id(id_inp_pwd));
+                    // enter password
+                    var elemPwd = driver.FindElement(Id(id_inp_pwd));
                     elemPwd.SendKeys(pwd);
                     Sleep(300);
-                    var elemOtp = _driver.FindElement(Id(id_inp_otp));
+                    // enter OTP
+                    var elemOtp = driver.FindElement(Id(id_inp_otp));
                     elemOtp.SendKeys(GetOTP(secKey));
                     Sleep(300);
-                    var elemBtnLogIn = _driver.FindElement(Id(id_btn_login));
+                    // login
+                    var elemBtnLogIn = driver.FindElement(Id(id_btn_login));
                     elemBtnLogIn.Click();
-                    Sleep(3000);
-                    var elemBtnChk = isChkIn ? _driver.FindElement(Id(id_btn_chkin)) : _driver.FindElement(Id(id_btn_chkout));
+                    Sleep(7000);
+                    WriteLog("Bot", "Logged!");
+                    // check click
+                    var elemBtnChk = isChkIn ? driver.FindElement(Id(id_btn_chkin)) : driver.FindElement(Id(id_btn_chkout));
                     elemBtnChk.Click();
                     Sleep(300);
-                    WriteLog("Bot", "Checked!");
+                    WriteLog("Bot", isChkIn ? "Checked in!" : "Checked out!");
                 }
                 catch (Exception ex)
                 {
@@ -61,8 +68,6 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 WriteLog("Bot", "Missing value!");
             }
         }).Start();
-
-        public void Dispose() => _driver.Dispose();
         #endregion
     }
 }

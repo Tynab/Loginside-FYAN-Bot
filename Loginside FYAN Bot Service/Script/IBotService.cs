@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Loginside_FYAN_Bot_Service.Script
+﻿namespace Loginside_FYAN_Bot_Service.Script
 {
-    public interface IBotService : IDisposable
+    public interface IBotService
     {
         /// <summary>
         /// Bot log on user and log in inside.

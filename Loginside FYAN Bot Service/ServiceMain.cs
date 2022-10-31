@@ -38,11 +38,7 @@ namespace Loginside_FYAN_Bot_Service
             tmrBot.Elapsed += OnTmrBotEvent;
         }
 
-        protected override void OnStop()
-        {
-            _botService.Dispose();
-            WriteLog("Bot", "Stopped!");
-        }
+        protected override void OnStop() => WriteLog("Bot", "Stopped!");
         #endregion
 
         #region Events
