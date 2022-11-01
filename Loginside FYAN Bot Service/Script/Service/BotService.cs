@@ -28,13 +28,15 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             var secKey = _appConfigService.Getter(sec_key);
             if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
             {
+                var counter = 0;
+            Attack:
                 try
                 {
                     // load page
                     using IWebDriver driver = new ChromeDriver();
                     driver.Manage().Window.Maximize();
                     driver.Navigate().GoToUrl(link_ins);
-                    Sleep(7000);
+                    Sleep(3000);
                     // enter Id
                     var elemId = driver.FindElement(Id(id_inp_id));
                     elemId.SendKeys(id);
@@ -50,17 +52,22 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     // login
                     var elemBtnLogIn = driver.FindElement(Id(id_btn_login));
                     elemBtnLogIn.Click();
-                    Sleep(7000);
                     WriteLog("Bot", "Logged!");
+                    Sleep(3000);
                     // check click
                     var elemBtnChk = isChkIn ? driver.FindElement(Id(id_btn_chkin)) : driver.FindElement(Id(id_btn_chkout));
                     elemBtnChk.Click();
-                    Sleep(300);
                     WriteLog("Bot", isChkIn ? "Checked in!" : "Checked out!");
+                    Sleep(300);
                 }
                 catch (Exception ex)
                 {
+                    counter++;
                     WriteLog("Bot error", ex.Message);
+                    if (counter is > 0 and < 3)
+                    {
+                        goto Attack;
+                    }
                 }
             }
             else

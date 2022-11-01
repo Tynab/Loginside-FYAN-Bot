@@ -8,7 +8,7 @@ using static System.TimeSpan;
 
 namespace Loginside_FYAN_Bot_GUI.Script
 {
-    internal class Common
+    internal static class Common
     {
         #region Numeric
         /// <summary>
@@ -16,7 +16,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <param name="s">String</param>
         /// <returns>Valid hour.</returns>
-        internal static int HourParse(string s)
+        internal static int HourPrs(string s)
         {
             _ = int.TryParse(s, out var rslt);
             return rslt is > 0 and < 24 ? rslt : 0;
@@ -27,7 +27,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <param name="s">String.</param>
         /// <returns>Valid minute</returns>
-        internal static int MinuteParse(string s)
+        internal static int MinutePrs(string s)
         {
             _ = int.TryParse(s, out var rslt);
             return rslt is > 0 and < 60 ? rslt : 0;
@@ -40,7 +40,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <param name="name">Service name.</param>
         /// <param name="ms">Time out (milisecond).</param>
-        internal static void RestartService(string name, int ms)
+        internal static void RstServ(string name, int ms)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
                 else
                 {
                     servCtrl.Start();
-                    servCtrl.WaitForStatus(Stopped, timeout);
+                    servCtrl.WaitForStatus(Running, timeout);
                 }
             }
             catch (Exception ex)
@@ -72,7 +72,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// Check app run admin.
         /// </summary>
         /// <returns>App run as admin.</returns>
-        public static bool IsAdministrator() => new WindowsPrincipal(GetCurrent()).IsInRole(Administrator);
+        public static bool IsAdmin() => new WindowsPrincipal(GetCurrent()).IsInRole(Administrator);
         #endregion
     }
 }

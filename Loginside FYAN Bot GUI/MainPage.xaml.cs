@@ -34,19 +34,19 @@ namespace Loginside_FYAN_Bot_GUI
             try
             {
                 // check in
-                var inHour = HourParse(txtInHour.Text);
-                var inMinute = MinuteParse(txtInMinute.Text);
+                var inHour = HourPrs(txtInHour.Text);
+                var inMinute = MinutePrs(txtInMinute.Text);
                 _appConfigService.Setter(TMR_IN, inHour.ToString("00") + ":" + inMinute.ToString("00"));
                 // check out
-                var outHour = HourParse(txtOutHour.Text);
-                var outMinute = MinuteParse(txtOutMinute.Text);
+                var outHour = HourPrs(txtOutHour.Text);
+                var outMinute = MinutePrs(txtOutMinute.Text);
                 _appConfigService.Setter(TMR_OUT, outHour.ToString("00") + ":" + outMinute.ToString("00"));
                 // account inside
                 _appConfigService.Setter(ID_INS, txtId.Text);
                 _appConfigService.Setter(PWD_INS, txtPwd.Text);
                 _appConfigService.Setter(SEC_KEY, txtSecKey.Text);
                 // apply to service
-                var taskServ = Run(() => RestartService(BOT_NICK, 3000));
+                var taskServ = Run(() => RstServ(BOT_NICK, 3000));
                 await DisplayAlert("THÔNG BÁO", "Thiết lập thành công!", "Đóng");
                 // re-default
                 btnSet.IsEnabled = false;
