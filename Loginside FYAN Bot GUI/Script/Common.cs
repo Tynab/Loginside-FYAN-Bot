@@ -1,10 +1,15 @@
-﻿using System.Security.Principal;
+﻿using System;
+using System.Security.Principal;
 using System.ServiceProcess;
 using static System.Environment;
 using static System.Security.Principal.WindowsBuiltInRole;
 using static System.Security.Principal.WindowsIdentity;
 using static System.ServiceProcess.ServiceControllerStatus;
 using static System.TimeSpan;
+using static System.Windows.Forms.MessageBoxButtons;
+using static System.Windows.Forms.MessageBoxIcon;
+using static YANF.Script.YANConstant.MsgBoxLang;
+using static YANF.Script.YANMessageBox;
 
 namespace Loginside_FYAN_Bot_GUI.Script
 {
@@ -64,7 +69,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
             }
             catch (Exception ex)
             {
-                new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
+                _ = Show("LỖI", ex.Message, OK, Error, VIE);
             }
         }
 

@@ -1,9 +1,13 @@
-﻿using System.Configuration;
-using static Loginside_FYAN_Bot_GUI.Script.Constant;
+﻿using System;
+using System.Configuration;
+using static Loginside_FYAN_Bot_GUI.Properties.Resources;
 using static System.AppDomain;
 using static System.Configuration.ConfigurationManager;
-using static System.Configuration.ConfigurationUserLevel;
 using static System.IO.Directory;
+using static System.Windows.Forms.MessageBoxButtons;
+using static System.Windows.Forms.MessageBoxIcon;
+using static YANF.Script.YANConstant.MsgBoxLang;
+using static YANF.Script.YANMessageBox;
 
 namespace Loginside_FYAN_Bot_GUI.Script.Service
 {
@@ -18,9 +22,9 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
         {
             var exeConfigurationFileMap = new ExeConfigurationFileMap
             {
-                ExeConfigFilename = $@"{GetParent(CurrentDomain.BaseDirectory)}\{BOT_NAME}.exe.config"
+                ExeConfigFilename = $@"{GetParent(CurrentDomain.BaseDirectory)}\{serv_name}.exe.config"
             };
-            _configuration = OpenMappedExeConfiguration(exeConfigurationFileMap, None);
+            _configuration = OpenMappedExeConfiguration(exeConfigurationFileMap, ConfigurationUserLevel.None);
         }
         #endregion
 
@@ -36,7 +40,7 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
             }
             catch (Exception ex)
             {
-                new Page().DisplayAlert("LỖI", ex.Message, "Đóng");
+                _ = Show("LỖI", ex.Message, OK, Error, VIE);
                 // try add new
                 try
                 {
@@ -45,7 +49,7 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
                 }
                 catch (Exception e)
                 {
-                    new Page().DisplayAlert("LỖI", e.Message, "Đóng");
+                    _ = Show("LỖI", e.Message, OK, Error, VIE);
                 }
             }
         }
