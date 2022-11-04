@@ -4,6 +4,7 @@ using System.ServiceProcess;
 using System.Timers;
 using static Loginside_FYAN_Bot_Service.Properties.Resources;
 using static Loginside_FYAN_Bot_Service.Script.Common;
+using static Loginside_FYAN_Bot_Service.Script.Constant;
 using static Loginside_FYAN_Bot_Service.Script.Logger;
 using static System.DateTime;
 using static System.DayOfWeek;
@@ -22,7 +23,7 @@ namespace Loginside_FYAN_Bot_Service
         {
             InitializeComponent();
             _appConfigService = new AppConfigService();
-            _botService = new BotService(_appConfigService);
+            _botService = new BotService();
         }
         #endregion
 
@@ -32,7 +33,7 @@ namespace Loginside_FYAN_Bot_Service
             WriteLog("Bot", "Started!");
             var tmrBot = new Timer
             {
-                Interval = 60 * 1000,
+                Interval = TMR_INTVL,
                 Enabled = true
             };
             tmrBot.Elapsed += OnTmrBotEvent;
@@ -54,11 +55,11 @@ namespace Loginside_FYAN_Bot_Service
                 // on time
                 if (Now.Hour == HourParse(sInHour) && Now.Minute == MinuteParse(sInMinute))
                 {
-                    _botService.BotLogOI(true);
+                    _botService.BotStem(true);
                 }
                 else if (Now.Hour == HourParse(sOutHour) && Now.Minute == MinuteParse(sOutMinute))
                 {
-                    _botService.BotLogOI(false);
+                    _botService.BotStem(false);
                 }
             }
         }

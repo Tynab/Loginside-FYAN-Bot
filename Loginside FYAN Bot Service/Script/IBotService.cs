@@ -3,9 +3,9 @@
     public interface IBotService
     {
         /// <summary>
-        /// Bot log on user and log in inside.
+        /// Bot stem.
         /// </summary>
         /// <param name="isChkIn">Is check in action.</param>
-        public void BotLogOI(bool isChkIn);
+        public void BotStem(bool isChkIn);
     }
 }

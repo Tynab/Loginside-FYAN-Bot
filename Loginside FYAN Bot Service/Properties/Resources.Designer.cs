@@ -70,6 +70,15 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ctl00_ContentPlaceHolder1_ctl00_btnSaveUser.
+        /// </summary>
+        internal static string id_btn_chg_pwd {
+            get {
+                return ResourceManager.GetString("id_btn_chg_pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to imgcheckin.
         /// </summary>
         internal static string id_btn_chkin {
@@ -93,6 +102,15 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         internal static string id_btn_login {
             get {
                 return ResourceManager.GetString("id_btn_login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_ContentPlaceHolder1_ctl00_txtPasswordConfix.
+        /// </summary>
+        internal static string id_cfm_pwd {
+            get {
+                return ResourceManager.GetString("id_cfm_pwd", resourceCulture);
             }
         }
         
@@ -133,6 +151,24 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ctl00_ContentPlaceHolder1_ctl00_txtPassword.
+        /// </summary>
+        internal static string id_new_pwd {
+            get {
+                return ResourceManager.GetString("id_new_pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ctl00_ContentPlaceHolder1_ctl00_txtPasswordOld.
+        /// </summary>
+        internal static string id_old_pwd {
+            get {
+                return ResourceManager.GetString("id_old_pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://inside.fptshop.com.vn/.
         /// </summary>
         internal static string link_ins {
@@ -147,6 +183,33 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         internal static string pwd_ins {
             get {
                 return ResourceManager.GetString("pwd_ins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pwd_Prev_1.
+        /// </summary>
+        internal static string pwd_prev_1 {
+            get {
+                return ResourceManager.GetString("pwd_prev_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pwd_Prev_2.
+        /// </summary>
+        internal static string pwd_prev_2 {
+            get {
+                return ResourceManager.GetString("pwd_prev_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pwd_Prev_3.
+        /// </summary>
+        internal static string pwd_prev_3 {
+            get {
+                return ResourceManager.GetString("pwd_prev_3", resourceCulture);
             }
         }
         

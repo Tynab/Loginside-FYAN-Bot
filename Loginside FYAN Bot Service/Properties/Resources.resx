@@ -119,35 +119,51 @@
   </resheader>
   <data name="app_name" xml:space="preserve">
     <value>Loginside FYAN Bot Service</value>
-    <comment>tến phần mềm</comment>
+    <comment>tên phần mềm</comment>
+  </data>
+  <data name="id_btn_chg_pwd" xml:space="preserve">
+    <value>ctl00_ContentPlaceHolder1_ctl00_btnSaveUser</value>
+    <comment>id button change password</comment>
   </data>
   <data name="id_btn_chkin" xml:space="preserve">
     <value>imgcheckin</value>
-    <comment>Id image checkin</comment>
+    <comment>id image checkin</comment>
   </data>
   <data name="id_btn_chkout" xml:space="preserve">
     <value>imgcheckout</value>
-    <comment>Id image checkout</comment>
+    <comment>id image checkout</comment>
   </data>
   <data name="id_btn_login" xml:space="preserve">
     <value>kt_login_signin_submit</value>
-    <comment>Id button login</comment>
+    <comment>id button login</comment>
+  </data>
+  <data name="id_cfm_pwd" xml:space="preserve">
+    <value>ctl00_ContentPlaceHolder1_ctl00_txtPasswordConfix</value>
+    <comment>id mật khẩu xác nhận</comment>
   </data>
   <data name="id_inp_id" xml:space="preserve">
     <value>mat-input-3</value>
-    <comment>Id input id</comment>
+    <comment>id input id</comment>
   </data>
   <data name="id_inp_otp" xml:space="preserve">
     <value>mat-input-5</value>
-    <comment>Id input OTP</comment>
+    <comment>id input OTP</comment>
   </data>
   <data name="id_inp_pwd" xml:space="preserve">
     <value>mat-input-4</value>
-    <comment>Id input password</comment>
+    <comment>id input password</comment>
   </data>
   <data name="id_ins" xml:space="preserve">
     <value>Id_Ins</value>
     <comment>id inside</comment>
+  </data>
+  <data name="id_new_pwd" xml:space="preserve">
+    <value>ctl00_ContentPlaceHolder1_ctl00_txtPassword</value>
+    <comment>id mật khẩu mới</comment>
+  </data>
+  <data name="id_old_pwd" xml:space="preserve">
+    <value>ctl00_ContentPlaceHolder1_ctl00_txtPasswordOld</value>
+    <comment>id mật khẩu cũ</comment>
   </data>
   <data name="link_ins" xml:space="preserve">
     <value>https://inside.fptshop.com.vn/</value>
@@ -156,6 +172,18 @@
   <data name="pwd_ins" xml:space="preserve">
     <value>Pwd_Ins</value>
     <comment>password inside</comment>
+  </data>
+  <data name="pwd_prev_1" xml:space="preserve">
+    <value>Pwd_Prev_1</value>
+    <comment>password dự phòng 1</comment>
+  </data>
+  <data name="pwd_prev_2" xml:space="preserve">
+    <value>Pwd_Prev_2</value>
+    <comment>password dự phòng 2</comment>
+  </data>
+  <data name="pwd_prev_3" xml:space="preserve">
+    <value>Pwd_Prev_3</value>
+    <comment>password dự phòng 3</comment>
   </data>
   <data name="sec_key" xml:space="preserve">
     <value>Sec_Key</value>
