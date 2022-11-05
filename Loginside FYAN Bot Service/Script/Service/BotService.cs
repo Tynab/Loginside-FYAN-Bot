@@ -18,7 +18,6 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
 {
     public class BotService : IBotService
     {
-        // Implement BotStem
         public void BotStem(bool isChkIn)
         {
             new Thread(() => ShdwBot("GC Bot", new AppConfigService(), new ChromeDriver(), isChkIn)).Start();
@@ -28,7 +27,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             new Thread(() => ShdwBot("IS Bot", new AppConfigService(), new SafariDriver(), isChkIn)).Start();
         }
 
-        // Shadow of bot
+        // Shadow bot
         private void ShdwBot(string shdwName, IAppConfigService appConfigService, WebDriver webDrv, bool isChkIn)
         {
             var id = appConfigService.Getter(id_ins);
@@ -41,7 +40,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 try
                 {
                     using IWebDriver driver = webDrv;
-                    ShdwIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
                 }
                 catch (Exception ex)
                 {
@@ -50,13 +49,6 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     if (counter is > 0 and < LMT_ATK)
                     {
                         goto Attack;
-                    }
-                    else if (counter == LMT_ATK)
-                    {
-                        if (ShdwChgPwd(shdwName, appConfigService, webDrv, id, pwd, secKey))
-                        {
-                            goto Attack;
-                        }
                     }
                 }
             }
@@ -67,7 +59,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         }
 
         // Shadow login
-        private void ShdwLog(string shdwName, IWebDriver driver, string id, string pwd, string secKey)
+        private void ShdwLogin(string shdwName, IWebDriver driver, string id, string pwd, string secKey)
         {
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(link_ins);
@@ -92,9 +84,9 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         }
 
         // Shadow check in/out
-        private void ShdwIO(string shdwName, IWebDriver driver, bool isChkIn, string id, string pwd, string secKey)
+        private void ShdwChkIO(string shdwName, IWebDriver driver, bool isChkIn, string id, string pwd, string secKey)
         {
-            ShdwLog(shdwName, driver, id, pwd, secKey);
+            ShdwLogin(shdwName, driver, id, pwd, secKey);
             // check click
             var elemBtnChk = isChkIn ? driver.FindElement(Id(id_btn_chkin)) : driver.FindElement(Id(id_btn_chkout));
             elemBtnChk.Click();
@@ -109,9 +101,10 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             using IWebDriver driver = webDrv;
             var pwdPrevs = new List<string>
             {
-                appConfigService.Getter(pwd_prev_1),
+                appConfigService.Getter(pwd_prev),
                 appConfigService.Getter(pwd_prev_2),
-                appConfigService.Getter(pwd_prev_3)
+                appConfigService.Getter(pwd_prev_3),
+                appConfigService.Getter(pwd_prev_4)
             };
             foreach (var pwdChg in pwdPrevs)
             {
@@ -120,9 +113,10 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     result = true;
                     pwd.Replace(pwdChg, pwdChg);
                     appConfigService.Setter(pwd_ins, pwdChg);
-                    appConfigService.Setter(pwd_prev_1, pwdPrevs[0]);
+                    appConfigService.Setter(pwd_prev, pwdPrevs[0]);
                     appConfigService.Setter(pwd_prev_2, pwdPrevs[1]);
                     appConfigService.Setter(pwd_prev_3, pwdPrevs[2]);
+                    appConfigService.Setter(pwd_prev_4, pwdPrevs[3]);
                     break;
                 }
             }
@@ -135,7 +129,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             var result = true;
             try
             {
-                ShdwLog(shdwName, driver, id, pwd, secKey);
+                ShdwLogin(shdwName, driver, id, pwd, secKey);
                 // enter old password
                 var elemOldPwd = driver.FindElement(Id(id_old_pwd));
                 elemOldPwd.SendKeys(pwd);

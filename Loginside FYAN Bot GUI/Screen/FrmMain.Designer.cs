@@ -30,96 +30,418 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.yanNb1 = new YANF.Control.YANNb();
-            this.nbInHour = new YANF.Control.YANNb();
-            this.yanBtn2 = new YANF.Control.YANBtn();
-            this.yanBtn1 = new YANF.Control.YANBtn();
-            this.yanTxt5 = new YANF.Control.YANTxt();
-            this.yanTxt4 = new YANF.Control.YANTxt();
-            this.yanTxt3 = new YANF.Control.YANTxt();
-            this.yanTxt2 = new YANF.Control.YANTxt();
-            this.yanTxt1 = new YANF.Control.YANTxt();
-            this.tipMain = new System.Windows.Forms.ToolTip(this.components);
-            this.yanTxt6 = new YANF.Control.YANTxt();
-            this.yanNb2 = new YANF.Control.YANNb();
-            this.yanGradPnl1 = new YANF.Control.YANGradPnl();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.yanGradPnl2 = new YANF.Control.YANGradPnl();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.yanNb3 = new YANF.Control.YANNb();
-            this.yanNb4 = new YANF.Control.YANNb();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.yanGradPnl3 = new YANF.Control.YANGradPnl();
-            this.label5 = new System.Windows.Forms.Label();
+            this.pnlMain = new System.Windows.Forms.Panel();
+            this.btnCl = new YANF.Control.YANBtn();
+            this.pnlIns = new YANF.Control.YANGradPnl();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.yanBtn3 = new YANF.Control.YANBtn();
-            this.panel1.SuspendLayout();
-            this.yanGradPnl1.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.yanGradPnl2.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.yanGradPnl3.SuspendLayout();
+            this.nbDateChgPwd = new YANF.Control.YANNb();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtSecKey = new YANF.Control.YANTxt();
+            this.txtId = new YANF.Control.YANTxt();
+            this.txtPwd = new YANF.Control.YANTxt();
+            this.txtPwdPrev = new YANF.Control.YANTxt();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pnlOut = new YANF.Control.YANGradPnl();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.nbOutHour = new YANF.Control.YANNb();
+            this.nbOutMin = new YANF.Control.YANNb();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlIn = new YANF.Control.YANGradPnl();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.nbInHour = new YANF.Control.YANNb();
+            this.nbInMin = new YANF.Control.YANNb();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnAct = new YANF.Control.YANBtn();
+            this.btnAdm = new YANF.Control.YANBtn();
+            this.tipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.pnlMain.SuspendLayout();
+            this.pnlIns.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.pnlOut.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.pnlIn.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlMain
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.yanBtn3);
-            this.panel1.Controls.Add(this.yanGradPnl3);
-            this.panel1.Controls.Add(this.yanGradPnl2);
-            this.panel1.Controls.Add(this.yanGradPnl1);
-            this.panel1.Controls.Add(this.yanBtn2);
-            this.panel1.Controls.Add(this.yanBtn1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 545);
-            this.panel1.TabIndex = 0;
+            this.pnlMain.BackColor = System.Drawing.Color.White;
+            this.pnlMain.Controls.Add(this.btnCl);
+            this.pnlMain.Controls.Add(this.pnlIns);
+            this.pnlMain.Controls.Add(this.pnlOut);
+            this.pnlMain.Controls.Add(this.pnlIn);
+            this.pnlMain.Controls.Add(this.btnAct);
+            this.pnlMain.Controls.Add(this.btnAdm);
+            this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlMain.Location = new System.Drawing.Point(0, 0);
+            this.pnlMain.Name = "pnlMain";
+            this.pnlMain.Size = new System.Drawing.Size(500, 440);
+            this.pnlMain.TabIndex = 0;
+            this.pnlMain.Visible = false;
             // 
-            // yanNb1
+            // btnCl
             // 
-            this.yanNb1.BackColor = System.Drawing.Color.White;
-            this.yanNb1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanNb1.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanNb1.BorderRadius = 10;
-            this.yanNb1.BorderSize = 1;
-            this.yanNb1.DecimalPlaces = 0;
-            this.yanNb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.yanNb1.ForeColor = System.Drawing.Color.DimGray;
-            this.yanNb1.Increment = new decimal(new int[] {
+            this.btnCl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(61)))), ((int)(((byte)(85)))));
+            this.btnCl.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCl.BorderRadius = 20;
+            this.btnCl.BorderSize = 0;
+            this.btnCl.FlatAppearance.BorderSize = 0;
+            this.btnCl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.btnCl.ForeColor = System.Drawing.Color.White;
+            this.btnCl.Image = global::Loginside_FYAN_Bot_GUI.Properties.Resources.pOff;
+            this.btnCl.Location = new System.Drawing.Point(230, 380);
+            this.btnCl.Name = "btnCl";
+            this.btnCl.Size = new System.Drawing.Size(40, 40);
+            this.btnCl.TabIndex = 0;
+            this.btnCl.TabStop = false;
+            this.tipMain.SetToolTip(this.btnCl, "Đóng");
+            this.btnCl.UseVisualStyleBackColor = false;
+            this.btnCl.Visible = false;
+            this.btnCl.Click += new System.EventHandler(this.BtnCl_Click);
+            // 
+            // pnlIns
+            // 
+            this.pnlIns.Angle = 45F;
+            this.pnlIns.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(42)))), ((int)(((byte)(99)))));
+            this.pnlIns.Controls.Add(this.panel4);
+            this.pnlIns.Controls.Add(this.label5);
+            this.pnlIns.Location = new System.Drawing.Point(20, 145);
+            this.pnlIns.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.pnlIns.Name = "pnlIns";
+            this.pnlIns.Padding = new System.Windows.Forms.Padding(1);
+            this.pnlIns.Size = new System.Drawing.Size(460, 213);
+            this.pnlIns.TabIndex = 3;
+            this.pnlIns.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(45)))), ((int)(((byte)(134)))));
+            this.pnlIns.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.nbDateChgPwd);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.txtSecKey);
+            this.panel4.Controls.Add(this.txtId);
+            this.panel4.Controls.Add(this.txtPwd);
+            this.panel4.Controls.Add(this.txtPwdPrev);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(1, 31);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(458, 181);
+            this.panel4.TabIndex = 0;
+            // 
+            // nbDateChgPwd
+            // 
+            this.nbDateChgPwd.BackColor = System.Drawing.Color.White;
+            this.nbDateChgPwd.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.nbDateChgPwd.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.nbDateChgPwd.BorderRadius = 10;
+            this.nbDateChgPwd.BorderSize = 1;
+            this.nbDateChgPwd.DecimalPlaces = 0;
+            this.nbDateChgPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nbDateChgPwd.ForeColor = System.Drawing.Color.DimGray;
+            this.nbDateChgPwd.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nbDateChgPwd.Location = new System.Drawing.Point(140, 128);
+            this.nbDateChgPwd.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
+            this.nbDateChgPwd.Maximum = new decimal(new int[] {
+            28,
+            0,
+            0,
+            0});
+            this.nbDateChgPwd.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nbDateChgPwd.Name = "nbDateChgPwd";
+            this.nbDateChgPwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.nbDateChgPwd.Size = new System.Drawing.Size(80, 34);
+            this.nbDateChgPwd.TabIndex = 4;
+            this.nbDateChgPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nbDateChgPwd.ThousandsSeparator = false;
+            this.tipMain.SetToolTip(this.nbDateChgPwd, "Ngày thay đổi mật khẩu");
+            this.nbDateChgPwd.UnderlinedStyle = false;
+            this.nbDateChgPwd.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label2.Location = new System.Drawing.Point(20, 128);
+            this.label2.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 34);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Ngày thay đổi";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtSecKey
+            // 
+            this.txtSecKey.BackColor = System.Drawing.Color.White;
+            this.txtSecKey.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtSecKey.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.txtSecKey.BorderRadius = 10;
+            this.txtSecKey.BorderSize = 1;
+            this.txtSecKey.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtSecKey.ForeColor = System.Drawing.Color.DimGray;
+            this.txtSecKey.Location = new System.Drawing.Point(20, 74);
+            this.txtSecKey.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.txtSecKey.MaxLength = 32767;
+            this.txtSecKey.Multiline = false;
+            this.txtSecKey.Name = "txtSecKey";
+            this.txtSecKey.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtSecKey.PasswordChar = false;
+            this.txtSecKey.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtSecKey.PlaceholderText = "Secret Key";
+            this.txtSecKey.Size = new System.Drawing.Size(420, 34);
+            this.txtSecKey.String = null;
+            this.txtSecKey.TabIndex = 3;
+            this.txtSecKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tipMain.SetToolTip(this.txtSecKey, "Secret key");
+            this.txtSecKey.UnderlinedStyle = false;
+            // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.Color.White;
+            this.txtId.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtId.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.txtId.BorderRadius = 10;
+            this.txtId.BorderSize = 1;
+            this.txtId.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtId.ForeColor = System.Drawing.Color.DimGray;
+            this.txtId.Location = new System.Drawing.Point(20, 20);
+            this.txtId.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.txtId.MaxLength = 32767;
+            this.txtId.Multiline = false;
+            this.txtId.Name = "txtId";
+            this.txtId.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtId.PasswordChar = false;
+            this.txtId.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtId.PlaceholderText = "ID";
+            this.txtId.Size = new System.Drawing.Size(200, 34);
+            this.txtId.String = null;
+            this.txtId.TabIndex = 1;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tipMain.SetToolTip(this.txtId, "ID");
+            this.txtId.UnderlinedStyle = false;
+            // 
+            // txtPwd
+            // 
+            this.txtPwd.BackColor = System.Drawing.Color.White;
+            this.txtPwd.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtPwd.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.txtPwd.BorderRadius = 10;
+            this.txtPwd.BorderSize = 1;
+            this.txtPwd.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPwd.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPwd.Location = new System.Drawing.Point(240, 20);
+            this.txtPwd.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.txtPwd.MaxLength = 32767;
+            this.txtPwd.Multiline = false;
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPwd.PasswordChar = true;
+            this.txtPwd.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPwd.PlaceholderText = "Mật khẩu hiện tại";
+            this.txtPwd.Size = new System.Drawing.Size(200, 34);
+            this.txtPwd.String = null;
+            this.txtPwd.TabIndex = 2;
+            this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tipMain.SetToolTip(this.txtPwd, "Mật khẩu hiện tại");
+            this.txtPwd.UnderlinedStyle = false;
+            // 
+            // txtPwdPrev
+            // 
+            this.txtPwdPrev.BackColor = System.Drawing.Color.White;
+            this.txtPwdPrev.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtPwdPrev.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.txtPwdPrev.BorderRadius = 10;
+            this.txtPwdPrev.BorderSize = 1;
+            this.txtPwdPrev.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtPwdPrev.ForeColor = System.Drawing.Color.DimGray;
+            this.txtPwdPrev.Location = new System.Drawing.Point(240, 128);
+            this.txtPwdPrev.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.txtPwdPrev.MaxLength = 32767;
+            this.txtPwdPrev.Multiline = false;
+            this.txtPwdPrev.Name = "txtPwdPrev";
+            this.txtPwdPrev.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPwdPrev.PasswordChar = true;
+            this.txtPwdPrev.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPwdPrev.PlaceholderText = "Mật khẩu dự phòng";
+            this.txtPwdPrev.Size = new System.Drawing.Size(200, 34);
+            this.txtPwdPrev.String = null;
+            this.txtPwdPrev.TabIndex = 5;
+            this.txtPwdPrev.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tipMain.SetToolTip(this.txtPwdPrev, "Mật khẩu dự phòng");
+            this.txtPwdPrev.UnderlinedStyle = false;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label5.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(1, 1);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label5.Size = new System.Drawing.Size(458, 30);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Inside";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlOut
+            // 
+            this.pnlOut.Angle = 45F;
+            this.pnlOut.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(43)))), ((int)(((byte)(114)))));
+            this.pnlOut.Controls.Add(this.panel2);
+            this.pnlOut.Controls.Add(this.label1);
+            this.pnlOut.Location = new System.Drawing.Point(260, 20);
+            this.pnlOut.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.pnlOut.Name = "pnlOut";
+            this.pnlOut.Padding = new System.Windows.Forms.Padding(1);
+            this.pnlOut.Size = new System.Drawing.Size(220, 105);
+            this.pnlOut.TabIndex = 2;
+            this.pnlOut.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(44)))), ((int)(((byte)(129)))));
+            this.pnlOut.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.nbOutHour);
+            this.panel2.Controls.Add(this.nbOutMin);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(1, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(218, 73);
+            this.panel2.TabIndex = 0;
+            // 
+            // nbOutHour
+            // 
+            this.nbOutHour.BackColor = System.Drawing.Color.White;
+            this.nbOutHour.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.nbOutHour.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.nbOutHour.BorderRadius = 10;
+            this.nbOutHour.BorderSize = 1;
+            this.nbOutHour.DecimalPlaces = 0;
+            this.nbOutHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nbOutHour.ForeColor = System.Drawing.Color.DimGray;
+            this.nbOutHour.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nbOutHour.Location = new System.Drawing.Point(20, 20);
+            this.nbOutHour.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
+            this.nbOutHour.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.nbOutHour.Minimum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.nbOutHour.Name = "nbOutHour";
+            this.nbOutHour.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.nbOutHour.Size = new System.Drawing.Size(80, 34);
+            this.nbOutHour.TabIndex = 1;
+            this.nbOutHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nbOutHour.ThousandsSeparator = false;
+            this.tipMain.SetToolTip(this.nbOutHour, "Giờ check-out");
+            this.nbOutHour.UnderlinedStyle = false;
+            this.nbOutHour.Value = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
+            // 
+            // nbOutMin
+            // 
+            this.nbOutMin.BackColor = System.Drawing.Color.White;
+            this.nbOutMin.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.nbOutMin.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.nbOutMin.BorderRadius = 10;
+            this.nbOutMin.BorderSize = 1;
+            this.nbOutMin.DecimalPlaces = 0;
+            this.nbOutMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nbOutMin.ForeColor = System.Drawing.Color.DimGray;
+            this.nbOutMin.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.yanNb1.Location = new System.Drawing.Point(120, 20);
-            this.yanNb1.Margin = new System.Windows.Forms.Padding(20);
-            this.yanNb1.Maximum = new decimal(new int[] {
+            this.nbOutMin.Location = new System.Drawing.Point(120, 20);
+            this.nbOutMin.Margin = new System.Windows.Forms.Padding(20);
+            this.nbOutMin.Maximum = new decimal(new int[] {
             59,
             0,
             0,
             0});
-            this.yanNb1.Minimum = new decimal(new int[] {
+            this.nbOutMin.Minimum = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.yanNb1.Name = "yanNb1";
-            this.yanNb1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanNb1.Size = new System.Drawing.Size(80, 34);
-            this.yanNb1.TabIndex = 2;
-            this.yanNb1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.yanNb1.ThousandsSeparator = false;
-            this.tipMain.SetToolTip(this.yanNb1, "Phút check-in");
-            this.yanNb1.UnderlinedStyle = false;
-            this.yanNb1.Value = new decimal(new int[] {
-            25,
+            this.nbOutMin.Name = "nbOutMin";
+            this.nbOutMin.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.nbOutMin.Size = new System.Drawing.Size(80, 34);
+            this.nbOutMin.TabIndex = 2;
+            this.nbOutMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nbOutMin.ThousandsSeparator = false;
+            this.tipMain.SetToolTip(this.nbOutMin, "Phút check-out");
+            this.nbOutMin.UnderlinedStyle = false;
+            this.nbOutMin.Value = new decimal(new int[] {
+            5,
             0,
             0,
             0});
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(1, 1);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(218, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Check-Out";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlIn
+            // 
+            this.pnlIn.Angle = 45F;
+            this.pnlIn.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(44)))), ((int)(((byte)(125)))));
+            this.pnlIn.Controls.Add(this.panel6);
+            this.pnlIn.Controls.Add(this.label4);
+            this.pnlIn.Location = new System.Drawing.Point(20, 20);
+            this.pnlIn.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
+            this.pnlIn.Name = "pnlIn";
+            this.pnlIn.Padding = new System.Windows.Forms.Padding(1);
+            this.pnlIn.Size = new System.Drawing.Size(220, 105);
+            this.pnlIn.TabIndex = 1;
+            this.pnlIn.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(45)))), ((int)(((byte)(140)))));
+            this.pnlIn.Visible = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.nbInHour);
+            this.panel6.Controls.Add(this.nbInMin);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(1, 31);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(218, 73);
+            this.panel6.TabIndex = 0;
             // 
             // nbInHour
             // 
@@ -153,7 +475,7 @@
             this.nbInHour.Size = new System.Drawing.Size(80, 34);
             this.nbInHour.TabIndex = 1;
             this.nbInHour.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nbInHour.ThousandsSeparator = true;
+            this.nbInHour.ThousandsSeparator = false;
             this.tipMain.SetToolTip(this.nbInHour, "Giờ check-in");
             this.nbInHour.UnderlinedStyle = false;
             this.nbInHour.Value = new decimal(new int[] {
@@ -162,248 +484,46 @@
             0,
             0});
             // 
-            // yanBtn2
+            // nbInMin
             // 
-            this.yanBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(73)))), ((int)(((byte)(89)))));
-            this.yanBtn2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.yanBtn2.BorderRadius = 20;
-            this.yanBtn2.BorderSize = 0;
-            this.yanBtn2.FlatAppearance.BorderSize = 0;
-            this.yanBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.yanBtn2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.yanBtn2.ForeColor = System.Drawing.Color.White;
-            this.yanBtn2.Location = new System.Drawing.Point(332, 485);
-            this.yanBtn2.Margin = new System.Windows.Forms.Padding(20);
-            this.yanBtn2.Name = "yanBtn2";
-            this.yanBtn2.Size = new System.Drawing.Size(150, 40);
-            this.yanBtn2.TabIndex = 0;
-            this.yanBtn2.TabStop = false;
-            this.yanBtn2.Text = "Dừng Bot";
-            this.yanBtn2.UseVisualStyleBackColor = false;
-            // 
-            // yanBtn1
-            // 
-            this.yanBtn1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanBtn1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.yanBtn1.BorderRadius = 20;
-            this.yanBtn1.BorderSize = 0;
-            this.yanBtn1.FlatAppearance.BorderSize = 0;
-            this.yanBtn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.yanBtn1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.yanBtn1.ForeColor = System.Drawing.Color.White;
-            this.yanBtn1.Location = new System.Drawing.Point(20, 485);
-            this.yanBtn1.Margin = new System.Windows.Forms.Padding(20);
-            this.yanBtn1.Name = "yanBtn1";
-            this.yanBtn1.Size = new System.Drawing.Size(150, 40);
-            this.yanBtn1.TabIndex = 0;
-            this.yanBtn1.TabStop = false;
-            this.yanBtn1.Text = "Thiết Lập";
-            this.yanBtn1.UseVisualStyleBackColor = false;
-            // 
-            // yanTxt5
-            // 
-            this.yanTxt5.BackColor = System.Drawing.Color.White;
-            this.yanTxt5.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanTxt5.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanTxt5.BorderRadius = 10;
-            this.yanTxt5.BorderSize = 1;
-            this.yanTxt5.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.yanTxt5.ForeColor = System.Drawing.Color.DimGray;
-            this.yanTxt5.Location = new System.Drawing.Point(240, 236);
-            this.yanTxt5.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.yanTxt5.MaxLength = 32767;
-            this.yanTxt5.Multiline = false;
-            this.yanTxt5.Name = "yanTxt5";
-            this.yanTxt5.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanTxt5.PasswordChar = true;
-            this.yanTxt5.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.yanTxt5.PlaceholderText = "Mật khẩu dự phòng 3";
-            this.yanTxt5.Size = new System.Drawing.Size(200, 34);
-            this.yanTxt5.String = null;
-            this.yanTxt5.TabIndex = 7;
-            this.yanTxt5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.yanTxt5, "Mật khẩu dự phòng 3");
-            this.yanTxt5.UnderlinedStyle = false;
-            // 
-            // yanTxt4
-            // 
-            this.yanTxt4.BackColor = System.Drawing.Color.White;
-            this.yanTxt4.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanTxt4.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanTxt4.BorderRadius = 10;
-            this.yanTxt4.BorderSize = 1;
-            this.yanTxt4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.yanTxt4.ForeColor = System.Drawing.Color.DimGray;
-            this.yanTxt4.Location = new System.Drawing.Point(240, 182);
-            this.yanTxt4.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.yanTxt4.MaxLength = 32767;
-            this.yanTxt4.Multiline = false;
-            this.yanTxt4.Name = "yanTxt4";
-            this.yanTxt4.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanTxt4.PasswordChar = true;
-            this.yanTxt4.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.yanTxt4.PlaceholderText = "Mật khẩu dự phòng 2";
-            this.yanTxt4.Size = new System.Drawing.Size(200, 34);
-            this.yanTxt4.String = null;
-            this.yanTxt4.TabIndex = 6;
-            this.yanTxt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.yanTxt4, "Mật khẩu dự phòng 2");
-            this.yanTxt4.UnderlinedStyle = false;
-            // 
-            // yanTxt3
-            // 
-            this.yanTxt3.BackColor = System.Drawing.Color.White;
-            this.yanTxt3.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanTxt3.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanTxt3.BorderRadius = 10;
-            this.yanTxt3.BorderSize = 1;
-            this.yanTxt3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.yanTxt3.ForeColor = System.Drawing.Color.DimGray;
-            this.yanTxt3.Location = new System.Drawing.Point(240, 128);
-            this.yanTxt3.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.yanTxt3.MaxLength = 32767;
-            this.yanTxt3.Multiline = false;
-            this.yanTxt3.Name = "yanTxt3";
-            this.yanTxt3.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanTxt3.PasswordChar = true;
-            this.yanTxt3.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.yanTxt3.PlaceholderText = "Mật khẩu dự phòng 1";
-            this.yanTxt3.Size = new System.Drawing.Size(200, 34);
-            this.yanTxt3.String = null;
-            this.yanTxt3.TabIndex = 5;
-            this.yanTxt3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.yanTxt3, "Mật khẩu dự phòng 1");
-            this.yanTxt3.UnderlinedStyle = false;
-            // 
-            // yanTxt2
-            // 
-            this.yanTxt2.BackColor = System.Drawing.Color.White;
-            this.yanTxt2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanTxt2.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanTxt2.BorderRadius = 10;
-            this.yanTxt2.BorderSize = 1;
-            this.yanTxt2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.yanTxt2.ForeColor = System.Drawing.Color.DimGray;
-            this.yanTxt2.Location = new System.Drawing.Point(240, 20);
-            this.yanTxt2.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.yanTxt2.MaxLength = 32767;
-            this.yanTxt2.Multiline = false;
-            this.yanTxt2.Name = "yanTxt2";
-            this.yanTxt2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanTxt2.PasswordChar = true;
-            this.yanTxt2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.yanTxt2.PlaceholderText = "Mật khẩu hiện tại";
-            this.yanTxt2.Size = new System.Drawing.Size(200, 34);
-            this.yanTxt2.String = null;
-            this.yanTxt2.TabIndex = 2;
-            this.yanTxt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.yanTxt2, "Mật khẩu hiện tại");
-            this.yanTxt2.UnderlinedStyle = false;
-            // 
-            // yanTxt1
-            // 
-            this.yanTxt1.BackColor = System.Drawing.Color.White;
-            this.yanTxt1.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanTxt1.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanTxt1.BorderRadius = 10;
-            this.yanTxt1.BorderSize = 1;
-            this.yanTxt1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.yanTxt1.ForeColor = System.Drawing.Color.DimGray;
-            this.yanTxt1.Location = new System.Drawing.Point(20, 20);
-            this.yanTxt1.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.yanTxt1.MaxLength = 32767;
-            this.yanTxt1.Multiline = false;
-            this.yanTxt1.Name = "yanTxt1";
-            this.yanTxt1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanTxt1.PasswordChar = false;
-            this.yanTxt1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.yanTxt1.PlaceholderText = "ID";
-            this.yanTxt1.Size = new System.Drawing.Size(200, 34);
-            this.yanTxt1.String = null;
-            this.yanTxt1.TabIndex = 1;
-            this.yanTxt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.yanTxt1, "ID");
-            this.yanTxt1.UnderlinedStyle = false;
-            // 
-            // yanTxt6
-            // 
-            this.yanTxt6.BackColor = System.Drawing.Color.White;
-            this.yanTxt6.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanTxt6.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanTxt6.BorderRadius = 10;
-            this.yanTxt6.BorderSize = 1;
-            this.yanTxt6.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.yanTxt6.ForeColor = System.Drawing.Color.DimGray;
-            this.yanTxt6.Location = new System.Drawing.Point(20, 74);
-            this.yanTxt6.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.yanTxt6.MaxLength = 32767;
-            this.yanTxt6.Multiline = false;
-            this.yanTxt6.Name = "yanTxt6";
-            this.yanTxt6.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanTxt6.PasswordChar = false;
-            this.yanTxt6.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.yanTxt6.PlaceholderText = "Secret Key";
-            this.yanTxt6.Size = new System.Drawing.Size(420, 34);
-            this.yanTxt6.String = null;
-            this.yanTxt6.TabIndex = 3;
-            this.yanTxt6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.yanTxt6, "Secret key");
-            this.yanTxt6.UnderlinedStyle = false;
-            // 
-            // yanNb2
-            // 
-            this.yanNb2.BackColor = System.Drawing.Color.White;
-            this.yanNb2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanNb2.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanNb2.BorderRadius = 10;
-            this.yanNb2.BorderSize = 1;
-            this.yanNb2.DecimalPlaces = 0;
-            this.yanNb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.yanNb2.ForeColor = System.Drawing.Color.DimGray;
-            this.yanNb2.Increment = new decimal(new int[] {
-            1,
+            this.nbInMin.BackColor = System.Drawing.Color.White;
+            this.nbInMin.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.nbInMin.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.nbInMin.BorderRadius = 10;
+            this.nbInMin.BorderSize = 1;
+            this.nbInMin.DecimalPlaces = 0;
+            this.nbInMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nbInMin.ForeColor = System.Drawing.Color.DimGray;
+            this.nbInMin.Increment = new decimal(new int[] {
+            5,
             0,
             0,
             0});
-            this.yanNb2.Location = new System.Drawing.Point(130, 182);
-            this.yanNb2.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.yanNb2.Maximum = new decimal(new int[] {
-            28,
+            this.nbInMin.Location = new System.Drawing.Point(120, 20);
+            this.nbInMin.Margin = new System.Windows.Forms.Padding(20);
+            this.nbInMin.Maximum = new decimal(new int[] {
+            59,
             0,
             0,
             0});
-            this.yanNb2.Minimum = new decimal(new int[] {
-            1,
+            this.nbInMin.Minimum = new decimal(new int[] {
             0,
-            0,
-            0});
-            this.yanNb2.Name = "yanNb2";
-            this.yanNb2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanNb2.Size = new System.Drawing.Size(90, 34);
-            this.yanNb2.TabIndex = 4;
-            this.yanNb2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.yanNb2.ThousandsSeparator = true;
-            this.tipMain.SetToolTip(this.yanNb2, "Ngày thay đổi mật khẩu");
-            this.yanNb2.UnderlinedStyle = false;
-            this.yanNb2.Value = new decimal(new int[] {
-            15,
             0,
             0,
             0});
-            // 
-            // yanGradPnl1
-            // 
-            this.yanGradPnl1.Angle = 45F;
-            this.yanGradPnl1.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(44)))), ((int)(((byte)(125)))));
-            this.yanGradPnl1.Controls.Add(this.panel6);
-            this.yanGradPnl1.Controls.Add(this.label4);
-            this.yanGradPnl1.Location = new System.Drawing.Point(20, 20);
-            this.yanGradPnl1.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.yanGradPnl1.Name = "yanGradPnl1";
-            this.yanGradPnl1.Padding = new System.Windows.Forms.Padding(1);
-            this.yanGradPnl1.Size = new System.Drawing.Size(220, 105);
-            this.yanGradPnl1.TabIndex = 1;
-            this.yanGradPnl1.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(45)))), ((int)(((byte)(140)))));
+            this.nbInMin.Name = "nbInMin";
+            this.nbInMin.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.nbInMin.Size = new System.Drawing.Size(80, 34);
+            this.nbInMin.TabIndex = 2;
+            this.nbInMin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nbInMin.ThousandsSeparator = false;
+            this.tipMain.SetToolTip(this.nbInMin, "Phút check-in");
+            this.nbInMin.UnderlinedStyle = false;
+            this.nbInMin.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
@@ -419,266 +539,102 @@
             this.label4.Text = "Check-In";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel6
+            // btnAct
             // 
-            this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Controls.Add(this.nbInHour);
-            this.panel6.Controls.Add(this.yanNb1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(1, 31);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(218, 73);
-            this.panel6.TabIndex = 0;
+            this.btnAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(73)))), ((int)(((byte)(89)))));
+            this.btnAct.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAct.BorderRadius = 20;
+            this.btnAct.BorderSize = 0;
+            this.btnAct.FlatAppearance.BorderSize = 0;
+            this.btnAct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAct.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAct.ForeColor = System.Drawing.Color.White;
+            this.btnAct.Location = new System.Drawing.Point(330, 380);
+            this.btnAct.Margin = new System.Windows.Forms.Padding(20);
+            this.btnAct.Name = "btnAct";
+            this.btnAct.Size = new System.Drawing.Size(150, 40);
+            this.btnAct.TabIndex = 0;
+            this.btnAct.TabStop = false;
+            this.btnAct.Text = "Dừng Bot";
+            this.btnAct.UseVisualStyleBackColor = false;
+            this.btnAct.Visible = false;
+            this.btnAct.Click += new System.EventHandler(this.BtnAct_Click);
             // 
-            // yanGradPnl2
+            // btnAdm
             // 
-            this.yanGradPnl2.Angle = 45F;
-            this.yanGradPnl2.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(43)))), ((int)(((byte)(114)))));
-            this.yanGradPnl2.Controls.Add(this.panel2);
-            this.yanGradPnl2.Controls.Add(this.label1);
-            this.yanGradPnl2.Location = new System.Drawing.Point(260, 20);
-            this.yanGradPnl2.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.yanGradPnl2.Name = "yanGradPnl2";
-            this.yanGradPnl2.Padding = new System.Windows.Forms.Padding(1);
-            this.yanGradPnl2.Size = new System.Drawing.Size(220, 105);
-            this.yanGradPnl2.TabIndex = 2;
-            this.yanGradPnl2.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(44)))), ((int)(((byte)(129)))));
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.yanNb3);
-            this.panel2.Controls.Add(this.yanNb4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(1, 31);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(218, 73);
-            this.panel2.TabIndex = 0;
-            // 
-            // yanNb3
-            // 
-            this.yanNb3.BackColor = System.Drawing.Color.White;
-            this.yanNb3.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanNb3.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanNb3.BorderRadius = 10;
-            this.yanNb3.BorderSize = 1;
-            this.yanNb3.DecimalPlaces = 0;
-            this.yanNb3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.yanNb3.ForeColor = System.Drawing.Color.DimGray;
-            this.yanNb3.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.yanNb3.Location = new System.Drawing.Point(20, 20);
-            this.yanNb3.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
-            this.yanNb3.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.yanNb3.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.yanNb3.Name = "yanNb3";
-            this.yanNb3.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanNb3.Size = new System.Drawing.Size(80, 34);
-            this.yanNb3.TabIndex = 1;
-            this.yanNb3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.yanNb3.ThousandsSeparator = true;
-            this.tipMain.SetToolTip(this.yanNb3, "Giờ check-out");
-            this.yanNb3.UnderlinedStyle = false;
-            this.yanNb3.Value = new decimal(new int[] {
-            18,
-            0,
-            0,
-            0});
-            // 
-            // yanNb4
-            // 
-            this.yanNb4.BackColor = System.Drawing.Color.White;
-            this.yanNb4.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.yanNb4.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.yanNb4.BorderRadius = 10;
-            this.yanNb4.BorderSize = 1;
-            this.yanNb4.DecimalPlaces = 0;
-            this.yanNb4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.yanNb4.ForeColor = System.Drawing.Color.DimGray;
-            this.yanNb4.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.yanNb4.Location = new System.Drawing.Point(120, 20);
-            this.yanNb4.Margin = new System.Windows.Forms.Padding(20);
-            this.yanNb4.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.yanNb4.Minimum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.yanNb4.Name = "yanNb4";
-            this.yanNb4.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.yanNb4.Size = new System.Drawing.Size(80, 34);
-            this.yanNb4.TabIndex = 2;
-            this.yanNb4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.yanNb4.ThousandsSeparator = false;
-            this.tipMain.SetToolTip(this.yanNb4, "Phút check-out");
-            this.yanNb4.UnderlinedStyle = false;
-            this.yanNb4.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1, 1);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(218, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Check-Out";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 182);
-            this.label3.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 34);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Ngày thay đổi";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // yanGradPnl3
-            // 
-            this.yanGradPnl3.Angle = 45F;
-            this.yanGradPnl3.BottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(42)))), ((int)(((byte)(99)))));
-            this.yanGradPnl3.Controls.Add(this.panel4);
-            this.yanGradPnl3.Controls.Add(this.label5);
-            this.yanGradPnl3.Location = new System.Drawing.Point(20, 145);
-            this.yanGradPnl3.Margin = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.yanGradPnl3.Name = "yanGradPnl3";
-            this.yanGradPnl3.Padding = new System.Windows.Forms.Padding(1);
-            this.yanGradPnl3.Size = new System.Drawing.Size(460, 321);
-            this.yanGradPnl3.TabIndex = 3;
-            this.yanGradPnl3.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(45)))), ((int)(((byte)(134)))));
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label5.Font = new System.Drawing.Font("Verdana", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1, 1);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label5.Size = new System.Drawing.Size(458, 30);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Inside";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.yanNb2);
-            this.panel4.Controls.Add(this.yanTxt6);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.yanTxt1);
-            this.panel4.Controls.Add(this.yanTxt2);
-            this.panel4.Controls.Add(this.yanTxt3);
-            this.panel4.Controls.Add(this.yanTxt4);
-            this.panel4.Controls.Add(this.yanTxt5);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(1, 31);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(458, 289);
-            this.panel4.TabIndex = 0;
-            // 
-            // yanBtn3
-            // 
-            this.yanBtn3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(85)))), ((int)(((byte)(83)))));
-            this.yanBtn3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.yanBtn3.BorderRadius = 20;
-            this.yanBtn3.BorderSize = 0;
-            this.yanBtn3.FlatAppearance.BorderSize = 0;
-            this.yanBtn3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.yanBtn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.yanBtn3.ForeColor = System.Drawing.Color.White;
-            this.yanBtn3.Location = new System.Drawing.Point(230, 485);
-            this.yanBtn3.Name = "yanBtn3";
-            this.yanBtn3.Size = new System.Drawing.Size(40, 40);
-            this.yanBtn3.TabIndex = 0;
-            this.yanBtn3.TabStop = false;
-            this.tipMain.SetToolTip(this.yanBtn3, "Đóng");
-            this.yanBtn3.UseVisualStyleBackColor = false;
+            this.btnAdm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(140)))), ((int)(((byte)(210)))));
+            this.btnAdm.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAdm.BorderRadius = 20;
+            this.btnAdm.BorderSize = 0;
+            this.btnAdm.FlatAppearance.BorderSize = 0;
+            this.btnAdm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdm.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAdm.ForeColor = System.Drawing.Color.White;
+            this.btnAdm.Location = new System.Drawing.Point(20, 380);
+            this.btnAdm.Margin = new System.Windows.Forms.Padding(20);
+            this.btnAdm.Name = "btnAdm";
+            this.btnAdm.Size = new System.Drawing.Size(150, 40);
+            this.btnAdm.TabIndex = 0;
+            this.btnAdm.TabStop = false;
+            this.btnAdm.Text = "Thiết Lập";
+            this.btnAdm.UseVisualStyleBackColor = false;
+            this.btnAdm.Visible = false;
+            this.btnAdm.Click += new System.EventHandler(this.BtnAdm_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(500, 545);
+            this.ClientSize = new System.Drawing.Size(500, 440);
             this.ControlBox = false;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlMain);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMain";
-            this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loginside FYAN Bot GUI";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
-            this.panel1.ResumeLayout(false);
-            this.yanGradPnl1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.yanGradPnl2.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.yanGradPnl3.ResumeLayout(false);
+            this.pnlMain.ResumeLayout(false);
+            this.pnlIns.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.pnlOut.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.pnlIn.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlMain;
         private YANF.Control.YANNb nbInHour;
-        private YANF.Control.YANTxt yanTxt1;
+        private YANF.Control.YANTxt txtId;
         private System.Windows.Forms.ToolTip tipMain;
-        private YANF.Control.YANNb yanNb1;
-        private YANF.Control.YANBtn yanBtn2;
-        private YANF.Control.YANBtn yanBtn1;
-        private YANF.Control.YANTxt yanTxt5;
-        private YANF.Control.YANTxt yanTxt4;
-        private YANF.Control.YANTxt yanTxt3;
-        private YANF.Control.YANTxt yanTxt2;
-        private YANF.Control.YANNb yanNb2;
-        private YANF.Control.YANTxt yanTxt6;
-        private YANF.Control.YANGradPnl yanGradPnl1;
+        private YANF.Control.YANNb nbInMin;
+        private YANF.Control.YANBtn btnAct;
+        private YANF.Control.YANBtn btnAdm;
+        private YANF.Control.YANTxt txtPwdPrev;
+        private YANF.Control.YANTxt txtPwd;
+        private YANF.Control.YANTxt txtSecKey;
+        private YANF.Control.YANGradPnl pnlIn;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label4;
-        private YANF.Control.YANGradPnl yanGradPnl2;
+        private YANF.Control.YANGradPnl pnlOut;
         private System.Windows.Forms.Panel panel2;
-        private YANF.Control.YANNb yanNb3;
-        private YANF.Control.YANNb yanNb4;
+        private YANF.Control.YANNb nbOutHour;
+        private YANF.Control.YANNb nbOutMin;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private YANF.Control.YANGradPnl yanGradPnl3;
+        private YANF.Control.YANGradPnl pnlIns;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
-        private YANF.Control.YANBtn yanBtn3;
+        private YANF.Control.YANBtn btnCl;
+        private YANF.Control.YANNb nbDateChgPwd;
+        private System.Windows.Forms.Label label2;
     }
 }

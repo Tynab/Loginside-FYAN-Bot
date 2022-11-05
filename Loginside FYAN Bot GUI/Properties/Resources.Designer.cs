@@ -88,11 +88,48 @@ namespace Loginside_FYAN_Bot_GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pOff {
+            get {
+                object obj = ResourceManager.GetObject("pOff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Pwd_Ins.
         /// </summary>
         internal static string pwd_ins {
             get {
                 return ResourceManager.GetString("pwd_ins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pwd_Prev.
+        /// </summary>
+        internal static string pwd_prev {
+            get {
+                return ResourceManager.GetString("pwd_prev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sBack {
+            get {
+                return ResourceManager.GetStream("sBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sChange {
+            get {
+                return ResourceManager.GetStream("sChange", resourceCulture);
             }
         }
         
@@ -111,6 +148,33 @@ namespace Loginside_FYAN_Bot_GUI.Properties {
         internal static string serv_name {
             get {
                 return ResourceManager.GetString("serv_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sHover {
+            get {
+                return ResourceManager.GetStream("sHover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sNext {
+            get {
+                return ResourceManager.GetStream("sNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream sPress {
+            get {
+                return ResourceManager.GetStream("sPress", resourceCulture);
             }
         }
         

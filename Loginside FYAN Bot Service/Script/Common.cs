@@ -48,7 +48,7 @@ namespace Loginside_FYAN_Bot_Service.Script
         /// </summary>
         /// <param name="s">String</param>
         /// <returns>Valid hour.</returns>
-        internal static int HourParse(string s)
+        internal static int HourPrs(string s)
         {
             _ = int.TryParse(s, out var rslt);
             return rslt is > 0 and < 24 ? rslt : 0;
@@ -59,7 +59,7 @@ namespace Loginside_FYAN_Bot_Service.Script
         /// </summary>
         /// <param name="s">String.</param>
         /// <returns>Valid minute</returns>
-        internal static int MinuteParse(string s)
+        internal static int MinPrs(string s)
         {
             _ = int.TryParse(s, out var rslt);
             return rslt is > 0 and < 60 ? rslt : 0;

@@ -173,17 +173,9 @@
     <value>Pwd_Ins</value>
     <comment>password inside</comment>
   </data>
-  <data name="pwd_prev_1" xml:space="preserve">
-    <value>Pwd_Prev_1</value>
-    <comment>password dự phòng 1</comment>
-  </data>
-  <data name="pwd_prev_2" xml:space="preserve">
-    <value>Pwd_Prev_2</value>
-    <comment>password dự phòng 2</comment>
-  </data>
-  <data name="pwd_prev_3" xml:space="preserve">
-    <value>Pwd_Prev_3</value>
-    <comment>password dự phòng 3</comment>
+  <data name="pwd_prev" xml:space="preserve">
+    <value>Pwd_Prev</value>
+    <comment>password dự phòng</comment>
   </data>
   <data name="sec_key" xml:space="preserve">
     <value>Sec_Key</value>

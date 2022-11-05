@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Configuration;
-using static Loginside_FYAN_Bot_GUI.Properties.Resources;
-using static System.AppDomain;
+using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static System.Configuration.ConfigurationManager;
-using static System.IO.Directory;
+using static System.IO.File;
 using static System.Windows.Forms.MessageBoxButtons;
 using static System.Windows.Forms.MessageBoxIcon;
 using static YANF.Script.YANConstant.MsgBoxLang;
@@ -22,14 +21,14 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
         {
             var exeConfigurationFileMap = new ExeConfigurationFileMap
             {
-                ExeConfigFilename = $@"{GetParent(CurrentDomain.BaseDirectory)}\{serv_name}.exe.config"
+                ExeConfigFilename = CONFIG_ADR
             };
             _configuration = OpenMappedExeConfiguration(exeConfigurationFileMap, ConfigurationUserLevel.None);
         }
         #endregion
 
         #region Methods
-        public string Getter(string key) => _configuration.AppSettings.Settings[key].Value?.ToString();
+        public string Getter(string key) => Exists(CONFIG_ADR) ? _configuration.AppSettings.Settings[key].Value?.ToString() : null;
 
         public void Setter<T>(string key, T value)
         {

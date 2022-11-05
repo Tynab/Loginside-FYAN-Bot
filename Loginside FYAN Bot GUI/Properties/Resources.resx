@@ -117,40 +117,63 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="app_name" xml:space="preserve">
-    <value>Loginside FYAN Bot GUI</value>
-    <comment>tên phần mềm</comment>
+  <data name="pwd_ins" xml:space="preserve">
+    <value>Pwd_Ins</value>
+    <comment>tên setting password inside</comment>
   </data>
   <data name="bot_name" xml:space="preserve">
     <value>Loginside FYAN Bot</value>
     <comment>tên bot</comment>
   </data>
+  <data name="pwd_prev" xml:space="preserve">
+    <value>Pwd_Prev</value>
+    <comment>password dự phòng</comment>
+  </data>
   <data name="id_ins" xml:space="preserve">
     <value>Id_Ins</value>
     <comment>tên setting id inside</comment>
-  </data>
-  <data name="pwd_ins" xml:space="preserve">
-    <value>Pwd_Ins</value>
-    <comment>tên setting password inside</comment>
-  </data>
-  <data name="sec_key" xml:space="preserve">
-    <value>Sec_Key</value>
-    <comment>tên setting secret key</comment>
-  </data>
-  <data name="serv_name" xml:space="preserve">
-    <value>Loginside FYAN Bot Service</value>
-    <comment>tên service</comment>
-  </data>
-  <data name="tmr_in" xml:space="preserve">
-    <value>Tmr_In</value>
-    <comment>tên setting timer check in</comment>
   </data>
   <data name="tmr_out" xml:space="preserve">
     <value>Tmr_Out</value>
     <comment>tên setting timer check out</comment>
   </data>
+  <data name="app_name" xml:space="preserve">
+    <value>Loginside FYAN Bot GUI</value>
+    <comment>tên phần mềm</comment>
+  </data>
+  <data name="serv_name" xml:space="preserve">
+    <value>Loginside FYAN Bot Service</value>
+    <comment>tên service</comment>
+  </data>
+  <data name="sec_key" xml:space="preserve">
+    <value>Sec_Key</value>
+    <comment>tên setting secret key</comment>
+  </data>
+  <data name="tmr_in" xml:space="preserve">
+    <value>Tmr_In</value>
+    <comment>tên setting timer check in</comment>
+  </data>
   <data name="uniq_app_id" xml:space="preserve">
     <value>TG9naW5zaWRlIEZZQU4gQm90</value>
-    <comment>Id app duy nhất</comment>
+    <comment>id app duy nhất</comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sBack.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sChange.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sHover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sHover.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sNext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sNext.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="sPress" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sPress.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

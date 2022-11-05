@@ -1,6 +1,10 @@
-﻿using System;
+﻿using AnimatorNS;
+using System;
 using System.Security.Principal;
 using System.ServiceProcess;
+using System.Windows.Forms;
+using static Loginside_FYAN_Bot_GUI.Script.Constant;
+using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
 using static System.Environment;
 using static System.Security.Principal.WindowsBuiltInRole;
 using static System.Security.Principal.WindowsIdentity;
@@ -32,7 +36,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <param name="s">String.</param>
         /// <returns>Valid minute</returns>
-        internal static int MinutePrs(string s)
+        internal static int MinPrs(string s)
         {
             _ = int.TryParse(s, out var rslt);
             return rslt is > 0 and < 60 ? rslt : 0;
@@ -40,6 +44,67 @@ namespace Loginside_FYAN_Bot_GUI.Script
         #endregion
 
         #region Windows
+        /// <summary>
+        /// Get service status.
+        /// </summary>
+        /// <param name="name">Service name.</param>
+        /// <returns>Service status.</returns>
+        internal static ServSts GetServSts(string name)
+        {
+            try
+            {
+                return new ServiceController(name).Status == Running ? Started : Stoped;
+            }
+            catch
+            {
+                return NotFd;
+            }
+        }
+
+        /// <summary>
+        /// Start service.
+        /// </summary>
+        /// <param name="name">Service name.</param>
+        /// <param name="ms">Time out (milisecond).</param>
+        internal static void StrtServ(string name, int ms)
+        {
+            try
+            {
+                var servCtrl = new ServiceController(name);
+                if (servCtrl.Status != Running)
+                {
+                    servCtrl.Start();
+                    servCtrl.WaitForStatus(Running, FromMilliseconds(ms));
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = Show("LỖI", ex.Message, OK, Error, VIE);
+            }
+        }
+
+        /// <summary>
+        /// Stop service.
+        /// </summary>
+        /// <param name="name">Service name.</param>
+        /// <param name="ms">Time out (milisecond).</param>
+        internal static void StopServ(string name, int ms)
+        {
+            try
+            {
+                var servCtrl = new ServiceController(name);
+                if (servCtrl.Status == Running)
+                {
+                    servCtrl.Stop();
+                    servCtrl.WaitForStatus(Stopped, FromMilliseconds(ms));
+                }
+            }
+            catch (Exception ex)
+            {
+                _ = Show("LỖI", ex.Message, OK, Error, VIE);
+            }
+        }
+
         /// <summary>
         /// Restart service.
         /// </summary>
@@ -78,6 +143,68 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <returns>App run as admin.</returns>
         public static bool IsAdmin() => new WindowsPrincipal(GetCurrent()).IsInRole(Administrator);
+        #endregion
+
+        #region Animator
+        /// <summary>
+        /// Show animation.
+        /// </summary>
+        /// <param name="type">Effect type.</param>
+        /// <param name="speed">Frame per milisecond.</param>
+        internal static void ShowAnimat(this Control ctrl, AnimationType type, float speed)
+        {
+            var animator = new Animator
+            {
+                TimeStep = speed,
+                AnimationType = type
+            };
+            animator.ShowSync(ctrl);
+        }
+
+        /// <summary>
+        /// Hide animation.
+        /// </summary>
+        /// <param name="type">Effect type.</param>
+        /// <param name="speed">Frame per milisecond.</param>
+        internal static void HideAnimat(this Control ctrl, AnimationType type, float speed)
+        {
+            var animator = new Animator
+            {
+                TimeStep = speed,
+                AnimationType = type
+            };
+            animator.HideSync(ctrl);
+        }
+
+        /// <summary>
+        /// Show animation async.
+        /// </summary>
+        /// <param name="type">Effect type.</param>
+        /// <param name="speed">Frame per milisecond.</param>
+        internal static void ShowAnimatAsync(this Control ctrl, AnimationType type, float speed)
+        {
+            var animator = new Animator
+            {
+                TimeStep = speed,
+                AnimationType = type
+            };
+            animator.Show(ctrl);
+        }
+
+        /// <summary>
+        /// Hide animation async.
+        /// </summary>
+        /// <param name="type">Effect type.</param>
+        /// <param name="speed">Frame per milisecond.</param>
+        internal static void HideAnimatAsync(this Control ctrl, AnimationType type, float speed)
+        {
+            var animator = new Animator
+            {
+                TimeStep = speed,
+                AnimationType = type
+            };
+            animator.Hide(ctrl);
+        }
         #endregion
     }
 }

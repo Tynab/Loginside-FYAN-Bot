@@ -187,29 +187,11 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pwd_Prev_1.
+        ///   Looks up a localized string similar to Pwd_Prev.
         /// </summary>
-        internal static string pwd_prev_1 {
+        internal static string pwd_prev {
             get {
-                return ResourceManager.GetString("pwd_prev_1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pwd_Prev_2.
-        /// </summary>
-        internal static string pwd_prev_2 {
-            get {
-                return ResourceManager.GetString("pwd_prev_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Pwd_Prev_3.
-        /// </summary>
-        internal static string pwd_prev_3 {
-            get {
-                return ResourceManager.GetString("pwd_prev_3", resourceCulture);
+                return ResourceManager.GetString("pwd_prev", resourceCulture);
             }
         }
         

@@ -49,15 +49,15 @@ namespace Loginside_FYAN_Bot_Service
             if (Today.DayOfWeek != Sunday && Now.Hour > 0)
             {
                 var sInHour = GetHourConfig(tmr_in);
-                var sInMinute = GetMinuteConfig(tmr_in);
+                var sInMin = GetMinConfig(tmr_in);
                 var sOutHour = GetHourConfig(tmr_out);
-                var sOutMinute = GetMinuteConfig(tmr_out);
+                var sOutMin = GetMinConfig(tmr_out);
                 // on time
-                if (Now.Hour == HourParse(sInHour) && Now.Minute == MinuteParse(sInMinute))
+                if (Now.Hour == HourPrs(sInHour) && Now.Minute == MinPrs(sInMin))
                 {
                     _botService.BotStem(true);
                 }
-                else if (Now.Hour == HourParse(sOutHour) && Now.Minute == MinuteParse(sOutMinute))
+                else if (Now.Hour == HourPrs(sOutHour) && Now.Minute == MinPrs(sOutMin))
                 {
                     _botService.BotStem(false);
                 }
@@ -75,7 +75,7 @@ namespace Loginside_FYAN_Bot_Service
         }
 
         // Get minute from config
-        private string GetMinuteConfig(string key)
+        private string GetMinConfig(string key)
         {
             var rsltFull = _appConfigService.Getter(key).Substring(2);
             var rsltRip = _appConfigService.Getter(key).Substring(3);
