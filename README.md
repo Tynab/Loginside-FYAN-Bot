@@ -1,8 +1,8 @@
 # FYAN BOT LOGINSIDE
-- Run automatically at startup in Windows (support Windows 11)
+- Run automatically at startup in Windows
 - Bypass user password logon Windows
 - Auto get OTP with the Secret Key set on GUI
-- Auto login page inside of FPT Retail with the account set on GUI (Chrome 107)
+- Auto login page inside of FPT Retail with the account set on GUI (Chrome, FireFox, Edge, IE, Safari)
 - Checkin at the set time on GUI
 - Checkout at the set time on GUI
 - Auto change password bypass rule inside
