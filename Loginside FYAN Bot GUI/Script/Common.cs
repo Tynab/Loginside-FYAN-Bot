@@ -163,60 +163,60 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// Show animation.
         /// </summary>
         /// <param name="type">Effect type.</param>
-        /// <param name="speed">Frame per milisecond.</param>
-        internal static void ShowAnimat(this Control ctrl, AnimationType type, float speed)
+        /// <param name="spd">Frame per milisecond.</param>
+        internal static void ShowAnimat(this Control ctrl, AnimationType type, float spd)
         {
-            var animator = new Animator
+            var animat = new Animator
             {
-                TimeStep = speed,
+                TimeStep = spd,
                 AnimationType = type
             };
-            animator.ShowSync(ctrl);
+            animat.ShowSync(ctrl);
         }
 
         /// <summary>
         /// Hide animation.
         /// </summary>
         /// <param name="type">Effect type.</param>
-        /// <param name="speed">Frame per milisecond.</param>
-        internal static void HideAnimat(this Control ctrl, AnimationType type, float speed)
+        /// <param name="spd">Frame per milisecond.</param>
+        internal static void HideAnimat(this Control ctrl, AnimationType type, float spd)
         {
-            var animator = new Animator
+            var animat = new Animator
             {
-                TimeStep = speed,
+                TimeStep = spd,
                 AnimationType = type
             };
-            animator.HideSync(ctrl);
+            animat.HideSync(ctrl);
         }
 
         /// <summary>
         /// Show animation async.
         /// </summary>
         /// <param name="type">Effect type.</param>
-        /// <param name="speed">Frame per milisecond.</param>
-        internal static void ShowAnimatAsync(this Control ctrl, AnimationType type, float speed)
+        /// <param name="spd">Frame per milisecond.</param>
+        internal static void ShowAnimatAsync(this Control ctrl, AnimationType type, float spd)
         {
-            var animator = new Animator
+            var animat = new Animator
             {
-                TimeStep = speed,
+                TimeStep = spd,
                 AnimationType = type
             };
-            animator.Show(ctrl);
+            animat.Show(ctrl);
         }
 
         /// <summary>
         /// Hide animation async.
         /// </summary>
         /// <param name="type">Effect type.</param>
-        /// <param name="speed">Frame per milisecond.</param>
-        internal static void HideAnimatAsync(this Control ctrl, AnimationType type, float speed)
+        /// <param name="spd">Frame per milisecond.</param>
+        internal static void HideAnimatAsync(this Control ctrl, AnimationType type, float spd)
         {
-            var animator = new Animator
+            var animat = new Animator
             {
-                TimeStep = speed,
+                TimeStep = spd,
                 AnimationType = type
             };
-            animator.Hide(ctrl);
+            animat.Hide(ctrl);
         }
         #endregion
 

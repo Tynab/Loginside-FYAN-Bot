@@ -5,28 +5,46 @@
 - Auto login page inside of FPT Retail with the account set on GUI (Chrome 107)
 - Checkin at the set time on GUI
 - Checkout at the set time on GUI
+- Auto change password bypass rule inside
 
 ## HÌNH ẢNH DEMO
 <p align="center">
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/0.gif"></img>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/0.jpg"></img>
 </p>
 
-## CẤU HÌNH BUILD UNPACKAGE
-```xml
-<!-- project -->
-<PropertyGroup>
-	<WindowsPackageType>None</WindowsPackageType>
-</PropertyGroup>
-```
-```json
-// launch setting
+## CODE DEMO
+```c#
+using AnimatorNS;
+using System.Windows.Forms;
+
+/// <summary>
+/// Show animation async.
+/// </summary>
+/// <param name="type">Effect type.</param>
+/// <param name="spd">Frame per milisecond.</param>
+internal static void ShowAnimatAsync(this Control ctrl, AnimationType type, float spd)
 {
-  "profiles": {
-    "Windows Machine": {
-      "commandName": "Project",
-      "nativeDebugging": false
-    }
-  }
+	var animat = new Animator
+	{
+		TimeStep = spd,
+		AnimationType = type
+	};
+	animat.Show(ctrl);
+}
+
+/// <summary>
+/// Hide animation async.
+/// </summary>
+/// <param name="type">Effect type.</param>
+/// <param name="spd">Frame per milisecond.</param>
+internal static void HideAnimatAsync(this Control ctrl, AnimationType type, float spd)
+{
+	var animat = new Animator
+	{
+		TimeStep = spd,
+		AnimationType = type
+	};
+	animat.Hide(ctrl);
 }
 ```
 
@@ -34,43 +52,13 @@
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/4.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Microsoft.Maui.Dependencies » 6.0.541
-
-</div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/4.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
-
-- Microsoft.Maui.Extensions » 6.0.541
-
-</div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/3.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
-
-- Microsoft.Windows.SDK.BuildTools » 10.0.22000.194
-
-</div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/2.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
-
-- SkiaSharp.Extended.UI.Maui » 2.0.0-preview.61
+- Animator » 1.0.3
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/1.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- System.Configuration.ConfigurationManager » 7.0.0-rc.2.22472.3
-
-</div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/1.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
-
-- System.Runtime.InteropServices.NFloat.Internal » 6.0.1
-
-</div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/1.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
-
-- System.ServiceProcess.ServiceController » 7.0.0-rc.2.22472.3
+- Tynab.YANF » 1.0.1
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/5.png" align="left" width="3%" height="3%"></img>
@@ -82,12 +70,24 @@
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/6.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Selenium.WebDriver » 4.5.1
+- Selenium.WebDriver » 4.6.0
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/7.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Selenium.WebDriver.ChromeDriver » 107.0.5304.6200
+- Selenium.WebDriver.ChromeDriver » 108.0.5359.2200-beta
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/2.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- Selenium.WebDriver.GeckoDriver » 0.32.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/3.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- Selenium.WebDriver.IEDriver » 4.6.0
 
 </div>
