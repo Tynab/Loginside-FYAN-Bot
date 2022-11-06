@@ -93,6 +93,7 @@ namespace Loginside_FYAN_Bot_GUI.Screen
         {
             // sound
             SND_NEXT.Play();
+            // main
             var isScs = true;
             // set timer in
             isScs = isScs && _appConfigService.Setter(tmr_in, nbInHour.Value.ToString("00") + ":" + nbInMin.Value.ToString("00"));
@@ -158,8 +159,8 @@ namespace Loginside_FYAN_Bot_GUI.Screen
         {
             // sound
             SND_NEXT.Play();
-            var isScs = true;
             // check status for action
+            var isScs = true;
             switch (GetServSts(bot_name))
             {
                 case Started:

@@ -228,31 +228,36 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// <returns>Is valid.</returns>
         internal static bool IsVldPwd(string s)
         {
-            var rslt = true;
+            if (string.IsNullOrWhiteSpace(s))
+            {
+                return false;
+            }
             if (s.Length < 8)
             {
-                rslt = false;
+                return false;
             }
-            var semiRslt = false;
+            var hasUprCase = false;
+            var hasNum = false;
+            var hasSplChar = false;
             foreach (var c in s)
             {
-                // check password rule
-                if (PWD_RULE.Contains(c))
+                // check upper case
+                if (c.ToString() == c.ToString().ToUpper())
                 {
-                    semiRslt = true;
+                    hasUprCase = true;
                 }
                 // check number
                 if (int.TryParse(c.ToString(), out var _))
                 {
-                    semiRslt = true;
+                    hasNum = true;
                 }
-                // check upper case
-                if (c.ToString() == c.ToString().ToUpper())
+                // check special character
+                if (PWD_SPL_CHAR.Contains(c))
                 {
-                    semiRslt = true;
+                    hasSplChar = true;
                 }
             }
-            return rslt && semiRslt;
+            return hasUprCase && hasNum && hasSplChar;
         }
         #endregion
     }

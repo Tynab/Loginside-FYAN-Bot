@@ -15,25 +15,37 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_29675496648F4BA8946F491C03862834"
+        "MsmKey" = "8:_0CF9DDAC88704D5486138DA8381FCE20"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_42CC1697D29A485E9D83FC96FEAECC0D"
+        "MsmKey" = "8:_0DA30FAB6E6846C5B99E360776A760D4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_49156C869AB3E7A661A27C49A8E2BED5"
+        "MsmKey" = "8:_261C0BCAD2D1600792F61E7E56019EAD"
         "OwnerKey" = "8:_DDEC72DC0C2241F88D6FB17D3C957E9D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_49ED30400B35BB031E3CCE5B67F02B19"
+        "MsmKey" = "8:_371836D8797E416FB57F489C5F60CE4C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3D82A43F8496B86F51F35B1BF5B5546B"
+        "OwnerKey" = "8:_DDEC72DC0C2241F88D6FB17D3C957E9D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4C53DFEB4A19CB0E1ACB6F42F2AB393E"
         "OwnerKey" = "8:_91B96E1E27364A00BDC038B00DCC42BE"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -52,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_62A60D437C591F8E22880696CA6F948B"
-        "OwnerKey" = "8:_83CB889D34242EC1FFBB62A4B9453C4B"
+        "OwnerKey" = "8:_4C53DFEB4A19CB0E1ACB6F42F2AB393E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,13 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_81CD97B10B8755E9D60F51D719A988F7"
-        "OwnerKey" = "8:_83CB889D34242EC1FFBB62A4B9453C4B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_83CB889D34242EC1FFBB62A4B9453C4B"
-        "OwnerKey" = "8:_91B96E1E27364A00BDC038B00DCC42BE"
+        "OwnerKey" = "8:_4C53DFEB4A19CB0E1ACB6F42F2AB393E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -93,25 +99,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8C69141F2DF7E76E6455548118C75DA3"
-        "OwnerKey" = "8:_DDEC72DC0C2241F88D6FB17D3C957E9D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_91B96E1E27364A00BDC038B00DCC42BE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9C3DBA6C85284D7AA6826463F1CD57F0"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_9486A7EF351B0468D56D4F189F1CB4E3"
+        "OwnerKey" = "8:_91B96E1E27364A00BDC038B00DCC42BE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CC7705BD3E1E49C4856F4284A228DC92"
+        "MsmKey" = "8:_9C3DBA6C85284D7AA6826463F1CD57F0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -136,7 +136,7 @@
         "Entry"
         {
         "MsmKey" = "8:_D048655F861BC95D0AB88E78E2A16BEC"
-        "OwnerKey" = "8:_83CB889D34242EC1FFBB62A4B9453C4B"
+        "OwnerKey" = "8:_4C53DFEB4A19CB0E1ACB6F42F2AB393E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -166,19 +166,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8C69141F2DF7E76E6455548118C75DA3"
+        "OwnerKey" = "8:_3D82A43F8496B86F51F35B1BF5B5546B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_49156C869AB3E7A661A27C49A8E2BED5"
+        "OwnerKey" = "8:_261C0BCAD2D1600792F61E7E56019EAD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_83CB889D34242EC1FFBB62A4B9453C4B"
+        "OwnerKey" = "8:_4C53DFEB4A19CB0E1ACB6F42F2AB393E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,7 +190,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_49ED30400B35BB031E3CCE5B67F02B19"
+        "OwnerKey" = "8:_9486A7EF351B0468D56D4F189F1CB4E3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -365,10 +365,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_29675496648F4BA8946F491C03862834"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CF9DDAC88704D5486138DA8381FCE20"
             {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\geckodriver.exe"
-            "TargetName" = "8:geckodriver.exe"
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\chromedriver.exe"
+            "TargetName" = "8:chromedriver.exe"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
             "Condition" = "8:"
@@ -385,7 +385,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42CC1697D29A485E9D83FC96FEAECC0D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0DA30FAB6E6846C5B99E360776A760D4"
             {
             "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\IEDriverServer.exe"
             "TargetName" = "8:IEDriverServer.exe"
@@ -405,14 +405,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_49156C869AB3E7A661A27C49A8E2BED5"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_261C0BCAD2D1600792F61E7E56019EAD"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Animator, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_49156C869AB3E7A661A27C49A8E2BED5"
+                    "_261C0BCAD2D1600792F61E7E56019EAD"
                     {
                     "Name" = "8:Animator.dll"
                     "Attributes" = "3:512"
@@ -436,20 +436,71 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_49ED30400B35BB031E3CCE5B67F02B19"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_371836D8797E416FB57F489C5F60CE4C"
+            {
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\geckodriver.exe"
+            "TargetName" = "8:geckodriver.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3D82A43F8496B86F51F35B1BF5B5546B"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Otp.NET, Version=1.2.2.0, Culture=neutral, PublicKeyToken=38a48df817e173a6, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:YANF, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_49ED30400B35BB031E3CCE5B67F02B19"
+                    "_3D82A43F8496B86F51F35B1BF5B5546B"
                     {
-                    "Name" = "8:Otp.NET.dll"
+                    "Name" = "8:YANF.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Otp.NET.dll"
+            "SourcePath" = "8:YANF.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4C53DFEB4A19CB0E1ACB6F42F2AB393E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_4C53DFEB4A19CB0E1ACB6F42F2AB393E"
+                    {
+                    "Name" = "8:WebDriver.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:WebDriver.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
@@ -569,32 +620,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_83CB889D34242EC1FFBB62A4B9453C4B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:WebDriver.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8917E7CF60E3F7DCD184416AB16C710B"
             {
             "AssemblyRegister" = "3:1"
@@ -646,20 +671,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8C69141F2DF7E76E6455548118C75DA3"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9486A7EF351B0468D56D4F189F1CB4E3"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:YANF, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Otp.NET, Version=1.2.2.0, Culture=neutral, PublicKeyToken=38a48df817e173a6, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8C69141F2DF7E76E6455548118C75DA3"
+                    "_9486A7EF351B0468D56D4F189F1CB4E3"
                     {
-                    "Name" = "8:YANF.dll"
+                    "Name" = "8:Otp.NET.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:YANF.dll"
+            "SourcePath" = "8:Otp.NET.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
@@ -681,26 +706,6 @@
             {
             "SourcePath" = "8:..\\res\\BSLuffy.bmp"
             "TargetName" = "8:BSLuffy.bmp"
-            "Tag" = "8:"
-            "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC7705BD3E1E49C4856F4284A228DC92"
-            {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\chromedriver.exe"
-            "TargetName" = "8:chromedriver.exe"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
             "Condition" = "8:"
@@ -876,7 +881,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Loginside FYAN Bot"
         "ProductCode" = "8:{887C3179-80EA-4A74-ABFD-3EDE472C541F}"
-        "PackageCode" = "8:{EF252F7F-A64A-4A78-9B27-ADF023A375C4}"
+        "PackageCode" = "8:{08743954-D5B0-4646-888F-964C92021849}"
         "UpgradeCode" = "8:{7C1FB879-C5B4-4CC0-8829-5679463CDA3D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

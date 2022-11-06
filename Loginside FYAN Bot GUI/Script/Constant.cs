@@ -22,7 +22,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
 
         // other
         internal const int TIME_OUT = 3000;
-        internal static readonly char[] PWD_RULE = { '@', '#', '$', '%' };
+        internal static readonly char[] PWD_SPL_CHAR = { '@', '#', '$', '%' };
 
         // service status
         internal enum ServSts
