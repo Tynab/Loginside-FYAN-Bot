@@ -7,5 +7,10 @@
         /// </summary>
         /// <param name="isChkIn">Is check in action.</param>
         public void BotStem(bool isChkIn);
+
+        /// <summary>
+        /// Bot change password.
+        /// </summary>
+        public void BotPwd();
     }
 }

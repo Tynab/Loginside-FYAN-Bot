@@ -70,6 +70,15 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day_Chg_Pwd.
+        /// </summary>
+        internal static string day_chg_pwd {
+            get {
+                return ResourceManager.GetString("day_chg_pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ctl00_ContentPlaceHolder1_ctl00_btnSaveUser.
         /// </summary>
         internal static string id_btn_chg_pwd {
@@ -174,6 +183,15 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         internal static string link_ins {
             get {
                 return ResourceManager.GetString("link_ins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://inside.fptshop.com.vn/DefaultV2.aspx?ID=2480.
+        /// </summary>
+        internal static string link_ins_chg_pwd {
+            get {
+                return ResourceManager.GetString("link_ins_chg_pwd", resourceCulture);
             }
         }
         

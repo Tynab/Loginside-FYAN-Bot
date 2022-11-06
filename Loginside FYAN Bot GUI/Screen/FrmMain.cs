@@ -10,6 +10,10 @@ using static Loginside_FYAN_Bot_GUI.Script.Common;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
 using static System.Drawing.Color;
+using static System.IO.File;
+using static System.Windows.Forms.MessageBoxButtons;
+using static System.Windows.Forms.MessageBoxIcon;
+using static YANF.Script.YANConstant.MsgBoxLang;
 using static YANF.Script.YANEvent;
 
 namespace Loginside_FYAN_Bot_GUI.Screen
@@ -45,12 +49,17 @@ namespace Loginside_FYAN_Bot_GUI.Screen
                 lbl.MouseMove += MoveFrm_MouseMove;
                 lbl.MouseUp += MoveFrm_MouseUp;
             }
-            // option
-            GetServSyncDisp();
+            // display
             nbInHour.Value = GetHourConfig(tmr_in);
             nbInMin.Value = GetMinConfig(tmr_in);
             nbOutHour.Value = GetHourConfig(tmr_out);
             nbOutMin.Value = GetMinConfig(tmr_out);
+            txtId.String = _appConfigService.Getter(id_ins);
+            txtPwd.String = _appConfigService.Getter(pwd_ins);
+            txtSecKey.String = _appConfigService.Getter(sec_key);
+            txtPwdPrev.String = _appConfigService.Getter(pwd_prev);
+            var dayChgPwd = _appConfigService.Getter(day_chg_pwd);
+            nbDayChgPwd.Value = string.IsNullOrWhiteSpace(dayChgPwd) ? 15 : int.TryParse(dayChgPwd, out var _) ? decimal.Parse(dayChgPwd) : 15;
             pnlMain.Select();
         }
         #endregion
@@ -59,12 +68,21 @@ namespace Loginside_FYAN_Bot_GUI.Screen
         // frm shown
         private void FrmMain_Shown(object sender, EventArgs e)
         {
+            // display effect
             pnlMain.ShowAnimat(ScaleAndRotate, ANIMAT_SPD);
             pnlIn.ShowAnimatAsync(VertSlide, ANIMAT_SPD);
             pnlOut.ShowAnimatAsync(VertSlide, ANIMAT_SPD);
             btnCl.ShowAnimatAsync(Rotate, ANIMAT_SPD);
             pnlIns.ShowAnimatAsync(ScaleAndHorizSlide, ANIMAT_SPD);
+            GetServSyncDisp();
+            //sound
             SND_PRS.Play();
+            // is missing data
+            if (!Exists(CONFIG_ADR))
+            {
+                YANMessageBox.Show("LỖI", "Quá trình cài đặt bot service không thành công!", OK, Error, VIE);
+                Close();
+            }
         }
 
         // frm closing
@@ -73,41 +91,80 @@ namespace Loginside_FYAN_Bot_GUI.Screen
         // btn Apply click
         private void BtnAdm_Click(object sender, EventArgs e)
         {
+            // sound
             SND_NEXT.Play();
-
+            // set timer in
+            _appConfigService.Setter(tmr_in, nbInHour.Value.ToString("00") + ":" + nbInMin.Value.ToString("00"));
+            // set timer out
+            _appConfigService.Setter(tmr_out, nbOutHour.Value.ToString("00") + ":" + nbOutMin.Value.ToString("00"));
+            // set id
+            var sId = txtId.String;
+            if (!string.IsNullOrWhiteSpace(sId))
+            {
+                _appConfigService.Setter(id_ins, sId);
+            }
+            // set password
+            var sPwd = txtPwd.String;
+            if (!string.IsNullOrWhiteSpace(sPwd))
+            {
+                _appConfigService.Setter(pwd_ins, sPwd);
+            }
+            // set secret key
+            var sSecKey = txtSecKey.String;
+            if (!string.IsNullOrWhiteSpace(sSecKey))
+            {
+                _appConfigService.Setter(sec_key, sSecKey);
+            }
+            // set password preventive
+            var sPwdPrev = txtPwdPrev.String;
+            if (!string.IsNullOrWhiteSpace(sPwdPrev))
+            {
+                _appConfigService.Setter(pwd_prev, sPwdPrev);
+            }
+            // set day changed
+            _appConfigService.Setter(day_chg_pwd, nbDayChgPwd.Value.ToString());
+            // apply
+            RstServ(bot_name, TIME_OUT);
         }
 
         // btn Active click
         private void BtnAct_Click(object sender, EventArgs e)
         {
+            // sound
             SND_NEXT.Play();
-            switch (GetServSts(serv_name))
+            // check status for action
+            switch (GetServSts(bot_name))
             {
                 case Started:
                 {
-                    StopServ(serv_name, TIME_OUT);
+                    StopServ(bot_name, TIME_OUT);
                     break;
                 }
                 case Stoped:
                 {
-                    StrtServ(serv_name, TIME_OUT);
+                    StrtServ(bot_name, TIME_OUT);
                     break;
                 }
             }
-            GetServSyncDisp();
+            // re-sync
+            GetServStsSyncBtn();
         }
 
         // btn Close click
         private void BtnCl_Click(object sender, EventArgs e)
         {
+            // action
             Close();
+            // sound
             SND_NEXT.PlaySync();
         }
 
         // Mod MoveFrm event
         private void MoveFrmMod_MouseDown(object sender, MouseEventArgs e)
         {
+            // base
             MoveFrm_MouseDown(sender, e);
+            // sound
             SND_CHG.Play();
         }
         #endregion
@@ -116,38 +173,34 @@ namespace Loginside_FYAN_Bot_GUI.Screen
         // Get service sync display
         private void GetServSyncDisp()
         {
-            var sts = GetServSts(serv_name);
-            if (sts == NotFd)
+            if (GetServSts(bot_name) != NotFd)
             {
-                if (btnAdm.Visible)
-                {
-                    btnAdm.HideAnimatAsync(Particles, ANIMAT_SPD);
-                }
-                if (btnAct.Visible)
-                {
-                    btnAct.HideAnimatAsync(Particles, ANIMAT_SPD);
-                }
-            }
-            else
-            {
+                GetServStsSyncBtn();
+                // show btn apply
                 if (!btnAdm.Visible)
                 {
                     btnAdm.ShowAnimatAsync(VertBlind, ANIMAT_SPD);
                 }
+                // show btn active
                 if (!btnAct.Visible)
                 {
                     btnAct.ShowAnimatAsync(VertBlind, ANIMAT_SPD);
                 }
-                if (sts == Started)
-                {
-                    btnAct.Text = "Dừng Bot";
-                    btnAct.BackColor = FromArgb(56, 73, 89);
-                }
-                else
-                {
-                    btnAct.Text = "Chạy Bot";
-                    btnAct.BackColor = FromArgb(133, 193, 93);
-                }
+            }
+        }
+
+        // Get service status sync button active
+        private void GetServStsSyncBtn()
+        {
+            if (GetServSts(bot_name) == Started)
+            {
+                btnAct.Text = "Dừng Bot";
+                btnAct.BackColor = FromArgb(56, 73, 89);
+            }
+            else
+            {
+                btnAct.Text = "Chạy Bot";
+                btnAct.BackColor = FromArgb(133, 193, 93);
             }
         }
 

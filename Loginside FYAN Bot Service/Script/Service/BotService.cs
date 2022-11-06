@@ -5,7 +5,6 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Safari;
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using static Loginside_FYAN_Bot_Service.Properties.Resources;
 using static Loginside_FYAN_Bot_Service.Script.Common;
@@ -27,6 +26,68 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             new Thread(() => ShdwBot("IS Bot", new AppConfigService(), new SafariDriver(), isChkIn)).Start();
         }
 
+        public void BotPwd()
+        {
+            var shdwName = "Bot Pwd";
+            IAppConfigService appConfigService = new AppConfigService();
+            var id = appConfigService.Getter(id_ins);
+            var pwd = appConfigService.Getter(pwd_ins);
+            var pwdPrev = appConfigService.Getter(pwd_prev);
+            var secKey = appConfigService.Getter(sec_key);
+            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(pwdPrev) && !string.IsNullOrWhiteSpace(secKey))
+            {
+                try
+                {
+                    using IWebDriver driver = new ChromeDriver();
+                    ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                }
+                catch (Exception gcex)
+                {
+                    WriteLog($"{shdwName} error", gcex.Message);
+                    try
+                    {
+                        using IWebDriver driver = new FirefoxDriver();
+                        ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                    }
+                    catch (Exception ffex)
+                    {
+                        WriteLog($"{shdwName} error", ffex.Message);
+                        try
+                        {
+                            using IWebDriver driver = new EdgeDriver();
+                            ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                        }
+                        catch (Exception meex)
+                        {
+                            WriteLog($"{shdwName} error", meex.Message);
+                            try
+                            {
+                                using IWebDriver driver = new InternetExplorerDriver();
+                                ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                            }
+                            catch (Exception ieex)
+                            {
+                                WriteLog($"{shdwName} error", ieex.Message);
+                                try
+                                {
+                                    using IWebDriver driver = new SafariDriver();
+                                    ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                }
+                                catch (Exception isex)
+                                {
+                                    WriteLog($"{shdwName} error", isex.Message);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                WriteLog(shdwName, "Missing value!");
+            }
+        }
+
         // Shadow bot
         private void ShdwBot(string shdwName, IAppConfigService appConfigService, WebDriver webDrv, bool isChkIn)
         {
@@ -46,6 +107,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 {
                     counter++;
                     WriteLog($"{shdwName} error", ex.Message);
+                    // limit attack
                     if (counter is > 0 and < LMT_ATK)
                     {
                         goto Attack;
@@ -61,6 +123,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         // Shadow login
         private void ShdwLogin(string shdwName, IWebDriver driver, string id, string pwd, string secKey)
         {
+            // access link
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(link_ins);
             Sleep(TIME_OUT);
@@ -95,65 +158,45 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         }
 
         // Shadow change password
-        private bool ShdwChgPwd(string shdwName, IAppConfigService appConfigService, WebDriver webDrv, string id, string pwd, string secKey)
+        private void ShdwChgPwd(string shdwName, IWebDriver driver, string id, string pwd, string pwdPrev, string secKey)
         {
-            var result = false;
-            using IWebDriver driver = webDrv;
-            var pwdPrevs = new List<string>
-            {
-                appConfigService.Getter(pwd_prev),
-                appConfigService.Getter(pwd_prev_2),
-                appConfigService.Getter(pwd_prev_3),
-                appConfigService.Getter(pwd_prev_4)
-            };
-            foreach (var pwdChg in pwdPrevs)
-            {
-                if (TryChgPwd(shdwName, driver, id, pwd, secKey, pwdChg))
-                {
-                    result = true;
-                    pwd.Replace(pwdChg, pwdChg);
-                    appConfigService.Setter(pwd_ins, pwdChg);
-                    appConfigService.Setter(pwd_prev, pwdPrevs[0]);
-                    appConfigService.Setter(pwd_prev_2, pwdPrevs[1]);
-                    appConfigService.Setter(pwd_prev_3, pwdPrevs[2]);
-                    appConfigService.Setter(pwd_prev_4, pwdPrevs[3]);
-                    break;
-                }
-            }
-            return result;
-        }
-
-        // Try change password
-        private bool TryChgPwd(string shdwName, IWebDriver driver, string id, string pwd, string secKey, string pwdChg)
-        {
-            var result = true;
-            try
-            {
-                ShdwLogin(shdwName, driver, id, pwd, secKey);
-                // enter old password
-                var elemOldPwd = driver.FindElement(Id(id_old_pwd));
-                elemOldPwd.SendKeys(pwd);
-                Sleep(DELAY);
-                // enter new password
-                var elemNewPwd = driver.FindElement(Id(id_new_pwd));
-                elemNewPwd.SendKeys(pwdChg);
-                Sleep(DELAY);
-                // enter confirm password
-                var elemCfmPwd = driver.FindElement(Id(id_cfm_pwd));
-                elemCfmPwd.SendKeys(pwdChg);
-                Sleep(DELAY);
-                // change password
-                var elemBtnChgPwd = driver.FindElement(Id(id_btn_chg_pwd));
-                elemBtnChgPwd.Click();
-                WriteLog(shdwName, "Password changed!");
-                Sleep(TIME_OUT);
-            }
-            catch (Exception ex)
-            {
-                WriteLog($"{shdwName} error", ex.Message);
-                result = false;
-            }
-            return result;
+            ShdwLogin(shdwName, driver, id, pwd, secKey);
+            // forward
+            driver.Navigate().GoToUrl(link_ins_chg_pwd);
+            // enter old password
+            var elemOldPwd = driver.FindElement(Id(id_old_pwd));
+            elemOldPwd.SendKeys(pwd);
+            Sleep(DELAY);
+            // enter new password
+            var elemNewPwd = driver.FindElement(Id(id_new_pwd));
+            elemNewPwd.SendKeys(pwdPrev);
+            Sleep(DELAY);
+            // enter confirm password
+            var elemCfmPwd = driver.FindElement(Id(id_cfm_pwd));
+            elemCfmPwd.SendKeys(pwdPrev);
+            Sleep(DELAY);
+            // change password
+            var elemBtnChgPwd = driver.FindElement(Id(id_btn_chg_pwd));
+            elemBtnChgPwd.Click();
+            WriteLog(shdwName, "Password changed!");
+            Sleep(TIME_OUT);
+            // enter old password
+            elemOldPwd = driver.FindElement(Id(id_old_pwd));
+            elemOldPwd.SendKeys(pwdPrev);
+            Sleep(DELAY);
+            // enter new password
+            elemNewPwd = driver.FindElement(Id(id_new_pwd));
+            elemNewPwd.SendKeys(pwd);
+            Sleep(DELAY);
+            // enter confirm password
+            elemCfmPwd = driver.FindElement(Id(id_cfm_pwd));
+            elemCfmPwd.SendKeys(pwd);
+            Sleep(DELAY);
+            // change password
+            elemBtnChgPwd = driver.FindElement(Id(id_btn_chg_pwd));
+            elemBtnChgPwd.Click();
+            WriteLog(shdwName, "Password re-changed!");
+            Sleep(TIME_OUT);
         }
     }
 }

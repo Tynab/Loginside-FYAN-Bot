@@ -79,6 +79,15 @@ namespace Loginside_FYAN_Bot_GUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Day_Chg_Pwd.
+        /// </summary>
+        internal static string day_chg_pwd {
+            get {
+                return ResourceManager.GetString("day_chg_pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Id_Ins.
         /// </summary>
         internal static string id_ins {
@@ -193,15 +202,6 @@ namespace Loginside_FYAN_Bot_GUI.Properties {
         internal static string tmr_out {
             get {
                 return ResourceManager.GetString("tmr_out", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to TG9naW5zaWRlIEZZQU4gQm90.
-        /// </summary>
-        internal static string uniq_app_id {
-            get {
-                return ResourceManager.GetString("uniq_app_id", resourceCulture);
             }
         }
     }

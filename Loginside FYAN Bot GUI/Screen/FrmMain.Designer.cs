@@ -34,7 +34,7 @@
             this.btnCl = new YANF.Control.YANBtn();
             this.pnlIns = new YANF.Control.YANGradPnl();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.nbDateChgPwd = new YANF.Control.YANNb();
+            this.nbDayChgPwd = new YANF.Control.YANNb();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSecKey = new YANF.Control.YANTxt();
             this.txtId = new YANF.Control.YANTxt();
@@ -117,7 +117,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.nbDateChgPwd);
+            this.panel4.Controls.Add(this.nbDayChgPwd);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.txtSecKey);
             this.panel4.Controls.Add(this.txtId);
@@ -129,42 +129,42 @@
             this.panel4.Size = new System.Drawing.Size(458, 181);
             this.panel4.TabIndex = 0;
             // 
-            // nbDateChgPwd
+            // nbDayChgPwd
             // 
-            this.nbDateChgPwd.BackColor = System.Drawing.Color.White;
-            this.nbDateChgPwd.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.nbDateChgPwd.BorderFocusColor = System.Drawing.Color.DarkOrange;
-            this.nbDateChgPwd.BorderRadius = 10;
-            this.nbDateChgPwd.BorderSize = 1;
-            this.nbDateChgPwd.DecimalPlaces = 0;
-            this.nbDateChgPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.nbDateChgPwd.ForeColor = System.Drawing.Color.DimGray;
-            this.nbDateChgPwd.Increment = new decimal(new int[] {
+            this.nbDayChgPwd.BackColor = System.Drawing.Color.White;
+            this.nbDayChgPwd.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.nbDayChgPwd.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.nbDayChgPwd.BorderRadius = 10;
+            this.nbDayChgPwd.BorderSize = 1;
+            this.nbDayChgPwd.DecimalPlaces = 0;
+            this.nbDayChgPwd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nbDayChgPwd.ForeColor = System.Drawing.Color.DimGray;
+            this.nbDayChgPwd.Increment = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nbDateChgPwd.Location = new System.Drawing.Point(140, 128);
-            this.nbDateChgPwd.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
-            this.nbDateChgPwd.Maximum = new decimal(new int[] {
+            this.nbDayChgPwd.Location = new System.Drawing.Point(140, 128);
+            this.nbDayChgPwd.Margin = new System.Windows.Forms.Padding(20, 20, 0, 20);
+            this.nbDayChgPwd.Maximum = new decimal(new int[] {
             28,
             0,
             0,
             0});
-            this.nbDateChgPwd.Minimum = new decimal(new int[] {
+            this.nbDayChgPwd.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.nbDateChgPwd.Name = "nbDateChgPwd";
-            this.nbDateChgPwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.nbDateChgPwd.Size = new System.Drawing.Size(80, 34);
-            this.nbDateChgPwd.TabIndex = 4;
-            this.nbDateChgPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nbDateChgPwd.ThousandsSeparator = false;
-            this.tipMain.SetToolTip(this.nbDateChgPwd, "Ngày thay đổi mật khẩu");
-            this.nbDateChgPwd.UnderlinedStyle = false;
-            this.nbDateChgPwd.Value = new decimal(new int[] {
+            this.nbDayChgPwd.Name = "nbDayChgPwd";
+            this.nbDayChgPwd.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.nbDayChgPwd.Size = new System.Drawing.Size(80, 34);
+            this.nbDayChgPwd.TabIndex = 4;
+            this.nbDayChgPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nbDayChgPwd.ThousandsSeparator = false;
+            this.tipMain.SetToolTip(this.nbDayChgPwd, "Ngày thay đổi mật khẩu");
+            this.nbDayChgPwd.UnderlinedStyle = false;
+            this.nbDayChgPwd.Value = new decimal(new int[] {
             15,
             0,
             0,
@@ -634,7 +634,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private YANF.Control.YANBtn btnCl;
-        private YANF.Control.YANNb nbDateChgPwd;
+        private YANF.Control.YANNb nbDayChgPwd;
         private System.Windows.Forms.Label label2;
     }
 }

@@ -46,6 +46,7 @@ namespace Loginside_FYAN_Bot_Service
         // On timer bot
         private void OnTmrBotEvent(object sender, ElapsedEventArgs e)
         {
+            // for time
             if (Today.DayOfWeek != Sunday && Now.Hour > 0)
             {
                 var sInHour = GetHourConfig(tmr_in);
@@ -61,6 +62,11 @@ namespace Loginside_FYAN_Bot_Service
                 {
                     _botService.BotStem(false);
                 }
+            }
+            // for date
+            if (int.TryParse(_appConfigService.Getter(day_chg_pwd), out var dayChgPwd) && Today.Day == dayChgPwd)
+            {
+                _botService.BotPwd();
             }
         }
         #endregion

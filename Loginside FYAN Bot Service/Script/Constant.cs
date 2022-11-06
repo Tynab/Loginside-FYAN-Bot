@@ -1,7 +1,15 @@
-﻿namespace Loginside_FYAN_Bot_Service.Script
+﻿using static System.AppDomain;
+using static System.DateTime;
+
+namespace Loginside_FYAN_Bot_Service.Script
 {
     internal static class Constant
     {
+        // path
+        internal static readonly string LOG_PATH = $@"{CurrentDomain.BaseDirectory}\log";
+        internal static readonly string LOG_ADR = $@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".txt";
+
+        // other
         internal const int LMT_ATK = 3;
         internal const int DELAY = 300;
         internal const int TIME_OUT = 3000;
