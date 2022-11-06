@@ -93,38 +93,64 @@ namespace Loginside_FYAN_Bot_GUI.Screen
         {
             // sound
             SND_NEXT.Play();
+            var isScs = true;
             // set timer in
-            _appConfigService.Setter(tmr_in, nbInHour.Value.ToString("00") + ":" + nbInMin.Value.ToString("00"));
+            isScs = isScs && _appConfigService.Setter(tmr_in, nbInHour.Value.ToString("00") + ":" + nbInMin.Value.ToString("00"));
             // set timer out
-            _appConfigService.Setter(tmr_out, nbOutHour.Value.ToString("00") + ":" + nbOutMin.Value.ToString("00"));
+            isScs = isScs && _appConfigService.Setter(tmr_out, nbOutHour.Value.ToString("00") + ":" + nbOutMin.Value.ToString("00"));
             // set id
             var sId = txtId.String;
             if (!string.IsNullOrWhiteSpace(sId))
             {
-                _appConfigService.Setter(id_ins, sId);
-            }
-            // set password
-            var sPwd = txtPwd.String;
-            if (!string.IsNullOrWhiteSpace(sPwd))
-            {
-                _appConfigService.Setter(pwd_ins, sPwd);
+                isScs = isScs && _appConfigService.Setter(id_ins, sId);
             }
             // set secret key
             var sSecKey = txtSecKey.String;
             if (!string.IsNullOrWhiteSpace(sSecKey))
             {
-                _appConfigService.Setter(sec_key, sSecKey);
+                isScs = isScs && _appConfigService.Setter(sec_key, sSecKey);
+            }
+            // set day changed
+            isScs = isScs && _appConfigService.Setter(day_chg_pwd, nbDayChgPwd.Value.ToString());
+            // set password
+            var sPwd = txtPwd.String;
+            if (IsVldPwd(sPwd))
+            {
+                if (!string.IsNullOrWhiteSpace(sPwd))
+                {
+                    isScs = isScs && _appConfigService.Setter(pwd_ins, sPwd);
+                }
+            }
+            else
+            {
+                YANMessageBox.Show("LỖI", "Mật khẩu phải từ 8 ký tự trở lên. Gồm chữ in, chữ thường, số và ký tự đặc biệt (@, #, $, %).", OK, Error, VIE);
+                txtPwd.ResetText();
+                txtPwd.Select();
+                return;
             }
             // set password preventive
             var sPwdPrev = txtPwdPrev.String;
-            if (!string.IsNullOrWhiteSpace(sPwdPrev))
+            if (IsVldPwd(sPwdPrev))
             {
-                _appConfigService.Setter(pwd_prev, sPwdPrev);
+                if (!string.IsNullOrWhiteSpace(sPwdPrev))
+                {
+                    isScs = isScs && _appConfigService.Setter(pwd_prev, sPwdPrev);
+                }
             }
-            // set day changed
-            _appConfigService.Setter(day_chg_pwd, nbDayChgPwd.Value.ToString());
+            else
+            {
+                YANMessageBox.Show("LỖI", "Mật khẩu dự phòng phải từ 8 ký tự trở lên. Gồm chữ in, chữ thường, số và ký tự đặc biệt (@, #, $, %).", OK, Error, VIE);
+                txtPwdPrev.ResetText();
+                txtPwdPrev.Select();
+                return;
+            }
             // apply
-            RstServ(bot_name, TIME_OUT);
+            isScs = isScs && RstServ(bot_name, TIME_OUT);
+            if (isScs)
+            {
+                YANMessageBox.Show("THÔNG BÁO", "Thành công!", OK, Information, VIE);
+            }
+            GetServStsSyncBtn();
         }
 
         // btn Active click
@@ -132,21 +158,26 @@ namespace Loginside_FYAN_Bot_GUI.Screen
         {
             // sound
             SND_NEXT.Play();
+            var isScs = true;
             // check status for action
             switch (GetServSts(bot_name))
             {
                 case Started:
                 {
-                    StopServ(bot_name, TIME_OUT);
+                    isScs = StopServ(bot_name, TIME_OUT);
                     break;
                 }
                 case Stoped:
                 {
-                    StrtServ(bot_name, TIME_OUT);
+                    isScs = StrtServ(bot_name, TIME_OUT);
                     break;
                 }
             }
             // re-sync
+            if (isScs)
+            {
+                YANMessageBox.Show("THÔNG BÁO", "Thành công!", OK, Information, VIE);
+            }
             GetServStsSyncBtn();
         }
 

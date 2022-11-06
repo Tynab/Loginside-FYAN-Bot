@@ -1,5 +1,6 @@
 ﻿using AnimatorNS;
 using System;
+using System.Linq;
 using System.Security.Principal;
 using System.ServiceProcess;
 using System.Windows.Forms;
@@ -66,8 +67,10 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <param name="name">Service name.</param>
         /// <param name="ms">Time out (milisecond).</param>
-        internal static void StrtServ(string name, int ms)
+        /// <returns>Is success.</returns>
+        internal static bool StrtServ(string name, int ms)
         {
+            var isScs = true;
             try
             {
                 var servCtrl = new ServiceController(name);
@@ -80,7 +83,9 @@ namespace Loginside_FYAN_Bot_GUI.Script
             catch (Exception ex)
             {
                 _ = Show("LỖI", ex.Message, OK, Error, VIE);
+                isScs = false;
             }
+            return isScs;
         }
 
         /// <summary>
@@ -88,8 +93,10 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <param name="name">Service name.</param>
         /// <param name="ms">Time out (milisecond).</param>
-        internal static void StopServ(string name, int ms)
+        /// <returns>Is success.</returns>
+        internal static bool StopServ(string name, int ms)
         {
+            var isScs = true;
             try
             {
                 var servCtrl = new ServiceController(name);
@@ -102,7 +109,9 @@ namespace Loginside_FYAN_Bot_GUI.Script
             catch (Exception ex)
             {
                 _ = Show("LỖI", ex.Message, OK, Error, VIE);
+                isScs = false;
             }
+            return isScs;
         }
 
         /// <summary>
@@ -110,8 +119,10 @@ namespace Loginside_FYAN_Bot_GUI.Script
         /// </summary>
         /// <param name="name">Service name.</param>
         /// <param name="ms">Time out (milisecond).</param>
-        internal static void RstServ(string name, int ms)
+        /// <returns>Is success.</returns>
+        internal static bool RstServ(string name, int ms)
         {
+            var isScs = true;
             try
             {
                 var servCtrl = new ServiceController(name);
@@ -135,7 +146,9 @@ namespace Loginside_FYAN_Bot_GUI.Script
             catch (Exception ex)
             {
                 _ = Show("LỖI", ex.Message, OK, Error, VIE);
+                isScs = false;
             }
+            return isScs;
         }
 
         /// <summary>
@@ -204,6 +217,42 @@ namespace Loginside_FYAN_Bot_GUI.Script
                 AnimationType = type
             };
             animator.Hide(ctrl);
+        }
+        #endregion
+
+        #region Other
+        /// <summary>
+        /// Check valid password.
+        /// </summary>
+        /// <param name="s">Password.</param>
+        /// <returns>Is valid.</returns>
+        internal static bool IsVldPwd(string s)
+        {
+            var rslt = true;
+            if (s.Length < 8)
+            {
+                rslt = false;
+            }
+            var semiRslt = false;
+            foreach (var c in s)
+            {
+                // check password rule
+                if (PWD_RULE.Contains(c))
+                {
+                    semiRslt = true;
+                }
+                // check number
+                if (int.TryParse(c.ToString(), out var _))
+                {
+                    semiRslt = true;
+                }
+                // check upper case
+                if (c.ToString() == c.ToString().ToUpper())
+                {
+                    semiRslt = true;
+                }
+            }
+            return rslt && semiRslt;
         }
         #endregion
     }

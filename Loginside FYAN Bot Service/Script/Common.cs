@@ -44,6 +44,17 @@ namespace Loginside_FYAN_Bot_Service.Script
 
         #region Numeric
         /// <summary>
+        /// Parse to min day.
+        /// </summary>
+        /// <param name="s">String</param>
+        /// <returns>Valid hour.</returns>
+        internal static int MinDayPrs(string s)
+        {
+            _ = int.TryParse(s, out var rslt);
+            return rslt is > 1 and < 28 ? rslt : 15;
+        }
+
+        /// <summary>
         /// Parse to hour.
         /// </summary>
         /// <param name="s">String</param>

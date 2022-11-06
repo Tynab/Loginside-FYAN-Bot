@@ -15,6 +15,7 @@
         /// <typeparam name="T">Datatype.</typeparam>
         /// <param name="key">Key.</param>
         /// <param name="value">Value.</param>
-        public void Setter<T>(string key, T value);
+        /// <returns>Is success.</returns>
+        public bool Setter<T>(string key, T value);
     }
 }

@@ -15,13 +15,13 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1C821256AE4043D490F7DF0054BDC056"
+        "MsmKey" = "8:_29675496648F4BA8946F491C03862834"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_463027C1E42B404388634C5DE38C94F2"
+        "MsmKey" = "8:_42CC1697D29A485E9D83FC96FEAECC0D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -105,13 +105,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9A3D95EAF9B34E75AC222472AB2E03F8"
+        "MsmKey" = "8:_9C3DBA6C85284D7AA6826463F1CD57F0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9C3DBA6C85284D7AA6826463F1CD57F0"
+        "MsmKey" = "8:_CC7705BD3E1E49C4856F4284A228DC92"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -365,10 +365,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C821256AE4043D490F7DF0054BDC056"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_29675496648F4BA8946F491C03862834"
             {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\chromedriver.exe"
-            "TargetName" = "8:chromedriver.exe"
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\geckodriver.exe"
+            "TargetName" = "8:geckodriver.exe"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
             "Condition" = "8:"
@@ -385,10 +385,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_463027C1E42B404388634C5DE38C94F2"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_42CC1697D29A485E9D83FC96FEAECC0D"
             {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\geckodriver.exe"
-            "TargetName" = "8:geckodriver.exe"
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\IEDriverServer.exe"
+            "TargetName" = "8:IEDriverServer.exe"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
             "Condition" = "8:"
@@ -576,11 +576,6 @@
             "AssemblyAsmDisplayName" = "8:WebDriver, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_83CB889D34242EC1FFBB62A4B9453C4B"
-                    {
-                    "Name" = "8:WebDriver.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:WebDriver.dll"
             "TargetName" = "8:"
@@ -682,10 +677,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9A3D95EAF9B34E75AC222472AB2E03F8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C3DBA6C85284D7AA6826463F1CD57F0"
             {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\IEDriverServer.exe"
-            "TargetName" = "8:IEDriverServer.exe"
+            "SourcePath" = "8:..\\res\\BSLuffy.bmp"
+            "TargetName" = "8:BSLuffy.bmp"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
             "Condition" = "8:"
@@ -702,10 +697,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C3DBA6C85284D7AA6826463F1CD57F0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC7705BD3E1E49C4856F4284A228DC92"
             {
-            "SourcePath" = "8:..\\res\\BSLuffy.bmp"
-            "TargetName" = "8:BSLuffy.bmp"
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\chromedriver.exe"
+            "TargetName" = "8:chromedriver.exe"
             "Tag" = "8:"
             "Folder" = "8:_8F540F713A2E43B093E6EA54193259B2"
             "Condition" = "8:"
@@ -881,7 +876,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Loginside FYAN Bot"
         "ProductCode" = "8:{887C3179-80EA-4A74-ABFD-3EDE472C541F}"
-        "PackageCode" = "8:{7BCB4A67-B8DF-4CE0-808E-A8CFB46203D9}"
+        "PackageCode" = "8:{EF252F7F-A64A-4A78-9B27-ADF023A375C4}"
         "UpgradeCode" = "8:{7C1FB879-C5B4-4CC0-8829-5679463CDA3D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

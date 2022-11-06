@@ -16,6 +16,7 @@ namespace Loginside_FYAN_Bot_Service
         #region Fields
         private readonly IAppConfigService _appConfigService;
         private readonly IBotService _botService;
+        private bool _isPwdChgd = false;
         #endregion
 
         #region Constructors
@@ -64,9 +65,10 @@ namespace Loginside_FYAN_Bot_Service
                 }
             }
             // for date
-            if (int.TryParse(_appConfigService.Getter(day_chg_pwd), out var dayChgPwd) && Today.Day == dayChgPwd)
+            if (!_isPwdChgd && Today.Day == MinDayPrs(_appConfigService.Getter(day_chg_pwd)))
             {
                 _botService.BotPwd();
+                _isPwdChgd = true;
             }
         }
         #endregion

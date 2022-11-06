@@ -15,8 +15,8 @@ namespace Loginside_FYAN_Bot_GUI
         [STAThread]
         private static void Main()
         {
-            var mutex = new Mutex(true, app_name, out var result);
-            if (!result)
+            var mutex = new Mutex(true, app_name, out var rslt);
+            if (!rslt)
             {
                 return;
             }

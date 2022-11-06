@@ -30,8 +30,9 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
         #region Methods
         public string Getter(string key) => Exists(CONFIG_ADR) ? _configuration.AppSettings.Settings[key].Value?.ToString() : null;
 
-        public void Setter<T>(string key, T value)
+        public bool Setter<T>(string key, T value)
         {
+            var isScs = true;
             try
             {
                 _configuration.AppSettings.Settings[key].Value = value?.ToString();
@@ -49,8 +50,10 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
                 catch (Exception e)
                 {
                     _ = Show("LỖI", e.Message, OK, Error, VIE);
+                    isScs = false;
                 }
             }
+            return isScs;
         }
         #endregion
     }
