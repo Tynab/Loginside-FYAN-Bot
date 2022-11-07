@@ -157,7 +157,7 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 - System.Threading.Tasks.Extensions » 4.5.4
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/1.png" align="left" width="3%" height="3%"></img>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/4.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
 - WebDriverManager » 2.16.0
