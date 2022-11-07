@@ -47,6 +47,9 @@ namespace Loginside_FYAN_Bot_Service
         // On timer bot
         private void OnTmrBotEvent(object sender, ElapsedEventArgs e)
         {
+            KillPrcs(cr_prcs);
+            KillPrcs(ge_prcs);
+            KillPrcs(ie_prcs);
             // for time
             if (Today.DayOfWeek != Sunday && Now.Hour > 0)
             {

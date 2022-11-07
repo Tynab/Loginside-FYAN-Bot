@@ -1,8 +1,11 @@
 ﻿using OtpNet;
 using System;
+using System.Linq;
 using static Loginside_FYAN_Bot_Service.Script.Logger;
 using static OtpNet.Base32Encoding;
+using static System.Diagnostics.Process;
 using static System.IO.Directory;
+using static System.Threading.Thread;
 
 namespace Loginside_FYAN_Bot_Service.Script
 {
@@ -74,6 +77,24 @@ namespace Loginside_FYAN_Bot_Service.Script
         {
             _ = int.TryParse(s, out var rslt);
             return rslt is > 0 and < 60 ? rslt : 0;
+        }
+        #endregion
+
+        #region Other
+        /// <summary>
+        /// Kill process.
+        /// </summary>
+        /// <param name="name">Process name.</param>
+        public static void KillPrcs(string name)
+        {
+            if (GetProcessesByName(name).Count() > 0)
+            {
+                foreach (var prc in GetProcessesByName(name))
+                {
+                    prc.Kill();
+                    Sleep(100);
+                }
+            }
         }
         #endregion
     }

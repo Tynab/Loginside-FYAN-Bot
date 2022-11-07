@@ -70,11 +70,29 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to chromedriver.
+        /// </summary>
+        internal static string cr_prcs {
+            get {
+                return ResourceManager.GetString("cr_prcs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Day_Chg_Pwd.
         /// </summary>
         internal static string day_chg_pwd {
             get {
                 return ResourceManager.GetString("day_chg_pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to geckodriver.
+        /// </summary>
+        internal static string ge_prcs {
+            get {
+                return ResourceManager.GetString("ge_prcs", resourceCulture);
             }
         }
         
@@ -174,6 +192,15 @@ namespace Loginside_FYAN_Bot_Service.Properties {
         internal static string id_old_pwd {
             get {
                 return ResourceManager.GetString("id_old_pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IEDriverServer.
+        /// </summary>
+        internal static string ie_prcs {
+            get {
+                return ResourceManager.GetString("ie_prcs", resourceCulture);
             }
         }
         

@@ -6,6 +6,8 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Safari;
 using System;
 using System.Threading;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 using static Loginside_FYAN_Bot_Service.Properties.Resources;
 using static Loginside_FYAN_Bot_Service.Script.Common;
 using static Loginside_FYAN_Bot_Service.Script.Constant;
@@ -19,11 +21,10 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
     {
         public void BotStem(bool isChkIn)
         {
-            new Thread(() => ShdwBot("GC Bot", new AppConfigService(), new ChromeDriver(), isChkIn)).Start();
-            new Thread(() => ShdwBot("FF Bot", new AppConfigService(), new FirefoxDriver(), isChkIn)).Start();
-            new Thread(() => ShdwBot("ME Bot", new AppConfigService(), new EdgeDriver(), isChkIn)).Start();
-            new Thread(() => ShdwBot("IE Bot", new AppConfigService(), new InternetExplorerDriver(), isChkIn)).Start();
-            new Thread(() => ShdwBot("IS Bot", new AppConfigService(), new SafariDriver(), isChkIn)).Start();
+            new Thread(() => ShdwBotGC(isChkIn)).Start();
+            new Thread(() => ShdwBotFF(isChkIn)).Start();
+            new Thread(() => ShdwBotME(isChkIn)).Start();
+            new Thread(() => ShdwBotIE(isChkIn)).Start();
         }
 
         public void BotPwd()
@@ -88,9 +89,11 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             }
         }
 
-        // Shadow bot
-        private void ShdwBot(string shdwName, IAppConfigService appConfigService, WebDriver webDrv, bool isChkIn)
+        // Shadow bot Chrome
+        private void ShdwBotGC(bool isChkIn)
         {
+            var shdwName = "GC Bot";
+            IAppConfigService appConfigService = new AppConfigService();
             var id = appConfigService.Getter(id_ins);
             var pwd = appConfigService.Getter(pwd_ins);
             var secKey = appConfigService.Getter(sec_key);
@@ -100,7 +103,113 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             Attack:
                 try
                 {
-                    using IWebDriver driver = webDrv;
+                    new DriverManager().SetUpDriver(new ChromeConfig());
+                    using IWebDriver driver = new ChromeDriver();
+                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                }
+                catch (Exception ex)
+                {
+                    counter++;
+                    WriteLog($"{shdwName} error", ex.Message);
+                    // limit attack
+                    if (counter is > 0 and < LMT_ATK)
+                    {
+                        goto Attack;
+                    }
+                }
+            }
+            else
+            {
+                WriteLog(shdwName, "Missing value!");
+            }
+        }
+
+        // Shadow bot FireFox
+        private void ShdwBotFF(bool isChkIn)
+        {
+            var shdwName = "FF Bot";
+            IAppConfigService appConfigService = new AppConfigService();
+            var id = appConfigService.Getter(id_ins);
+            var pwd = appConfigService.Getter(pwd_ins);
+            var secKey = appConfigService.Getter(sec_key);
+            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            {
+                var counter = 0;
+            Attack:
+                try
+                {
+                    new DriverManager().SetUpDriver(new FirefoxConfig());
+                    using IWebDriver driver = new FirefoxDriver();
+                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                }
+                catch (Exception ex)
+                {
+                    counter++;
+                    WriteLog($"{shdwName} error", ex.Message);
+                    // limit attack
+                    if (counter is > 0 and < LMT_ATK)
+                    {
+                        goto Attack;
+                    }
+                }
+            }
+            else
+            {
+                WriteLog(shdwName, "Missing value!");
+            }
+        }
+
+        // Shadow bot Edge
+        private void ShdwBotME(bool isChkIn)
+        {
+            var shdwName = "ME Bot";
+            IAppConfigService appConfigService = new AppConfigService();
+            var id = appConfigService.Getter(id_ins);
+            var pwd = appConfigService.Getter(pwd_ins);
+            var secKey = appConfigService.Getter(sec_key);
+            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            {
+                var counter = 0;
+            Attack:
+                try
+                {
+                    new DriverManager().SetUpDriver(new EdgeConfig());
+                    using IWebDriver driver = new EdgeDriver();
+                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                }
+                catch (Exception ex)
+                {
+                    counter++;
+                    WriteLog($"{shdwName} error", ex.Message);
+                    // limit attack
+                    if (counter is > 0 and < LMT_ATK)
+                    {
+                        goto Attack;
+                    }
+                }
+            }
+            else
+            {
+                WriteLog(shdwName, "Missing value!");
+            }
+        }
+
+        // Shadow bot Internet Explorer
+        private void ShdwBotIE(bool isChkIn)
+        {
+            var shdwName = "IE Bot";
+            IAppConfigService appConfigService = new AppConfigService();
+            var id = appConfigService.Getter(id_ins);
+            var pwd = appConfigService.Getter(pwd_ins);
+            var secKey = appConfigService.Getter(sec_key);
+            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            {
+                var counter = 0;
+            Attack:
+                try
+                {
+                    new DriverManager().SetUpDriver(new InternetExplorerConfig());
+                    using IWebDriver driver = new InternetExplorerDriver();
                     ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
                 }
                 catch (Exception ex)

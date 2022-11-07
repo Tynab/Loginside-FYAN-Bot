@@ -121,9 +121,17 @@
     <value>Loginside FYAN Bot Service</value>
     <comment>tên phần mềm</comment>
   </data>
+  <data name="cr_prcs" xml:space="preserve">
+    <value>chromedriver</value>
+    <comment>tên process chrome</comment>
+  </data>
   <data name="day_chg_pwd" xml:space="preserve">
     <value>Day_Chg_Pwd</value>
     <comment>ngày đổi password</comment>
+  </data>
+  <data name="ge_prcs" xml:space="preserve">
+    <value>geckodriver</value>
+    <comment>tên process gecko</comment>
   </data>
   <data name="id_btn_chg_pwd" xml:space="preserve">
     <value>ctl00_ContentPlaceHolder1_ctl00_btnSaveUser</value>
@@ -168,6 +176,10 @@
   <data name="id_old_pwd" xml:space="preserve">
     <value>ctl00_ContentPlaceHolder1_ctl00_txtPasswordOld</value>
     <comment>id mật khẩu cũ</comment>
+  </data>
+  <data name="ie_prcs" xml:space="preserve">
+    <value>IEDriverServer</value>
+    <comment>tên process IE</comment>
   </data>
   <data name="link_ins" xml:space="preserve">
     <value>https://inside.fptshop.com.vn/</value>
