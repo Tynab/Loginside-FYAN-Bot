@@ -2,7 +2,7 @@
 - Run automatically at startup in Windows
 - Bypass user password logon Windows
 - Auto get OTP with the Secret Key set on GUI
-- Auto login page inside of FPT Retail with the account set on GUI (Chrome, FireFox, Edge, IE, Safari)
+- Auto login page inside of FPT Retail with the account set on GUI (Chrome, FireFox, Edge, IE)
 - Checkin at the set time on GUI
 - Checkout at the set time on GUI
 - Auto change password bypass rule inside
@@ -61,6 +61,18 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 - Tynab.YANF » 1.0.1
 
 </div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/9.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- AngleSharp » 0.17.1
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- Microsoft.Win32.Registry » 5.0.0
+
+</div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/5.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
@@ -76,7 +88,7 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/7.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Selenium.WebDriver.ChromeDriver » 108.0.5359.2200-beta
+- Selenium.WebDriver.ChromeDriver » 107.0.5304.6200
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/2.png" align="left" width="3%" height="3%"></img>
@@ -89,5 +101,65 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <div style="display:flex;">
 
 - Selenium.WebDriver.IEDriver » 4.6.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/10.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- SharpZipLib » 1.4.1
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Buffers » 4.5.1
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Memory » 4.5.5
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Numerics.Vectors » 4.5.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Runtime.CompilerServices.Unsafe » 6.0.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Security.AccessControl » 6.0.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Security.Principal.Windows » 5.0.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Text.Encoding.CodePages » 6.0.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- System.Threading.Tasks.Extensions » 4.5.4
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/1.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- WebDriverManager » 2.16.0
 
 </div>
