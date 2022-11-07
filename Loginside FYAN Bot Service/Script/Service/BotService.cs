@@ -3,7 +3,6 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
-using OpenQA.Selenium.Safari;
 using System;
 using System.Threading;
 using WebDriverManager;
@@ -39,6 +38,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             {
                 try
                 {
+                    new DriverManager().SetUpDriver(new ChromeConfig());
                     using IWebDriver driver = new ChromeDriver();
                     ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
                 }
@@ -47,6 +47,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     WriteLog($"{shdwName} error", gcex.Message);
                     try
                     {
+                        new DriverManager().SetUpDriver(new FirefoxConfig());
                         using IWebDriver driver = new FirefoxDriver();
                         ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
                     }
@@ -55,6 +56,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                         WriteLog($"{shdwName} error", ffex.Message);
                         try
                         {
+                            new DriverManager().SetUpDriver(new EdgeConfig());
                             using IWebDriver driver = new EdgeDriver();
                             ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
                         }
@@ -63,21 +65,13 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                             WriteLog($"{shdwName} error", meex.Message);
                             try
                             {
+                                new DriverManager().SetUpDriver(new InternetExplorerConfig());
                                 using IWebDriver driver = new InternetExplorerDriver();
                                 ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
                             }
                             catch (Exception ieex)
                             {
                                 WriteLog($"{shdwName} error", ieex.Message);
-                                try
-                                {
-                                    using IWebDriver driver = new SafariDriver();
-                                    ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
-                                }
-                                catch (Exception isex)
-                                {
-                                    WriteLog($"{shdwName} error", isex.Message);
-                                }
                             }
                         }
                     }

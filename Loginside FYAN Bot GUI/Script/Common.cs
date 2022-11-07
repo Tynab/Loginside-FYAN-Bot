@@ -236,11 +236,17 @@ namespace Loginside_FYAN_Bot_GUI.Script
             {
                 return false;
             }
+            var hasLwrCase = false;
             var hasUprCase = false;
             var hasNum = false;
             var hasSplChar = false;
             foreach (var c in s)
             {
+                // check lower case
+                if (c.ToString() == c.ToString().ToLower())
+                {
+                    hasLwrCase = true;
+                }
                 // check upper case
                 if (c.ToString() == c.ToString().ToUpper())
                 {
@@ -257,7 +263,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
                     hasSplChar = true;
                 }
             }
-            return hasUprCase && hasNum && hasSplChar;
+            return hasLwrCase && hasUprCase && hasNum && hasSplChar;
         }
         #endregion
     }
