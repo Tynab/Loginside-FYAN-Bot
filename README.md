@@ -2,7 +2,7 @@
 - Run automatically at startup in Windows
 - Bypass user password logon Windows
 - Auto get OTP with the Secret Key set on GUI
-- Auto login page inside of FPT Retail with the account set on GUI (Chrome, FireFox, Edge, IE)
+- Auto login page inside of FPT Retail with the account set on GUI (Chrome, FireFox, Edge, IE, Brave)
 - Checkin at the set time on GUI
 - Checkout at the set time on GUI
 - Auto change password bypass rule inside
@@ -148,7 +148,7 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- System.Text.Encoding.CodePages » 6.0.0
+- System.Text.Encoding.CodePages » 7.0.0
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
