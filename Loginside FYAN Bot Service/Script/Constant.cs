@@ -7,7 +7,6 @@ namespace Loginside_FYAN_Bot_Service.Script
     {
         // path
         internal static readonly string LOG_PATH = $@"{CurrentDomain.BaseDirectory}\log";
-        internal static readonly string LOG_ADR = $@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".txt";
 
         // other
         internal const int LMT_ATK = 3;

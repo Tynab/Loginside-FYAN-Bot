@@ -24,6 +24,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             new Thread(() => ShdwBotFF(isChkIn)).Start();
             new Thread(() => ShdwBotME(isChkIn)).Start();
             new Thread(() => ShdwBotIE(isChkIn)).Start();
+            new Thread(() => ShdwBotCB(isChkIn)).Start();
         }
 
         public void BotPwd()
@@ -204,6 +205,45 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 {
                     new DriverManager().SetUpDriver(new InternetExplorerConfig());
                     using IWebDriver driver = new InternetExplorerDriver();
+                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                }
+                catch (Exception ex)
+                {
+                    counter++;
+                    WriteLog($"{shdwName} error", ex.Message);
+                    // limit attack
+                    if (counter is > 0 and < LMT_ATK)
+                    {
+                        goto Attack;
+                    }
+                }
+            }
+            else
+            {
+                WriteLog(shdwName, "Missing value!");
+            }
+        }
+
+        // Shadow bot Brave
+        private void ShdwBotCB(bool isChkIn)
+        {
+            var shdwName = "CB Bot";
+            IAppConfigService appConfigService = new AppConfigService();
+            var id = appConfigService.Getter(id_ins);
+            var pwd = appConfigService.Getter(pwd_ins);
+            var secKey = appConfigService.Getter(sec_key);
+            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            {
+                var counter = 0;
+            Attack:
+                try
+                {
+                    new DriverManager().SetUpDriver(new ChromeConfig());
+                    var options = new ChromeOptions
+                    {
+                        BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+                    };
+                    using IWebDriver driver = new ChromeDriver(options);
                     ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
                 }
                 catch (Exception ex)

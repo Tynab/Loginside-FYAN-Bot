@@ -14,15 +14,16 @@ namespace Loginside_FYAN_Bot_Service.Script
         internal static void WriteLog(string caption, string message)
         {
             CrtDirAdv(LOG_PATH);
+            var logAdr = $@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".txt";
             // create or mod
-            if (Exists(LOG_ADR))
+            if (Exists(logAdr))
             {
-                using var writer = AppendText(LOG_ADR);
+                using var writer = AppendText(logAdr);
                 writer.WriteLine(Now.ToString("HH:mm:ss") + $" {caption}: {message}");
             }
             else
             {
-                using var writer = CreateText(LOG_ADR);
+                using var writer = CreateText(logAdr);
                 writer.WriteLine(Now.ToString("HH:mm:ss") + $" {caption}: {message}");
             }
         }
