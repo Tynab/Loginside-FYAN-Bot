@@ -12,6 +12,8 @@ using static Loginside_FYAN_Bot_Service.Script.Common;
 using static Loginside_FYAN_Bot_Service.Script.Constant;
 using static Loginside_FYAN_Bot_Service.Script.Logger;
 using static OpenQA.Selenium.By;
+using static System.AppDomain;
+using static System.Environment;
 using static System.Threading.Thread;
 
 namespace Loginside_FYAN_Bot_Service.Script.Service
@@ -228,6 +230,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         private void ShdwBotCB(bool isChkIn)
         {
             var shdwName = "CB Bot";
+            var crDrvPath = $"{CurrentDomain.BaseDirectory}";
             IAppConfigService appConfigService = new AppConfigService();
             var id = appConfigService.Getter(id_ins);
             var pwd = appConfigService.Getter(pwd_ins);
@@ -238,12 +241,13 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             Attack:
                 try
                 {
+                    SetEnvironmentVariable("webdriver.chrome.driver", $@"{crDrvPath}\chromedriver.exe");
                     new DriverManager().SetUpDriver(new ChromeConfig());
                     var options = new ChromeOptions
                     {
                         BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
                     };
-                    using IWebDriver driver = new ChromeDriver(options);
+                    using IWebDriver driver = new ChromeDriver(crDrvPath, options);
                     ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
                 }
                 catch (Exception ex)
