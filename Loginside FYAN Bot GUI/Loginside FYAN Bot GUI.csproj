@@ -87,6 +87,9 @@
     <Compile Include="Screen\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screen\FrmMain.EventHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Script\Common.cs" />
     <Compile Include="Script\Constant.cs" />
     <Compile Include="Script\IAppConfigService.cs" />
