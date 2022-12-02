@@ -190,15 +190,6 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             // sound
             SND_NEXT.PlaySync();
         }
-
-        // Mod MoveFrm event
-        private void MoveFrmMod_MouseDown(object sender, MouseEventArgs e)
-        {
-            // base
-            MoveFrm_MouseDown(sender, e);
-            // sound
-            SND_CHG.Play();
-        }
         #endregion
 
         #region Methods
@@ -242,9 +233,8 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             var val = _appConfigService.Getter(key);
             if (!string.IsNullOrWhiteSpace(val))
             {
-                var rsltFull = val.Substring(0, 2);
-                var rsltRip = val.Substring(0, 1);
-                return int.TryParse(rsltFull, out var _) ? decimal.Parse(rsltFull) : int.TryParse(rsltRip, out var _) ? decimal.Parse(rsltRip) : 0;
+                var rslt = val.Split(':')[0];
+                return int.TryParse(rslt, out var _) ? decimal.Parse(rslt) : 0;
             }
             else
             {
@@ -258,9 +248,8 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             var val = _appConfigService.Getter(key);
             if (!string.IsNullOrWhiteSpace(val))
             {
-                var rsltFull = val.Substring(2);
-                var rsltRip = val.Substring(3);
-                return int.TryParse(rsltFull, out var _) ? decimal.Parse(rsltFull) : int.TryParse(rsltRip, out var _) ? decimal.Parse(rsltRip) : 0;
+                var rslt = val.Split(':')[1];
+                return int.TryParse(rslt, out var _) ? decimal.Parse(rslt) : 0;
             }
             else
             {

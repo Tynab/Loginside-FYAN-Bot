@@ -80,17 +80,15 @@ namespace Loginside_FYAN_Bot_Service
         // Get hour from config
         private string GetHourConfig(string key)
         {
-            var rsltFull = _appConfigService.Getter(key).Substring(0, 2);
-            var rsltRip = _appConfigService.Getter(key).Substring(0, 1);
-            return int.TryParse(rsltFull, out var _) ? rsltFull : int.TryParse(rsltRip, out var _) ? rsltRip : "00";
+            var rslt = _appConfigService.Getter(key).Split(':')[0];
+            return int.TryParse(rslt, out var _) ? rslt : "00";
         }
 
         // Get minute from config
         private string GetMinConfig(string key)
         {
-            var rsltFull = _appConfigService.Getter(key).Substring(2);
-            var rsltRip = _appConfigService.Getter(key).Substring(3);
-            return int.TryParse(rsltFull, out var _) ? rsltFull : int.TryParse(rsltRip, out var _) ? rsltRip : "00";
+            var rslt = _appConfigService.Getter(key).Split(':')[1];
+            return int.TryParse(rslt, out var _) ? rslt : "00";
         }
         #endregion
     }
