@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using Loginside_FYAN_Bot_Service.Script.Model;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
@@ -13,17 +14,13 @@ using static Loginside_FYAN_Bot_Service.Script.Common;
 using static Loginside_FYAN_Bot_Service.Script.Constant;
 using static Loginside_FYAN_Bot_Service.Script.Logger;
 using static OpenQA.Selenium.By;
-using static System.AppDomain;
 using static System.Environment;
 using static System.Threading.Thread;
-using static System.TimeSpan;
 
 namespace Loginside_FYAN_Bot_Service.Script.Service
 {
     public class BotService : IBotService
     {
-        private readonly string _crDrvPath = CurrentDomain.BaseDirectory;
-
         public void BotStem(bool isChkIn)
         {
             new Thread(() => ShdwBotGC(isChkIn)).Start();
@@ -37,17 +34,20 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         {
             var shdwName = "Bot Pwd";
             IAppConfigService appConfigService = new AppConfigService();
-            var id = appConfigService.Getter(id_ins);
-            var pwd = appConfigService.Getter(pwd_ins);
-            var pwdPrev = appConfigService.Getter(pwd_prev);
-            var secKey = appConfigService.Getter(sec_key);
-            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(pwdPrev) && !string.IsNullOrWhiteSpace(secKey))
+            var acctIns = new AcctIns
+            {
+                Id = appConfigService.Getter(id_ins),
+                Pwd = appConfigService.Getter(pwd_ins),
+                PwdPrev = appConfigService.Getter(pwd_prev),
+                SecKey = appConfigService.Getter(sec_key)
+            };
+            if (!string.IsNullOrWhiteSpace(acctIns.Id) && !string.IsNullOrWhiteSpace(acctIns.Pwd) && !string.IsNullOrWhiteSpace(acctIns.PwdPrev) && !string.IsNullOrWhiteSpace(acctIns.SecKey))
             {
                 try
                 {
                     new DriverManager().SetUpDriver(new ChromeConfig());
                     using IWebDriver driver = new ChromeDriver();
-                    ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                    ShdwChgPwd(shdwName, driver, acctIns);
                 }
                 catch (Exception gcex)
                 {
@@ -56,7 +56,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     {
                         new DriverManager().SetUpDriver(new FirefoxConfig());
                         using IWebDriver driver = new FirefoxDriver();
-                        ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                        ShdwChgPwd(shdwName, driver, acctIns);
                     }
                     catch (Exception ffex)
                     {
@@ -65,7 +65,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                         {
                             new DriverManager().SetUpDriver(new EdgeConfig());
                             using IWebDriver driver = new EdgeDriver();
-                            ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                            ShdwChgPwd(shdwName, driver, acctIns);
                         }
                         catch (Exception meex)
                         {
@@ -74,21 +74,21 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                             {
                                 new DriverManager().SetUpDriver(new InternetExplorerConfig());
                                 using IWebDriver driver = new InternetExplorerDriver();
-                                ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                ShdwChgPwd(shdwName, driver, acctIns);
                             }
                             catch (Exception ieex)
                             {
                                 WriteLog($"{shdwName} error", ieex.Message);
                                 try
                                 {
-                                    SetEnvironmentVariable("webdriver.chrome.driver", $@"{_crDrvPath}\chromedriver.exe");
+                                    SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
                                     new DriverManager().SetUpDriver(new ChromeConfig());
                                     var options = new ChromeOptions
                                     {
                                         BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
                                     };
-                                    using IWebDriver driver = new ChromeDriver(_crDrvPath, options);
-                                    ShdwChgPwd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                    using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
+                                    ShdwChgPwd(shdwName, driver, acctIns);
                                 }
                                 catch (Exception cbex)
                                 {
@@ -97,7 +97,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                     {
                                         new DriverManager().SetUpDriver(new ChromeConfig());
                                         using IWebDriver driver = new ChromeDriver();
-                                        ShdwChgPwdNextGenSt(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                        ShdwChgPwdNextGenSt(shdwName, driver, acctIns);
                                     }
                                     catch (Exception gcex1)
                                     {
@@ -106,7 +106,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                         {
                                             new DriverManager().SetUpDriver(new FirefoxConfig());
                                             using IWebDriver driver = new FirefoxDriver();
-                                            ShdwChgPwdNextGenSt(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                            ShdwChgPwdNextGenSt(shdwName, driver, acctIns);
                                         }
                                         catch (Exception ffex1)
                                         {
@@ -115,7 +115,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                             {
                                                 new DriverManager().SetUpDriver(new EdgeConfig());
                                                 using IWebDriver driver = new EdgeDriver();
-                                                ShdwChgPwdNextGenSt(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                ShdwChgPwdNextGenSt(shdwName, driver, acctIns);
                                             }
                                             catch (Exception meex1)
                                             {
@@ -124,21 +124,21 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                                 {
                                                     new DriverManager().SetUpDriver(new InternetExplorerConfig());
                                                     using IWebDriver driver = new InternetExplorerDriver();
-                                                    ShdwChgPwdNextGenSt(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                    ShdwChgPwdNextGenSt(shdwName, driver, acctIns);
                                                 }
                                                 catch (Exception ieex1)
                                                 {
                                                     WriteLog($"{shdwName} next gen 1st error", ieex1.Message);
                                                     try
                                                     {
-                                                        SetEnvironmentVariable("webdriver.chrome.driver", $@"{_crDrvPath}\chromedriver.exe");
+                                                        SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
                                                         new DriverManager().SetUpDriver(new ChromeConfig());
                                                         var options = new ChromeOptions
                                                         {
                                                             BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
                                                         };
-                                                        using IWebDriver driver = new ChromeDriver(_crDrvPath, options);
-                                                        ShdwChgPwdNextGenSt(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                        using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
+                                                        ShdwChgPwdNextGenSt(shdwName, driver, acctIns);
                                                     }
                                                     catch (Exception cbex1)
                                                     {
@@ -147,7 +147,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                                         {
                                                             new DriverManager().SetUpDriver(new ChromeConfig());
                                                             using IWebDriver driver = new ChromeDriver();
-                                                            ShdwChgPwdNextGenNd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                            ShdwChgPwdNextGenNd(shdwName, driver, acctIns);
                                                         }
                                                         catch (Exception gcex2)
                                                         {
@@ -156,7 +156,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                                             {
                                                                 new DriverManager().SetUpDriver(new FirefoxConfig());
                                                                 using IWebDriver driver = new FirefoxDriver();
-                                                                ShdwChgPwdNextGenNd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                                ShdwChgPwdNextGenNd(shdwName, driver, acctIns);
                                                             }
                                                             catch (Exception ffex2)
                                                             {
@@ -165,7 +165,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                                                 {
                                                                     new DriverManager().SetUpDriver(new EdgeConfig());
                                                                     using IWebDriver driver = new EdgeDriver();
-                                                                    ShdwChgPwdNextGenNd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                                    ShdwChgPwdNextGenNd(shdwName, driver, acctIns);
                                                                 }
                                                                 catch (Exception meex2)
                                                                 {
@@ -174,21 +174,21 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                                                     {
                                                                         new DriverManager().SetUpDriver(new InternetExplorerConfig());
                                                                         using IWebDriver driver = new InternetExplorerDriver();
-                                                                        ShdwChgPwdNextGenNd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                                        ShdwChgPwdNextGenNd(shdwName, driver, acctIns);
                                                                     }
                                                                     catch (Exception ieex2)
                                                                     {
                                                                         WriteLog($"{shdwName} next gen 2nd error", ieex2.Message);
                                                                         try
                                                                         {
-                                                                            SetEnvironmentVariable("webdriver.chrome.driver", $@"{_crDrvPath}\chromedriver.exe");
+                                                                            SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
                                                                             new DriverManager().SetUpDriver(new ChromeConfig());
                                                                             var options = new ChromeOptions
                                                                             {
                                                                                 BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
                                                                             };
-                                                                            using IWebDriver driver = new ChromeDriver(_crDrvPath, options);
-                                                                            ShdwChgPwdNextGenNd(shdwName, driver, id, pwd, pwdPrev, secKey);
+                                                                            using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
+                                                                            ShdwChgPwdNextGenNd(shdwName, driver, acctIns);
                                                                         }
                                                                         catch (Exception cbex2)
                                                                         {
@@ -220,10 +220,13 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         {
             var shdwName = "GC Bot";
             IAppConfigService appConfigService = new AppConfigService();
-            var id = appConfigService.Getter(id_ins);
-            var pwd = appConfigService.Getter(pwd_ins);
-            var secKey = appConfigService.Getter(sec_key);
-            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            var acctIns = new AcctIns
+            {
+                Id = appConfigService.Getter(id_ins),
+                Pwd = appConfigService.Getter(pwd_ins),
+                SecKey = appConfigService.Getter(sec_key)
+            };
+            if (!string.IsNullOrWhiteSpace(acctIns.Id) && !string.IsNullOrWhiteSpace(acctIns.Pwd) && !string.IsNullOrWhiteSpace(acctIns.SecKey))
             {
                 var counter = 0;
             Attack:
@@ -231,7 +234,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 {
                     new DriverManager().SetUpDriver(new ChromeConfig());
                     using IWebDriver driver = new ChromeDriver();
-                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                    ShdwChkIO(shdwName, driver, isChkIn, acctIns);
                 }
                 catch (Exception ex)
                 {
@@ -246,7 +249,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     {
                         new DriverManager().SetUpDriver(new ChromeConfig());
                         using IWebDriver driver = new ChromeDriver();
-                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, id, pwd, secKey);
+                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, acctIns);
                     }
                     catch (Exception ex1)
                     {
@@ -255,7 +258,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                         {
                             new DriverManager().SetUpDriver(new ChromeConfig());
                             using IWebDriver driver = new ChromeDriver();
-                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, id, pwd, secKey);
+                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, acctIns);
                         }
                         catch (Exception ex2)
                         {
@@ -275,10 +278,13 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         {
             var shdwName = "FF Bot";
             IAppConfigService appConfigService = new AppConfigService();
-            var id = appConfigService.Getter(id_ins);
-            var pwd = appConfigService.Getter(pwd_ins);
-            var secKey = appConfigService.Getter(sec_key);
-            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            var acctIns = new AcctIns
+            {
+                Id = appConfigService.Getter(id_ins),
+                Pwd = appConfigService.Getter(pwd_ins),
+                SecKey = appConfigService.Getter(sec_key)
+            };
+            if (!string.IsNullOrWhiteSpace(acctIns.Id) && !string.IsNullOrWhiteSpace(acctIns.Pwd) && !string.IsNullOrWhiteSpace(acctIns.SecKey))
             {
                 var counter = 0;
             Attack:
@@ -286,7 +292,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 {
                     new DriverManager().SetUpDriver(new FirefoxConfig());
                     using IWebDriver driver = new FirefoxDriver();
-                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                    ShdwChkIO(shdwName, driver, isChkIn, acctIns);
                 }
                 catch (Exception ex)
                 {
@@ -301,7 +307,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     {
                         new DriverManager().SetUpDriver(new FirefoxConfig());
                         using IWebDriver driver = new FirefoxDriver();
-                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, id, pwd, secKey);
+                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, acctIns);
                     }
                     catch (Exception ex1)
                     {
@@ -310,7 +316,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                         {
                             new DriverManager().SetUpDriver(new FirefoxConfig());
                             using IWebDriver driver = new FirefoxDriver();
-                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, id, pwd, secKey);
+                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, acctIns);
                         }
                         catch (Exception ex2)
                         {
@@ -330,10 +336,13 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         {
             var shdwName = "ME Bot";
             IAppConfigService appConfigService = new AppConfigService();
-            var id = appConfigService.Getter(id_ins);
-            var pwd = appConfigService.Getter(pwd_ins);
-            var secKey = appConfigService.Getter(sec_key);
-            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            var acctIns = new AcctIns
+            {
+                Id = appConfigService.Getter(id_ins),
+                Pwd = appConfigService.Getter(pwd_ins),
+                SecKey = appConfigService.Getter(sec_key)
+            };
+            if (!string.IsNullOrWhiteSpace(acctIns.Id) && !string.IsNullOrWhiteSpace(acctIns.Pwd) && !string.IsNullOrWhiteSpace(acctIns.SecKey))
             {
                 var counter = 0;
             Attack:
@@ -341,7 +350,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 {
                     new DriverManager().SetUpDriver(new EdgeConfig());
                     using IWebDriver driver = new EdgeDriver();
-                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                    ShdwChkIO(shdwName, driver, isChkIn, acctIns);
                 }
                 catch (Exception ex)
                 {
@@ -356,7 +365,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     {
                         new DriverManager().SetUpDriver(new EdgeConfig());
                         using IWebDriver driver = new EdgeDriver();
-                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, id, pwd, secKey);
+                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, acctIns);
                     }
                     catch (Exception ex1)
                     {
@@ -365,7 +374,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                         {
                             new DriverManager().SetUpDriver(new EdgeConfig());
                             using IWebDriver driver = new EdgeDriver();
-                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, id, pwd, secKey);
+                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, acctIns);
                         }
                         catch (Exception ex2)
                         {
@@ -385,10 +394,13 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         {
             var shdwName = "IE Bot";
             IAppConfigService appConfigService = new AppConfigService();
-            var id = appConfigService.Getter(id_ins);
-            var pwd = appConfigService.Getter(pwd_ins);
-            var secKey = appConfigService.Getter(sec_key);
-            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            var acctIns = new AcctIns
+            {
+                Id = appConfigService.Getter(id_ins),
+                Pwd = appConfigService.Getter(pwd_ins),
+                SecKey = appConfigService.Getter(sec_key)
+            };
+            if (!string.IsNullOrWhiteSpace(acctIns.Id) && !string.IsNullOrWhiteSpace(acctIns.Pwd) && !string.IsNullOrWhiteSpace(acctIns.SecKey))
             {
                 var counter = 0;
             Attack:
@@ -396,7 +408,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                 {
                     new DriverManager().SetUpDriver(new InternetExplorerConfig());
                     using IWebDriver driver = new InternetExplorerDriver();
-                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                    ShdwChkIO(shdwName, driver, isChkIn, acctIns);
                 }
                 catch (Exception ex)
                 {
@@ -411,7 +423,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     {
                         new DriverManager().SetUpDriver(new InternetExplorerConfig());
                         using IWebDriver driver = new InternetExplorerDriver();
-                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, id, pwd, secKey);
+                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, acctIns);
                     }
                     catch (Exception ex1)
                     {
@@ -420,7 +432,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                         {
                             new DriverManager().SetUpDriver(new InternetExplorerConfig());
                             using IWebDriver driver = new InternetExplorerDriver();
-                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, id, pwd, secKey);
+                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, acctIns);
                         }
                         catch (Exception ex2)
                         {
@@ -440,23 +452,26 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         {
             var shdwName = "CB Bot";
             IAppConfigService appConfigService = new AppConfigService();
-            var id = appConfigService.Getter(id_ins);
-            var pwd = appConfigService.Getter(pwd_ins);
-            var secKey = appConfigService.Getter(sec_key);
-            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(pwd) && !string.IsNullOrWhiteSpace(secKey))
+            var acctIns = new AcctIns
+            {
+                Id = appConfigService.Getter(id_ins),
+                Pwd = appConfigService.Getter(pwd_ins),
+                SecKey = appConfigService.Getter(sec_key)
+            };
+            if (!string.IsNullOrWhiteSpace(acctIns.Id) && !string.IsNullOrWhiteSpace(acctIns.Pwd) && !string.IsNullOrWhiteSpace(acctIns.SecKey))
             {
                 var counter = 0;
             Attack:
                 try
                 {
-                    SetEnvironmentVariable("webdriver.chrome.driver", $@"{_crDrvPath}\chromedriver.exe");
+                    SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
                     new DriverManager().SetUpDriver(new ChromeConfig());
                     var options = new ChromeOptions
                     {
                         BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
                     };
-                    using IWebDriver driver = new ChromeDriver(_crDrvPath, options);
-                    ShdwChkIO(shdwName, driver, isChkIn, id, pwd, secKey);
+                    using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
+                    ShdwChkIO(shdwName, driver, isChkIn, acctIns);
                 }
                 catch (Exception ex)
                 {
@@ -469,28 +484,28 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                     }
                     try
                     {
-                        SetEnvironmentVariable("webdriver.chrome.driver", $@"{_crDrvPath}\chromedriver.exe");
+                        SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
                         new DriverManager().SetUpDriver(new ChromeConfig());
                         var options = new ChromeOptions
                         {
                             BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
                         };
-                        using IWebDriver driver = new ChromeDriver(_crDrvPath, options);
-                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, id, pwd, secKey);
+                        using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
+                        ShdwChkIONextGenSt(shdwName, driver, isChkIn, acctIns);
                     }
                     catch (Exception ex1)
                     {
                         WriteLog($"{shdwName} next gen 1st error", ex1.Message);
                         try
                         {
-                            SetEnvironmentVariable("webdriver.chrome.driver", $@"{_crDrvPath}\chromedriver.exe");
+                            SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
                             new DriverManager().SetUpDriver(new ChromeConfig());
                             var options = new ChromeOptions
                             {
                                 BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
                             };
-                            using IWebDriver driver = new ChromeDriver(_crDrvPath, options);
-                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, id, pwd, secKey);
+                            using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
+                            ShdwChkIONextGenNd(shdwName, driver, isChkIn, acctIns);
                         }
                         catch (Exception ex2)
                         {
@@ -506,7 +521,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         }
 
         // Shadow login
-        private void ShdwLogin(string shdwName, IWebDriver driver, string id, string pwd, string secKey)
+        private void ShdwLogin(string shdwName, IWebDriver driver, AcctIns acctIns)
         {
             // access link
             driver.Manage().Window.Maximize();
@@ -514,15 +529,15 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             Sleep(TIME_OUT);
             // enter Id
             var elemId = driver.FindElement(Id(id_inp_id));
-            elemId.SendKeys(id);
+            elemId.SendKeys(acctIns.Id);
             Sleep(DELAY);
             // enter password
             var elemPwd = driver.FindElement(Id(id_inp_pwd));
-            elemPwd.SendKeys(pwd);
+            elemPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter OTP
             var elemOtp = driver.FindElement(Id(id_inp_otp));
-            elemOtp.SendKeys(GetOTP(secKey));
+            elemOtp.SendKeys(GetOTP(acctIns.SecKey));
             Sleep(DELAY);
             // login
             var elemBtnLogIn = driver.FindElement(Id(id_btn_login));
@@ -532,36 +547,35 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         }
 
         // Shadow login next generation
-        private void ShdwLoginNextGen(string shdwName, IWebDriver driver, string id, string pwd, string secKey)
+        private void ShdwLoginNextGen(string shdwName, IWebDriver driver, AcctIns acctIns)
         {
-            var wait = new WebDriverWait(driver, FromSeconds(TIME_WAIT));
             // access link
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(link_ins);
             Sleep(TIME_OUT);
             // enter Id
-            var elemId = wait.Until(e => e.FindElement(Id(id_inp_id.Remove(0))));
-            elemId.SendKeys(id);
+            var elemId = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_inp_id.Remove(0))));
+            elemId.SendKeys(acctIns.Id);
             Sleep(DELAY);
             // enter password
-            var elemPwd = wait.Until(e => e.FindElement(Id(id_inp_pwd.Remove(0))));
-            elemPwd.SendKeys(pwd);
+            var elemPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_inp_pwd.Remove(0))));
+            elemPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter OTP
-            var elemOtp = wait.Until(e => e.FindElement(Id(id_inp_otp.Remove(0))));
-            elemOtp.SendKeys(GetOTP(secKey));
+            var elemOtp = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_inp_otp.Remove(0))));
+            elemOtp.SendKeys(GetOTP(acctIns.SecKey));
             Sleep(DELAY);
             // login
-            var elemBtnLogIn = wait.Until(e => e.FindElement(Id(id_btn_login.Remove(0))));
+            var elemBtnLogIn = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_login.Remove(0))));
             elemBtnLogIn.Click();
             WriteLog(shdwName, "Logged!");
             Sleep(TIME_OUT);
         }
 
         // Shadow check in/out
-        private void ShdwChkIO(string shdwName, IWebDriver driver, bool isChkIn, string id, string pwd, string secKey)
+        private void ShdwChkIO(string shdwName, IWebDriver driver, bool isChkIn, AcctIns acctIns)
         {
-            ShdwLogin(shdwName, driver, id, pwd, secKey);
+            ShdwLogin(shdwName, driver, acctIns);
             // check click
             var elemBtnChk = isChkIn ? driver.FindElement(Id(id_btn_chkin)) : driver.FindElement(Id(id_btn_chkout));
             elemBtnChk.Click();
@@ -570,46 +584,44 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         }
 
         // Shadow check in/out next generation first
-        private void ShdwChkIONextGenSt(string shdwName, IWebDriver driver, bool isChkIn, string id, string pwd, string secKey)
+        private void ShdwChkIONextGenSt(string shdwName, IWebDriver driver, bool isChkIn, AcctIns acctIns)
         {
-            var wait = new WebDriverWait(driver, FromSeconds(TIME_WAIT));
-            ShdwLogin(shdwName, driver, id, pwd, secKey);
+            ShdwLogin(shdwName, driver, acctIns);
             // check click
-            var elemBtnChk = isChkIn ? wait.Until(e => e.FindElement(Id(id_btn_chkin.Remove(0)))) : wait.Until(e => e.FindElement(Id(id_btn_chkout.Remove(0))));
+            var elemBtnChk = isChkIn ? new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkin.Remove(0)))) : new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkout.Remove(0))));
             elemBtnChk.Click();
             WriteLog(shdwName, isChkIn ? "Checked in!" : "Checked out!");
             Sleep(DELAY);
         }
 
         // Shadow check in/out next generation second
-        private void ShdwChkIONextGenNd(string shdwName, IWebDriver driver, bool isChkIn, string id, string pwd, string secKey)
+        private void ShdwChkIONextGenNd(string shdwName, IWebDriver driver, bool isChkIn, AcctIns acctIns)
         {
-            var wait = new WebDriverWait(driver, FromSeconds(TIME_WAIT));
-            ShdwLoginNextGen(shdwName, driver, id, pwd, secKey);
+            ShdwLoginNextGen(shdwName, driver, acctIns);
             // check click
-            var elemBtnChk = isChkIn ? wait.Until(e => e.FindElement(Id(id_btn_chkin.Remove(0)))) : wait.Until(e => e.FindElement(Id(id_btn_chkout.Remove(0))));
+            var elemBtnChk = isChkIn ? new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkin.Remove(0)))) : new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkout.Remove(0))));
             elemBtnChk.Click();
             WriteLog(shdwName, isChkIn ? "Checked in!" : "Checked out!");
             Sleep(DELAY);
         }
 
         // Shadow change password
-        private void ShdwChgPwd(string shdwName, IWebDriver driver, string id, string pwd, string pwdPrev, string secKey)
+        private void ShdwChgPwd(string shdwName, IWebDriver driver, AcctIns acctIns)
         {
-            ShdwLogin(shdwName, driver, id, pwd, secKey);
+            ShdwLogin(shdwName, driver, acctIns);
             // forward
             driver.Navigate().GoToUrl(link_ins_chg_pwd);
             // enter old password
             var elemOldPwd = driver.FindElement(Id(id_old_pwd));
-            elemOldPwd.SendKeys(pwd);
+            elemOldPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter new password
             var elemNewPwd = driver.FindElement(Id(id_new_pwd));
-            elemNewPwd.SendKeys(pwdPrev);
+            elemNewPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // enter confirm password
             var elemCfmPwd = driver.FindElement(Id(id_cfm_pwd));
-            elemCfmPwd.SendKeys(pwdPrev);
+            elemCfmPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // change password
             var elemBtnChgPwd = driver.FindElement(Id(id_btn_chg_pwd));
@@ -618,15 +630,15 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             Sleep(TIME_OUT);
             // enter old password
             elemOldPwd = driver.FindElement(Id(id_old_pwd));
-            elemOldPwd.SendKeys(pwdPrev);
+            elemOldPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // enter new password
             elemNewPwd = driver.FindElement(Id(id_new_pwd));
-            elemNewPwd.SendKeys(pwd);
+            elemNewPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter confirm password
             elemCfmPwd = driver.FindElement(Id(id_cfm_pwd));
-            elemCfmPwd.SendKeys(pwd);
+            elemCfmPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // change password
             elemBtnChgPwd = driver.FindElement(Id(id_btn_chg_pwd));
@@ -636,86 +648,84 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
         }
 
         // Shadow change password next generation first
-        private void ShdwChgPwdNextGenSt(string shdwName, IWebDriver driver, string id, string pwd, string pwdPrev, string secKey)
+        private void ShdwChgPwdNextGenSt(string shdwName, IWebDriver driver, AcctIns acctIns)
         {
-            var wait = new WebDriverWait(driver, FromSeconds(TIME_WAIT));
-            ShdwLoginNextGen(shdwName, driver, id, pwd, secKey);
+            ShdwLoginNextGen(shdwName, driver, acctIns);
             // forward
             driver.Navigate().GoToUrl(link_ins_chg_pwd);
             // enter old password
-            var elemOldPwd = wait.Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
-            elemOldPwd.SendKeys(pwd);
+            var elemOldPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
+            elemOldPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter new password
-            var elemNewPwd = wait.Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
-            elemNewPwd.SendKeys(pwdPrev);
+            var elemNewPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
+            elemNewPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // enter confirm password
-            var elemCfmPwd = wait.Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
-            elemCfmPwd.SendKeys(pwdPrev);
+            var elemCfmPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
+            elemCfmPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // change password
-            var elemBtnChgPwd = wait.Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
+            var elemBtnChgPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
             elemBtnChgPwd.Click();
             WriteLog(shdwName, "Password changed!");
             Sleep(TIME_OUT);
             // enter old password
-            elemOldPwd = wait.Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
-            elemOldPwd.SendKeys(pwdPrev);
+            elemOldPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
+            elemOldPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // enter new password
-            elemNewPwd = wait.Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
-            elemNewPwd.SendKeys(pwd);
+            elemNewPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
+            elemNewPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter confirm password
-            elemCfmPwd = wait.Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
-            elemCfmPwd.SendKeys(pwd);
+            elemCfmPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
+            elemCfmPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // change password
-            elemBtnChgPwd = wait.Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
+            elemBtnChgPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
             elemBtnChgPwd.Click();
             WriteLog(shdwName, "Password re-changed!");
             Sleep(TIME_OUT);
         }
 
         // Shadow change password next generation second
-        private void ShdwChgPwdNextGenNd(string shdwName, IWebDriver driver, string id, string pwd, string pwdPrev, string secKey)
+        private void ShdwChgPwdNextGenNd(string shdwName, IWebDriver driver, AcctIns acctIns)
         {
-            var wait = new WebDriverWait(driver, FromSeconds(TIME_WAIT));
-            ShdwLogin(shdwName, driver, id, pwd, secKey);
+            ShdwLogin(shdwName, driver, acctIns);
             // forward
             driver.Navigate().GoToUrl(link_ins_chg_pwd);
             // enter old password
-            var elemOldPwd = wait.Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
-            elemOldPwd.SendKeys(pwd);
+            var elemOldPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
+            elemOldPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter new password
-            var elemNewPwd = wait.Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
-            elemNewPwd.SendKeys(pwdPrev);
+            var elemNewPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
+            elemNewPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // enter confirm password
-            var elemCfmPwd = wait.Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
-            elemCfmPwd.SendKeys(pwdPrev);
+            var elemCfmPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
+            elemCfmPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // change password
-            var elemBtnChgPwd = wait.Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
+            var elemBtnChgPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
             elemBtnChgPwd.Click();
             WriteLog(shdwName, "Password changed!");
             Sleep(TIME_OUT);
             // enter old password
-            elemOldPwd = wait.Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
-            elemOldPwd.SendKeys(pwdPrev);
+            elemOldPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_old_pwd.Remove(0))));
+            elemOldPwd.SendKeys(acctIns.PwdPrev);
             Sleep(DELAY);
             // enter new password
-            elemNewPwd = wait.Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
-            elemNewPwd.SendKeys(pwd);
+            elemNewPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_new_pwd.Remove(0))));
+            elemNewPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // enter confirm password
-            elemCfmPwd = wait.Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
-            elemCfmPwd.SendKeys(pwd);
+            elemCfmPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_cfm_pwd.Remove(0))));
+            elemCfmPwd.SendKeys(acctIns.Pwd);
             Sleep(DELAY);
             // change password
-            elemBtnChgPwd = wait.Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
+            elemBtnChgPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chg_pwd.Remove(0))));
             elemBtnChgPwd.Click();
             WriteLog(shdwName, "Password re-changed!");
             Sleep(TIME_OUT);

@@ -133,6 +133,7 @@
     <Compile Include="Script\IAppConfigService.cs" />
     <Compile Include="Script\IBotService.cs" />
     <Compile Include="Script\Logger.cs" />
+    <Compile Include="Script\Model\AcctIns.cs" />
     <Compile Include="Script\Service\AppConfigService.cs" />
     <Compile Include="Script\Service\BotService.cs" />
     <Compile Include="ServiceMain.cs">
