@@ -1,6 +1,8 @@
-﻿using System.Media;
+﻿using System.Drawing;
+using System.Media;
 using static Loginside_FYAN_Bot_GUI.Properties.Resources;
 using static System.AppDomain;
+using static System.Drawing.Color;
 using static System.IO.Directory;
 
 namespace Loginside_FYAN_Bot_GUI.Script
@@ -20,7 +22,13 @@ namespace Loginside_FYAN_Bot_GUI.Script
         // animator
         internal const float ANIMAT_SPD = 0.02f;
 
+        // color
+        internal static readonly Color CLR_ACT_STRT = FromArgb(133, 193, 93);
+        internal static readonly Color CLR_ACT_STOP = FromArgb(56, 73, 89);
+
         // other
+        internal const int MIN_CHAR_PWD = 8;
+        internal const int DFLT_DAY = 15;
         internal const int TIME_OUT = 3000;
         internal static readonly char[] PWD_SPL_CHAR = { '@', '#', '$', '%' };
 

@@ -1,6 +1,7 @@
 ﻿using OtpNet;
 using System;
 using System.Linq;
+using static Loginside_FYAN_Bot_Service.Script.Constant;
 using static Loginside_FYAN_Bot_Service.Script.Logger;
 using static OtpNet.Base32Encoding;
 using static System.Diagnostics.Process;
@@ -54,7 +55,7 @@ namespace Loginside_FYAN_Bot_Service.Script
         internal static int MinDayPrs(string s)
         {
             _ = int.TryParse(s, out var rslt);
-            return rslt is > 1 and < 28 ? rslt : 15;
+            return rslt is > 1 and < 28 ? rslt : DFLT_DAY;
         }
 
         /// <summary>
@@ -92,7 +93,7 @@ namespace Loginside_FYAN_Bot_Service.Script
                 foreach (var prc in GetProcessesByName(name))
                 {
                     prc.Kill();
-                    Sleep(100);
+                    Sleep(TMR_INTVL_DFLT);
                 }
             }
         }

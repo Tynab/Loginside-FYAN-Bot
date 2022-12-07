@@ -9,11 +9,7 @@ using static Loginside_FYAN_Bot_GUI.Properties.Resources;
 using static Loginside_FYAN_Bot_GUI.Script.Common;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
-using static System.Drawing.Color;
 using static System.IO.File;
-using static System.Windows.Forms.MessageBoxButtons;
-using static System.Windows.Forms.MessageBoxIcon;
-using static YANF.Script.YANConstant.MsgBoxLang;
 using static YANF.Script.YANEvent;
 
 namespace Loginside_FYAN_Bot_GUI.Screen
@@ -59,7 +55,7 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             txtSecKey.String = _appConfigService.Getter(sec_key);
             txtPwdPrev.String = _appConfigService.Getter(pwd_prev);
             var dayChgPwd = _appConfigService.Getter(day_chg_pwd);
-            nbDayChgPwd.Value = string.IsNullOrWhiteSpace(dayChgPwd) ? 15 : int.TryParse(dayChgPwd, out var _) ? decimal.Parse(dayChgPwd) : 15;
+            nbDayChgPwd.Value = string.IsNullOrWhiteSpace(dayChgPwd) ? DFLT_DAY : int.TryParse(dayChgPwd, out var _) ? decimal.Parse(dayChgPwd) : DFLT_DAY;
             pnlMain.Select();
         }
         #endregion
@@ -80,7 +76,7 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             // is missing data
             if (!Exists(CONFIG_ADR))
             {
-                YANMessageBox.Show("LỖI", "Quá trình cài đặt bot service không thành công!", OK, Error, VIE);
+                _ = MsgEServNotFd();
                 Close();
             }
         }
@@ -117,14 +113,11 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             var sPwd = txtPwd.String;
             if (IsVldPwd(sPwd))
             {
-                if (!string.IsNullOrWhiteSpace(sPwd))
-                {
-                    isScs = isScs && _appConfigService.Setter(pwd_ins, sPwd);
-                }
+                isScs = isScs && _appConfigService.Setter(pwd_ins, sPwd);
             }
             else
             {
-                YANMessageBox.Show("LỖI", "Mật khẩu phải từ 8 ký tự trở lên. Gồm chữ in, chữ thường, số và ký tự đặc biệt (@, #, $, %).", OK, Error, VIE);
+                _ = MsgEPwdFail();
                 txtPwd.ResetText();
                 txtPwd.Select();
                 return;
@@ -133,14 +126,11 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             var sPwdPrev = txtPwdPrev.String;
             if (IsVldPwd(sPwdPrev))
             {
-                if (!string.IsNullOrWhiteSpace(sPwdPrev))
-                {
-                    isScs = isScs && _appConfigService.Setter(pwd_prev, sPwdPrev);
-                }
+                isScs = isScs && _appConfigService.Setter(pwd_prev, sPwdPrev);
             }
             else
             {
-                YANMessageBox.Show("LỖI", "Mật khẩu dự phòng phải từ 8 ký tự trở lên. Gồm chữ in, chữ thường, số và ký tự đặc biệt (@, #, $, %).", OK, Error, VIE);
+                _ = MsgEPwdFail();
                 txtPwdPrev.ResetText();
                 txtPwdPrev.Select();
                 return;
@@ -149,7 +139,7 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             isScs = isScs && RstServ(bot_name, TIME_OUT);
             if (isScs)
             {
-                YANMessageBox.Show("THÔNG BÁO", "Thành công!", OK, Information, VIE);
+                _ = MsgIDone();
             }
             GetServStsSyncBtn();
         }
@@ -177,7 +167,7 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             // re-sync
             if (isScs)
             {
-                YANMessageBox.Show("THÔNG BÁO", "Thành công!", OK, Information, VIE);
+                _ = MsgIDone();
             }
             GetServStsSyncBtn();
         }
@@ -218,12 +208,12 @@ namespace Loginside_FYAN_Bot_GUI.Screen
             if (GetServSts(bot_name) == Started)
             {
                 btnAct.Text = "Dừng Bot";
-                btnAct.BackColor = FromArgb(56, 73, 89);
+                btnAct.BackColor = CLR_ACT_STOP;
             }
             else
             {
                 btnAct.Text = "Chạy Bot";
-                btnAct.BackColor = FromArgb(133, 193, 93);
+                btnAct.BackColor = CLR_ACT_STRT;
             }
         }
 

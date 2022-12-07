@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Configuration;
+using static Loginside_FYAN_Bot_GUI.Script.Common;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static System.Configuration.ConfigurationManager;
 using static System.IO.File;
-using static System.Windows.Forms.MessageBoxButtons;
-using static System.Windows.Forms.MessageBoxIcon;
-using static YANF.Script.YANConstant.MsgBoxLang;
-using static YANF.Script.YANMessageBox;
 
 namespace Loginside_FYAN_Bot_GUI.Script.Service
 {
@@ -40,7 +37,7 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
             }
             catch (Exception ex)
             {
-                _ = Show("LỖI", ex.Message, OK, Error, VIE);
+                _ = MsgEFree(ex.Message);
                 // try add new
                 try
                 {
@@ -49,7 +46,7 @@ namespace Loginside_FYAN_Bot_GUI.Script.Service
                 }
                 catch (Exception e)
                 {
-                    _ = Show("LỖI", e.Message, OK, Error, VIE);
+                    _ = MsgEFree(e.Message);
                     isScs = false;
                 }
             }

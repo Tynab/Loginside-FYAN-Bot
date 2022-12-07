@@ -1,4 +1,5 @@
 ﻿using System.ServiceProcess;
+using static System.ServiceProcess.ServiceBase;
 
 namespace Loginside_FYAN_Bot_Service
 {
@@ -9,12 +10,11 @@ namespace Loginside_FYAN_Bot_Service
         /// </summary>
         private static void Main()
         {
-            ServiceBase[] ServicesToRun;
-            ServicesToRun = new ServiceBase[]
+            var ServicesToRun = new ServiceBase[]
             {
                 new ServiceMain()
             };
-            ServiceBase.Run(ServicesToRun);
+            Run(ServicesToRun);
         }
     }
 }

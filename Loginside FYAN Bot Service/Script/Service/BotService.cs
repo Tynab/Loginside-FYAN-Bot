@@ -80,11 +80,11 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
                                 WriteLog($"{shdwName} error", ieex.Message);
                                 try
                                 {
-                                    SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
+                                    SetEnvironmentVariable(ENV_VAR_WEB_DRV_CR, CR_DRV_ADR);
                                     new DriverManager().SetUpDriver(new ChromeConfig());
                                     var options = new ChromeOptions
                                     {
-                                        BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+                                        BinaryLocation = BRV_ADR
                                     };
                                     using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
                                     ShdwChgPwd(shdwName, driver, acctIns);
@@ -273,11 +273,11 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             Attack:
                 try
                 {
-                    SetEnvironmentVariable("webdriver.chrome.driver", $@"{BASE_PATH}\chromedriver.exe");
+                    SetEnvironmentVariable(ENV_VAR_WEB_DRV_CR, CR_DRV_ADR);
                     new DriverManager().SetUpDriver(new ChromeConfig());
                     var options = new ChromeOptions
                     {
-                        BinaryLocation = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"
+                        BinaryLocation = BRV_ADR
                     };
                     using IWebDriver driver = new ChromeDriver(BASE_PATH, options);
                     ShdwChkIO(shdwName, driver, isChkIn, acctIns);

@@ -82,7 +82,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
             }
             catch (Exception ex)
             {
-                _ = Show("LỖI", ex.Message, OK, Error, VIE);
+                _ = MsgEFree(ex.Message);
                 isScs = false;
             }
             return isScs;
@@ -108,7 +108,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
             }
             catch (Exception ex)
             {
-                _ = Show("LỖI", ex.Message, OK, Error, VIE);
+                _ = MsgEFree(ex.Message);
                 isScs = false;
             }
             return isScs;
@@ -145,7 +145,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
             }
             catch (Exception ex)
             {
-                _ = Show("LỖI", ex.Message, OK, Error, VIE);
+                _ = MsgEFree(ex.Message);
                 isScs = false;
             }
             return isScs;
@@ -220,6 +220,33 @@ namespace Loginside_FYAN_Bot_GUI.Script
         }
         #endregion
 
+        #region MsgBox
+        /// <summary>
+        /// Quá trình cài đặt bot service không thành công.
+        /// </summary>
+        /// <returns>Dialog result.</returns>
+        internal static DialogResult MsgEServNotFd() => Show("LỖI", "Quá trình cài đặt bot service không thành công!", OK, Error, VIE);
+
+        /// <summary>
+        /// Mật khẩu phải từ 8 ký tự trở lên. Gồm chữ in, chữ thường, số và ký tự đặc biệt (@, #, $, %).
+        /// </summary>
+        /// <returns>Dialog result.</returns>
+        internal static DialogResult MsgEPwdFail() => Show("LỖI", "Mật khẩu phải từ 8 ký tự trở lên. Gồm chữ in, chữ thường, số và ký tự đặc biệt (@, #, $, %).", OK, Error, VIE);
+
+        /// <summary>
+        /// Free message error.
+        /// </summary>
+        /// <param name="msg">Messsage.</param>
+        /// <returns>Dialog result.</returns>
+        internal static DialogResult MsgEFree(string msg) => Show("LỖI", msg, OK, Error, VIE);
+
+        /// <summary>
+        /// Thành công.
+        /// </summary>
+        /// <returns>Dialog result.</returns>
+        internal static DialogResult MsgIDone() => Show("THÔNG BÁO", "Thành công!", OK, Information, VIE);
+        #endregion
+
         #region Other
         /// <summary>
         /// Check valid password.
@@ -232,7 +259,7 @@ namespace Loginside_FYAN_Bot_GUI.Script
             {
                 return false;
             }
-            if (s.Length < 8)
+            if (s.Length < MIN_CHAR_PWD)
             {
                 return false;
             }
