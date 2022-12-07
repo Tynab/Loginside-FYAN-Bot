@@ -13,8 +13,6 @@ namespace Loginside_FYAN_Bot_Service.Script
         // other
         internal static readonly TimeSpan WAIT_SPAN = FromSeconds(TIME_WAIT);
         internal const int LMT_ATK = 3;
-        internal const int DELAY = 300;
-        internal const int TIME_OUT = 3000;
         internal const int TIME_WAIT = 10;
         internal const int TMR_INTVL = 60000;
     }
