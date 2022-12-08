@@ -15,6 +15,8 @@ namespace Loginside_FYAN_Bot_Service.Script
         // other
         internal const int LMT_ATK = 3;
         internal const int DFLT_DAY = 15;
+        internal const int DELAY = 300;
+        internal const int TIME_OUT = 3000;
         internal const int TIME_WAIT = 10;
         internal const int TMR_INTVL = 60000;
         internal const int TMR_INTVL_DFLT = 100;

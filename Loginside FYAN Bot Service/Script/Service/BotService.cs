@@ -15,6 +15,7 @@ using static Loginside_FYAN_Bot_Service.Script.Constant;
 using static Loginside_FYAN_Bot_Service.Script.Logger;
 using static OpenQA.Selenium.By;
 using static System.Environment;
+using static System.Threading.Thread;
 
 namespace Loginside_FYAN_Bot_Service.Script.Service
 {
@@ -305,19 +306,24 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             // access link
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(link_ins);
+            Sleep(TIME_OUT);
             // enter Id
             var elemId = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_inp_id)));
             elemId.SendKeys(acctIns.Id);
+            Sleep(DELAY);
             // enter password
             var elemPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_inp_pwd)));
             elemPwd.SendKeys(acctIns.Pwd);
+            Sleep(DELAY);
             // enter OTP
             var elemOtp = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_inp_otp)));
             elemOtp.SendKeys(GetOTP(acctIns.SecKey));
+            Sleep(DELAY);
             // login
             var elemBtnLogIn = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_login)));
             elemBtnLogIn.Click();
             WriteLog(shdwName, "Logged!");
+            Sleep(TIME_OUT);
         }
 
         // Shadow check in/out
@@ -328,6 +334,7 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             var elemBtnChk = isChkIn ? new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkin))) : new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkout)));
             elemBtnChk.Click();
             WriteLog(shdwName, isChkIn ? "Checked in!" : "Checked out!");
+            Sleep(DELAY);
         }
 
         // Shadow change password
@@ -339,29 +346,37 @@ namespace Loginside_FYAN_Bot_Service.Script.Service
             // enter old password
             var elemOldPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_old_pwd)));
             elemOldPwd.SendKeys(acctIns.Pwd);
+            Sleep(DELAY);
             // enter new password
             var elemNewPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_new_pwd)));
             elemNewPwd.SendKeys(acctIns.PwdPrev);
+            Sleep(DELAY);
             // enter confirm password
             var elemCfmPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_cfm_pwd)));
             elemCfmPwd.SendKeys(acctIns.PwdPrev);
+            Sleep(DELAY);
             // change password
             var elemBtnChgPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chg_pwd)));
             elemBtnChgPwd.Click();
             WriteLog(shdwName, "Password changed!");
+            Sleep(TIME_OUT);
             // enter old password
             elemOldPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_old_pwd)));
             elemOldPwd.SendKeys(acctIns.PwdPrev);
+            Sleep(DELAY);
             // enter new password
             elemNewPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_new_pwd)));
             elemNewPwd.SendKeys(acctIns.Pwd);
+            Sleep(DELAY);
             // enter confirm password
             elemCfmPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_cfm_pwd)));
             elemCfmPwd.SendKeys(acctIns.Pwd);
+            Sleep(DELAY);
             // change password
             elemBtnChgPwd = new WebDriverWait(driver, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chg_pwd)));
             elemBtnChgPwd.Click();
             WriteLog(shdwName, "Password re-changed!");
+            Sleep(TIME_OUT);
         }
     }
 }
