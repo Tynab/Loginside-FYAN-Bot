@@ -89,7 +89,7 @@
             this.btnCl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
             this.btnCl.ForeColor = System.Drawing.Color.White;
-            this.btnCl.Image = global::Loginside_FYAN_Bot_GUI.Properties.Resources.pOff;
+            this.btnCl.Image = global::Loginside_FYAN_Bot_GUI.Properties.Resources.pClose;
             this.btnCl.Location = new System.Drawing.Point(230, 380);
             this.btnCl.Name = "btnCl";
             this.btnCl.Size = new System.Drawing.Size(40, 40);

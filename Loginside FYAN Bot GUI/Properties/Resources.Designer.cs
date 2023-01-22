@@ -99,9 +99,9 @@ namespace Loginside_FYAN_Bot_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pOff {
+        internal static System.Drawing.Bitmap pClose {
             get {
-                object obj = ResourceManager.GetObject("pOff", resourceCulture);
+                object obj = ResourceManager.GetObject("pClose", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
