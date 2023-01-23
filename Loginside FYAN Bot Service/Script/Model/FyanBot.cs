@@ -13,6 +13,11 @@ namespace Loginside_FYAN_Bot_Service.Script.Model;
 
 internal class FyanBot
 {
+    #region Fields
+    private readonly Logger _logger = new();
+    private readonly AppConfig _appConfig = new();
+    #endregion
+
     #region Porperties
     internal string Name { get; } = "Fyan Bot";
     internal bool IsCheckIn { get; set; } = true;
@@ -46,10 +51,9 @@ internal class FyanBot
         };
         if (tasks.WaitAnyWithCond(true).Result)
         {
-            var appConfig = new AppConfig();
-            var pwd = appConfig.Getter(pwd_ins);
-            appConfig.Setter(pwd_ins, appConfig.Getter(pwd_prev));
-            appConfig.Setter(pwd_prev, pwd);
+            var pwd = _appConfig.Getter(pwd_ins);
+            _appConfig.Setter(pwd_ins, _appConfig.Getter(pwd_prev));
+            _appConfig.Setter(pwd_prev, pwd);
         }
     }
 
@@ -75,7 +79,7 @@ internal class FyanBot
         // login
         var elemBtnLogIn = new WebDriverWait(dvr, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_login)));
         elemBtnLogIn.Click();
-        new Logger().WrLog(shdwName, "Logged!");
+        _logger.WrLog(shdwName, "Logged!");
         Sleep(TIME_OUT);
     }
 
@@ -91,7 +95,7 @@ internal class FyanBot
         // check click
         var elemBtnChk = IsCheckIn ? new WebDriverWait(drv, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkin))) : new WebDriverWait(drv, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chkout)));
         elemBtnChk.Click();
-        new Logger().WrLog(shdwName, IsCheckIn ? "Checked in!" : "Checked out!");
+        _logger.WrLog(shdwName, IsCheckIn ? "Checked in!" : "Checked out!");
         Sleep(DELAY);
     }
 
@@ -121,7 +125,7 @@ internal class FyanBot
         // change password
         var elemBtnChgPwd = new WebDriverWait(drv, WAIT_SPAN).Until(e => e.FindElement(Id(id_btn_chg_pwd)));
         elemBtnChgPwd.Click();
-        new Logger().WrLog(shdwName, "Password changed!");
+        _logger.WrLog(shdwName, "Password changed!");
         Sleep(TIME_OUT);
     }
     #endregion

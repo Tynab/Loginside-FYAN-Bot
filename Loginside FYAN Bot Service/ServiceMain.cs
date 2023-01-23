@@ -13,6 +13,8 @@ namespace Loginside_FYAN_Bot_Service;
 public partial class ServiceMain : ServiceBase
 {
     #region Fields
+    private readonly Logger _logger = new();
+    private readonly AppConfig _appConfig = new();
     private bool _isPwdChgd = false;
     #endregion
 
@@ -23,7 +25,7 @@ public partial class ServiceMain : ServiceBase
     #region Overridden
     protected override void OnStart(string[] args)
     {
-        new Logger().WrLog("Bot", "Started!");
+        _logger.WrLog("Bot", "Started!");
         var tmrBot = new Timer
         {
             Interval = TMR_INTVL,
@@ -32,7 +34,7 @@ public partial class ServiceMain : ServiceBase
         tmrBot.Elapsed += OnTmrBotEvent;
     }
 
-    protected override void OnStop() => new Logger().WrLog("Bot", "Stopped!");
+    protected override void OnStop() => _logger.WrLog("Bot", "Stopped!");
     #endregion
 
     #region Events
@@ -63,7 +65,7 @@ public partial class ServiceMain : ServiceBase
             }
         }
         // for date
-        if (!_isPwdChgd && Today.Day == MinDayPrs(new AppConfig().Getter(day_chg_pwd)))
+        if (!_isPwdChgd && Today.Day == MinDayPrs(_appConfig.Getter(day_chg_pwd)))
         {
             bot.BotPwd();
             _isPwdChgd = true;
@@ -75,14 +77,14 @@ public partial class ServiceMain : ServiceBase
     // Get hour from config
     private string GetHourConfig(string key)
     {
-        var rslt = new AppConfig().Getter(key).Split(':')[0];
+        var rslt = _appConfig.Getter(key).Split(':')[0];
         return int.TryParse(rslt, out var _) ? rslt : "00";
     }
 
     // Get minute from config
     private string GetMinConfig(string key)
     {
-        var rslt = new AppConfig().Getter(key).Split(':')[1];
+        var rslt = _appConfig.Getter(key).Split(':')[1];
         return int.TryParse(rslt, out var _) ? rslt : "00";
     }
     #endregion

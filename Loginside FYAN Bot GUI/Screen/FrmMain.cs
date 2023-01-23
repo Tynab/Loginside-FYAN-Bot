@@ -15,51 +15,17 @@ namespace Loginside_FYAN_Bot_GUI.Screen;
 
 public partial class FrmMain : Form
 {
+    #region Fields
+    private readonly AppConfig _appConfig = new();
+    #endregion
+
     #region Constructors
     public FrmMain()
     {
         InitializeComponent();
         InitItems();
-        // move frm by pnl
-        foreach (var pnl in this.GetAllObjs(typeof(Panel)))
-        {
-            pnl.MouseDown += MoveFrmMod_MouseDown;
-            pnl.MouseMove += MoveFrm_MouseMove;
-            pnl.MouseUp += MoveFrm_MouseUp;
-        }
-        // move frm by pnl
-        foreach (var gradPnl in this.GetAllObjs(typeof(YANGradPnl)))
-        {
-            gradPnl.MouseDown += MoveFrmMod_MouseDown;
-            gradPnl.MouseMove += MoveFrm_MouseMove;
-            gradPnl.MouseUp += MoveFrm_MouseUp;
-        }
-        // move frm by lbl
-        foreach (var lbl in this.GetAllObjs(typeof(Label)))
-        {
-            lbl.MouseDown += MoveFrmMod_MouseDown;
-            lbl.MouseMove += MoveFrm_MouseMove;
-            lbl.MouseUp += MoveFrm_MouseUp;
-        }
-        // txt password
-        _txtPwd.ForEach(x =>
-        {
-            x.KeyDown += TxtPwd_KeyDown;
-            x.KeyUp += TxtPwd_KeyUp;
-        });
-        // display
-        var appConfig = new AppConfig();
-        nbInHour.Value = GetHourConfig(tmr_in);
-        nbInMin.Value = GetMinConfig(tmr_in);
-        nbOutHour.Value = GetHourConfig(tmr_out);
-        nbOutMin.Value = GetMinConfig(tmr_out);
-        txtId.String = appConfig.Getter(id_ins);
-        txtPwd.String = appConfig.Getter(pwd_ins);
-        txtSecKey.String = appConfig.Getter(sec_key);
-        txtPwdPrev.String = appConfig.Getter(pwd_prev);
-        var dayChgPwd = appConfig.Getter(day_chg_pwd);
-        nbDayChgPwd.Value = !dayChgPwd.HasVal() ? DFLT_DAY : dayChgPwd.IntPrs(DFLT_DAY);
-        pnlMain.Select();
+        OptEvt();
+        OptDisp();
     }
     #endregion
 
@@ -79,8 +45,10 @@ public partial class FrmMain : Form
         // is missing data
         if (!Exists(CONFIG_ADR))
         {
+#if !DEBUG
             _ = MsgEServNotFd();
             Close();
+#endif
         }
     }
 
@@ -94,30 +62,29 @@ public partial class FrmMain : Form
         SND_NEXT.Play();
         // main
         var isScs = true;
-        var appConfig = new AppConfig();
         // set timer in
-        isScs = isScs && appConfig.Setter(tmr_in, nbInHour.Value.ToString("00") + ":" + nbInMin.Value.ToString("00"));
+        isScs = isScs && _appConfig.Setter(tmr_in, nbInHour.Value.ToString("00") + ":" + nbInMin.Value.ToString("00"));
         // set timer out
-        isScs = isScs && appConfig.Setter(tmr_out, nbOutHour.Value.ToString("00") + ":" + nbOutMin.Value.ToString("00"));
+        isScs = isScs && _appConfig.Setter(tmr_out, nbOutHour.Value.ToString("00") + ":" + nbOutMin.Value.ToString("00"));
         // set id
         var sId = txtId.String;
         if (sId.HasVal())
         {
-            isScs = isScs && appConfig.Setter(id_ins, sId);
+            isScs = isScs && _appConfig.Setter(id_ins, sId);
         }
         // set secret key
         var sSecKey = txtSecKey.String;
         if (sSecKey.HasVal())
         {
-            isScs = isScs && appConfig.Setter(sec_key, sSecKey);
+            isScs = isScs && _appConfig.Setter(sec_key, sSecKey);
         }
         // set day changed
-        isScs = isScs && appConfig.Setter(day_chg_pwd, nbDayChgPwd.Value.ToString());
+        isScs = isScs && _appConfig.Setter(day_chg_pwd, nbDayChgPwd.Value.ToString());
         // set password
         var sPwd = txtPwd.String;
         if (IsVldPwd(sPwd))
         {
-            isScs = isScs && appConfig.Setter(pwd_ins, sPwd);
+            isScs = isScs && _appConfig.Setter(pwd_ins, sPwd);
         }
         else
         {
@@ -130,7 +97,7 @@ public partial class FrmMain : Form
         var sPwdPrev = txtPwdPrev.String;
         if (IsVldPwd(sPwdPrev))
         {
-            isScs = isScs && appConfig.Setter(pwd_prev, sPwdPrev);
+            isScs = isScs && _appConfig.Setter(pwd_prev, sPwdPrev);
         }
         else
         {
@@ -187,6 +154,54 @@ public partial class FrmMain : Form
     #endregion
 
     #region Methods
+    // Option event
+    private void OptEvt()
+    {
+        // move frm by pnl
+        foreach (var pnl in this.GetAllObjs(typeof(Panel)))
+        {
+            pnl.MouseDown += MoveFrmMod_MouseDown;
+            pnl.MouseMove += MoveFrm_MouseMove;
+            pnl.MouseUp += MoveFrm_MouseUp;
+        }
+        // move frm by pnl
+        foreach (var gradPnl in this.GetAllObjs(typeof(YANGradPnl)))
+        {
+            gradPnl.MouseDown += MoveFrmMod_MouseDown;
+            gradPnl.MouseMove += MoveFrm_MouseMove;
+            gradPnl.MouseUp += MoveFrm_MouseUp;
+        }
+        // move frm by lbl
+        foreach (var lbl in this.GetAllObjs(typeof(Label)))
+        {
+            lbl.MouseDown += MoveFrmMod_MouseDown;
+            lbl.MouseMove += MoveFrm_MouseMove;
+            lbl.MouseUp += MoveFrm_MouseUp;
+        }
+        // txt password
+        _txtPwd.ForEach(x =>
+        {
+            x.KeyDown += TxtPwd_KeyDown;
+            x.KeyUp += TxtPwd_KeyUp;
+        });
+    }
+
+    // Option display
+    private void OptDisp()
+    {
+        nbInHour.Value = GetHourConfig(tmr_in);
+        nbInMin.Value = GetMinConfig(tmr_in);
+        nbOutHour.Value = GetHourConfig(tmr_out);
+        nbOutMin.Value = GetMinConfig(tmr_out);
+        txtId.String = _appConfig.Getter(id_ins);
+        txtPwd.String = _appConfig.Getter(pwd_ins);
+        txtSecKey.String = _appConfig.Getter(sec_key);
+        txtPwdPrev.String = _appConfig.Getter(pwd_prev);
+        var dayChgPwd = _appConfig.Getter(day_chg_pwd);
+        nbDayChgPwd.Value = !dayChgPwd.HasVal() ? DFLT_DAY : dayChgPwd.IntPrs(DFLT_DAY);
+        pnlMain.Select();
+    }
+
     // Get service sync display
     private void GetServSyncDisp()
     {
@@ -224,14 +239,14 @@ public partial class FrmMain : Form
     // Get hour from config
     private decimal GetHourConfig(string key)
     {
-        var val = new AppConfig().Getter(key);
+        var val = _appConfig.Getter(key);
         return val.HasVal() ? val.Split(':')[0].IntPrs(0) : 0;
     }
 
     // Get minute from config
     private decimal GetMinConfig(string key)
     {
-        var val = new AppConfig().Getter(key);
+        var val = _appConfig.Getter(key);
         return val.HasVal() ? val.Split(':')[1].IntPrs(0) : 0;
     }
     #endregion

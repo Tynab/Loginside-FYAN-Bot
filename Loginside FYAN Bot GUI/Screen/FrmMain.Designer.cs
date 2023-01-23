@@ -253,7 +253,7 @@
             this.txtPwd.String = null;
             this.txtPwd.TabIndex = 2;
             this.txtPwd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.txtPwd, "Mật khẩu hiện tại");
+            this.tipMain.SetToolTip(this.txtPwd, "Nhấn giữ Esc để xem mật khẩu");
             this.txtPwd.UnderlinedStyle = false;
             // 
             // txtPwdPrev
@@ -278,7 +278,7 @@
             this.txtPwdPrev.String = null;
             this.txtPwdPrev.TabIndex = 5;
             this.txtPwdPrev.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tipMain.SetToolTip(this.txtPwdPrev, "Mật khẩu dự phòng");
+            this.tipMain.SetToolTip(this.txtPwdPrev, "Nhấn giữ Esc để xem mật khẩu");
             this.txtPwdPrev.UnderlinedStyle = false;
             // 
             // label5

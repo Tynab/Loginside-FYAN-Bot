@@ -8,6 +8,7 @@ namespace Loginside_FYAN_Bot_Service.Script;
 internal class AppConfig
 {
     #region Fields
+    private readonly Logger _logger = new();
     private readonly Configuration _cfg = OpenExeConfiguration(GetExecutingAssembly().Location);
     #endregion
 
@@ -27,7 +28,6 @@ internal class AppConfig
     /// <param name="value">Value.</param>
     internal void Setter<T>(string key, T value)
     {
-        var logger = new Logger();
         try
         {
             _cfg.AppSettings.Settings[key].Value = value?.ToString();
@@ -35,7 +35,7 @@ internal class AppConfig
         }
         catch (Exception ex1)
         {
-            logger.WrLog("Bot error", ex1.Message);
+            _logger.WrLog("Bot error", ex1.Message);
             // try add new
             try
             {
@@ -44,7 +44,7 @@ internal class AppConfig
             }
             catch (Exception ex2)
             {
-                logger.WrLog("Bot error", ex2.Message);
+                _logger.WrLog("Bot error", ex2.Message);
             }
         }
     }

@@ -11,6 +11,11 @@ namespace Loginside_FYAN_Bot_Service.Script.Model;
 
 internal class MeBot : ShdwBot
 {
+    #region Fields
+    private readonly Logger _logger = new();
+    private readonly AppConfig _appConfig = new();
+    #endregion
+
     #region Porperties
     internal new string Name { get; } = "ME Bot";
     #endregion
@@ -18,13 +23,11 @@ internal class MeBot : ShdwBot
     #region Overridden
     protected internal override void ShdwBotChk()
     {
-        var logger = new Logger();
-        var appConfig = new AppConfig();
         var acctIns = new AccountInside
         {
-            Id = appConfig.Getter(id_ins),
-            Pwd = appConfig.Getter(pwd_ins),
-            SecKey = appConfig.Getter(sec_key)
+            Id = _appConfig.Getter(id_ins),
+            Pwd = _appConfig.Getter(pwd_ins),
+            SecKey = _appConfig.Getter(sec_key)
         };
         if (HasVals(acctIns.Id, acctIns.Pwd, acctIns.SecKey))
         {
@@ -39,7 +42,7 @@ internal class MeBot : ShdwBot
             catch (Exception ex)
             {
                 ctr++;
-                logger.WrLog($"{Name} error", ex.Message);
+                _logger.WrLog($"{Name} error", ex.Message);
                 // limit attack
                 if (ctr is > 0 and < LMT_ATK)
                 {
@@ -49,20 +52,18 @@ internal class MeBot : ShdwBot
         }
         else
         {
-            logger.WrLog(Name, "Missing value!");
+            _logger.WrLog(Name, "Missing value!");
         }
     }
 
     protected internal override bool ShdwBotPwd()
     {
-        var logger = new Logger();
-        var appConfig = new AppConfig();
         var acctIns = new AccountInside
         {
-            Id = appConfig.Getter(id_ins),
-            Pwd = appConfig.Getter(pwd_ins),
-            PwdPrev = appConfig.Getter(pwd_prev),
-            SecKey = appConfig.Getter(sec_key)
+            Id = _appConfig.Getter(id_ins),
+            Pwd = _appConfig.Getter(pwd_ins),
+            PwdPrev = _appConfig.Getter(pwd_prev),
+            SecKey = _appConfig.Getter(sec_key)
         };
         if (HasVals(acctIns.Id, acctIns.Pwd, acctIns.PwdPrev, acctIns.SecKey))
         {
@@ -75,13 +76,13 @@ internal class MeBot : ShdwBot
             }
             catch (Exception ex)
             {
-                logger.WrLog($"{Name} error", ex.Message);
+                _logger.WrLog($"{Name} error", ex.Message);
                 return false;
             }
         }
         else
         {
-            logger.WrLog(Name, "Missing value!");
+            _logger.WrLog(Name, "Missing value!");
             return false;
         }
     }
