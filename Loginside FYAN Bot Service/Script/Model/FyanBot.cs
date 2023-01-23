@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using static Loginside_FYAN_Bot_Service.Properties.Resources;
@@ -29,7 +30,7 @@ internal class FyanBot
     /// </summary>
     internal void BotChk()
     {
-        var shdwBot = new ShdwBot[SHDW_BOT_CNT]
+        var shdwBots = new List<ShdwBot>
         {
             new GcBot(this),
             new FfBot(this),
@@ -37,11 +38,7 @@ internal class FyanBot
             new IeBot(this),
             new CbBot(this)
         };
-        for (var i = 0; i < SHDW_BOT_CNT; i++)
-        {
-            new Thread(() => shdwBot[i].ShdwBotChk()).Start();
-            Sleep(100);
-        }
+        shdwBots.ForEach(x => new Thread(() => x.ShdwBotChk()).Start());
     }
 
     /// <summary>

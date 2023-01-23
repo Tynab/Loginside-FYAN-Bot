@@ -11,7 +11,7 @@ public partial class FrmMain
     #region Txt
     private List<YANTxt> _txtPwd;
     // Initialize list txtPwd
-    private void InitTxtPwd() => _txtPwd = new List<YANTxt>()
+    private void InitTxtPwd() => _txtPwd = new List<YANTxt>
         {
             txtPwd,
             txtPwdPrev
