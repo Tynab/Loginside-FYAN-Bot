@@ -16,6 +16,12 @@ internal class IeBot : ShdwBot
     private readonly AppConfig _appConfig = new();
     #endregion
 
+    #region Constructors
+    internal IeBot() { }
+
+    internal IeBot(FyanBot fyanBot) => IsCheckIn = fyanBot.IsCheckIn;
+    #endregion
+
     #region Porperties
     internal new string Name { get; } = "IE Bot";
     #endregion

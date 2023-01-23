@@ -25,7 +25,7 @@ public partial class ServiceMain : ServiceBase
     #region Overridden
     protected override void OnStart(string[] args)
     {
-        _logger.WrLog("Bot", "Started!");
+        _logger.WrLog(BOT_NAME, "Started!");
         var tmrBot = new Timer
         {
             Interval = TMR_INTVL,
@@ -34,7 +34,7 @@ public partial class ServiceMain : ServiceBase
         tmrBot.Elapsed += OnTmrBotEvent;
     }
 
-    protected override void OnStop() => _logger.WrLog("Bot", "Stopped!");
+    protected override void OnStop() => _logger.WrLog(BOT_NAME, "Stopped!");
     #endregion
 
     #region Events
@@ -44,7 +44,6 @@ public partial class ServiceMain : ServiceBase
         KillPrcs(cr_prcs);
         KillPrcs(ge_prcs);
         KillPrcs(ie_prcs);
-        var bot = new FyanBot();
         // for time
         if (Today.DayOfWeek != Sunday && Now.Hour > 0)
         {
@@ -55,19 +54,25 @@ public partial class ServiceMain : ServiceBase
             // on time
             if (Now.Hour == HourPrs(sInHour) && Now.Minute == MinPrs(sInMin))
             {
-                bot.IsCheckIn = true;
-                bot.BotChk();
+                var fyanBot = new FyanBot
+                {
+                    IsCheckIn = true
+                };
+                fyanBot.BotChk();
             }
             else if (Now.Hour == HourPrs(sOutHour) && Now.Minute == MinPrs(sOutMin))
             {
-                bot.IsCheckIn = false;
-                bot.BotChk();
+                var fyanBot = new FyanBot
+                {
+                    IsCheckIn = false
+                };
+                fyanBot.BotChk();
             }
         }
         // for date
         if (!_isPwdChgd && Today.Day == MinDayPrs(_appConfig.Getter(day_chg_pwd)))
         {
-            bot.BotPwd();
+            new FyanBot().BotPwd();
             _isPwdChgd = true;
         }
     }

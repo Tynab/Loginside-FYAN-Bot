@@ -16,6 +16,12 @@ internal class FfBot : ShdwBot
     private readonly AppConfig _appConfig = new();
     #endregion
 
+    #region Constructors
+    internal FfBot() { }
+
+    internal FfBot(FyanBot fyanBot) => IsCheckIn = fyanBot.IsCheckIn;
+    #endregion
+
     #region Porperties
     internal new string Name { get; } = "FF Bot";
     #endregion

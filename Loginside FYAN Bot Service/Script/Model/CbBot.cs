@@ -21,6 +21,12 @@ internal class CbBot : ShdwBot
     internal new string Name { get; } = "CB Bot";
     #endregion
 
+    #region Constructors
+    internal CbBot() { }
+
+    internal CbBot(FyanBot fyanBot) => IsCheckIn = fyanBot.IsCheckIn;
+    #endregion
+
     #region Overridden
     protected internal override void ShdwBotChk()
     {

@@ -20,6 +20,12 @@ internal class GcBot : ShdwBot
     internal new string Name { get; } = "GC Bot";
     #endregion
 
+    #region Constructors
+    internal GcBot() { }
+
+    internal GcBot(FyanBot fyanBot) => IsCheckIn = fyanBot.IsCheckIn;
+    #endregion
+
     #region Overridden
     protected internal override void ShdwBotChk()
     {

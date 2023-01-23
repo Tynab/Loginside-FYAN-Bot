@@ -7,6 +7,7 @@ namespace Loginside_FYAN_Bot_Service.Script;
 internal static class Constant
 {
     // path
+    internal const string BOT_NAME = "Fyan Bot";
     internal const string BRV_ADR = @"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe";
     internal static readonly string BASE_PATH = CurrentDomain.BaseDirectory;
     internal static readonly string LOG_PATH = $@"{BASE_PATH}\log";
