@@ -7,7 +7,7 @@
 - Checkout at the set time on GUI
 - Auto change password bypass rule inside
 
-## HÌNH ẢNH DEMO
+## IMAGE DEMO
 <p align="center">
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/0.jpg"></img>
 </p>
@@ -48,7 +48,7 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 }
 ```
 
-### TÍCH HỢP
+### PACKAGE
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/4.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
