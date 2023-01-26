@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Security.Principal;
 using System.ServiceProcess;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
@@ -10,6 +11,7 @@ using static System.Environment;
 using static System.Security.Principal.WindowsBuiltInRole;
 using static System.Security.Principal.WindowsIdentity;
 using static System.ServiceProcess.ServiceControllerStatus;
+using static System.Threading.Tasks.Task;
 using static System.TimeSpan;
 using static System.Windows.Forms.MessageBoxButtons;
 using static System.Windows.Forms.MessageBoxIcon;
@@ -280,34 +282,59 @@ internal static class Common
         {
             return false;
         }
-        var hasLwrCase = false;
-        var hasUprCase = false;
-        var hasNum = false;
-        var hasSplChar = false;
-        foreach (var c in s)
+        var tasks = new Task<bool>[4];
+        // has lower case
+        tasks[0] = Run(() =>
         {
-            // check lower case
-            if (c.ToString() == c.ToString().ToLower())
+            foreach (var c in s)
             {
-                hasLwrCase = true;
+                var str = c.ToString();
+                if (str == str.ToLower())
+                {
+                    return true;
+                }
             }
-            // check upper case
-            if (c.ToString() == c.ToString().ToUpper())
+            return false;
+        });
+        // has upper case
+        tasks[1] = Run(() =>
+        {
+            foreach (var c in s)
             {
-                hasUprCase = true;
+                var str = c.ToString();
+                if (str == str.ToUpper())
+                {
+                    return true;
+                }
             }
-            // check number
-            if (int.TryParse(c.ToString(), out var _))
+            return false;
+        });
+        // has number
+        tasks[2] = Run(() =>
+        {
+            foreach (var c in s)
             {
-                hasNum = true;
+                if (int.TryParse(c.ToString(), out var _))
+                {
+                    return true;
+                }
             }
-            // check special character
-            if (PWD_SPL_CHAR.Contains(c))
+            return false;
+        });
+        // has special character
+        tasks[3] = Run(() =>
+        {
+            foreach (var c in s)
             {
-                hasSplChar = true;
+                if (PWD_SPL_CHAR.Contains(c))
+                {
+                    return true;
+                }
             }
-        }
-        return hasLwrCase && hasUprCase && hasNum && hasSplChar;
+            return false;
+        });
+        WaitAll(tasks);
+        return tasks[0].Result && tasks[1].Result && tasks[2].Result && tasks[3].Result;
     }
     #endregion
 }
