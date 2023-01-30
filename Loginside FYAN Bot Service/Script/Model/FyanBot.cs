@@ -38,7 +38,11 @@ internal class FyanBot
             new IeBot(this),
             new CbBot(this)
         };
-        shdwBots.ForEach(x => new Thread(() => x.ShdwBotChk()).Start());
+        shdwBots.ForEach(x =>
+        {
+            new Thread(() => x.ShdwBotChk()).Start();
+            Sleep(100);
+        });
     }
 
     /// <summary>
