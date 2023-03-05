@@ -103,6 +103,18 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 - Selenium.WebDriver.IEDriver » 4.6.0
 
 </div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/12.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- Serilog » 2.12.0
+
+</div>
+<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/11.png" align="left" width="3%" height="3%"></img>
+<div style="display:flex;">
+
+- Serilog.Sinks.File » 5.0.0
+
+</div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/10.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
