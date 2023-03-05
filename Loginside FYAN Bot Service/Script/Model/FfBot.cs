@@ -31,24 +31,24 @@ internal class FfBot : ShdwBot
     {
         var acctIns = new AccountInside
         {
-            Id = _appConfig.Getter(id_ins),
-            Pwd = _appConfig.Getter(pwd_ins),
-            SecKey = _appConfig.Getter(sec_key)
+            Id = _appConfig?.Getter(id_ins),
+            Pwd = _appConfig?.Getter(pwd_ins),
+            SecKey = _appConfig?.Getter(sec_key)
         };
-        if (HasVals(acctIns.Id, acctIns.Pwd, acctIns.SecKey))
+        if (HasVals(acctIns?.Id, acctIns?.Pwd, acctIns?.SecKey))
         {
             var ctr = 0;
         Attack:
             try
             {
-                new DriverManager().SetUpDriver(new FirefoxConfig());
+                new DriverManager()?.SetUpDriver(new FirefoxConfig());
                 using IWebDriver drv = new FirefoxDriver();
                 ShdwChkIO(Name, drv, acctIns);
             }
             catch (Exception ex)
             {
                 ctr++;
-                _logger.WrLog($"{Name} error", ex.Message);
+                _logger?.WrErr($"{Name} error", ex);
                 // limit attack
                 if (ctr is > 0 and < LMT_ATK)
                 {
@@ -58,7 +58,7 @@ internal class FfBot : ShdwBot
         }
         else
         {
-            _logger.WrLog(Name, "Missing value!");
+            _logger?.WrInfo(Name, "Missing value!");
         }
     }
 
@@ -66,29 +66,29 @@ internal class FfBot : ShdwBot
     {
         var acctIns = new AccountInside
         {
-            Id = _appConfig.Getter(id_ins),
-            Pwd = _appConfig.Getter(pwd_ins),
-            PwdPrev = _appConfig.Getter(pwd_prev),
-            SecKey = _appConfig.Getter(sec_key)
+            Id = _appConfig?.Getter(id_ins),
+            Pwd = _appConfig?.Getter(pwd_ins),
+            PwdPrev = _appConfig?.Getter(pwd_prev),
+            SecKey = _appConfig?.Getter(sec_key)
         };
-        if (HasVals(acctIns.Id, acctIns.Pwd, acctIns.PwdPrev, acctIns.SecKey))
+        if (HasVals(acctIns?.Id, acctIns?.Pwd, acctIns?.PwdPrev, acctIns?.SecKey))
         {
             try
             {
-                new DriverManager().SetUpDriver(new FirefoxConfig());
+                new DriverManager()?.SetUpDriver(new FirefoxConfig());
                 using IWebDriver drv = new FirefoxDriver();
                 ShdwChgPwd(Name, drv, acctIns);
                 return true;
             }
             catch (Exception ex)
             {
-                _logger.WrLog($"{Name} error", ex.Message);
+                _logger?.WrErr($"{Name} error", ex);
                 return false;
             }
         }
         else
         {
-            _logger.WrLog(Name, "Missing value!");
+            _logger?.WrInfo(Name, "Missing value!");
             return false;
         }
     }

@@ -12,9 +12,9 @@ public partial class FrmMain
     private List<YANTxt> _txtPwd;
     // Initialize list txtPwd
     private void InitTxtPwd() => _txtPwd = new List<YANTxt>
-        {
-            txtPwd,
-            txtPwdPrev
-        };
+    {
+        txtPwd,
+        txtPwdPrev
+    };
     #endregion
 }

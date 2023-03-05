@@ -7,6 +7,7 @@ using static Loginside_FYAN_Bot_Service.Properties.Resources;
 using static Loginside_FYAN_Bot_Service.Script.Common;
 using static Loginside_FYAN_Bot_Service.Script.Constant;
 using static OpenQA.Selenium.By;
+using static System.Threading.CancellationToken;
 using static System.Threading.Tasks.Task;
 using static System.Threading.Thread;
 
@@ -30,18 +31,17 @@ internal class FyanBot
     /// </summary>
     internal void BotChk()
     {
-        var shdwBots = new List<ShdwBot>
+        new List<ShdwBot>
         {
             new GcBot(this),
             new FfBot(this),
             new MeBot(this),
             new IeBot(this),
             new CbBot(this)
-        };
-        shdwBots.ForEach(x =>
+        }?.ForEach(x =>
         {
-            new Thread(() => x.ShdwBotChk()).Start();
-            Sleep(100);
+            new Thread(() => x?.ShdwBotChk())?.Start();
+            Sleep(TMR_INTVL_DFLT);
         });
     }
 
@@ -50,19 +50,17 @@ internal class FyanBot
     /// </summary>
     internal void BotPwd()
     {
-        var tasks = new Task<bool>[SHDW_BOT_CNT]
+        if (new Task<bool>[SHDW_BOT_CNT]
         {
             Run(() => new GcBot().ShdwBotPwd()),
             Run(() => new FfBot().ShdwBotPwd()),
             Run(() => new MeBot().ShdwBotPwd()),
             Run(() => new IeBot().ShdwBotPwd()),
             Run(() => new CbBot().ShdwBotPwd())
-        };
-        if (tasks.WaitAnyWithCond(true).Result)
+        }.WaitAnyWithCond(true, None).Result)
         {
-            var pwd = _appConfig.Getter(pwd_ins);
-            _appConfig.Setter(pwd_ins, _appConfig.Getter(pwd_prev));
-            _appConfig.Setter(pwd_prev, pwd);
+            _appConfig?.Setter(pwd_ins, _appConfig?.Getter(pwd_prev));
+            _appConfig?.Setter(pwd_prev, _appConfig?.Getter(pwd_ins));
         }
     }
 
@@ -70,25 +68,21 @@ internal class FyanBot
     private void ShdwLogin(string shdwName, IWebDriver drv, WebDriverWait webDrWait, AccountInside acctIns)
     {
         // access link
-        drv.Manage().Window.Maximize();
-        drv.Navigate().GoToUrl(link_ins);
+        drv?.Manage()?.Window?.Maximize();
+        drv?.Navigate()?.GoToUrl(link_ins);
         Sleep(TIME_OUT);
         // enter Id
-        var elemId = webDrWait.Until(e => e.FindElement(Id(id_inp_id)));
-        elemId.SendKeys(acctIns.Id);
+        webDrWait?.Until(e => e?.FindElement(Id(id_inp_id)))?.SendKeys(acctIns?.Id);
         Sleep(DELAY);
         // enter password
-        var elemPwd = webDrWait.Until(e => e.FindElement(Id(id_inp_pwd)));
-        elemPwd.SendKeys(acctIns.Pwd);
+        webDrWait?.Until(e => e?.FindElement(Id(id_inp_pwd)))?.SendKeys(acctIns?.Pwd);
         Sleep(DELAY);
         // enter OTP
-        var elemOtp = webDrWait.Until(e => e.FindElement(Id(id_inp_otp)));
-        elemOtp.SendKeys(GetOtp(acctIns.SecKey));
+        webDrWait?.Until(e => e?.FindElement(Id(id_inp_otp)))?.SendKeys(GetOtp(acctIns?.SecKey));
         Sleep(DELAY);
         // login
-        var elemBtnLogIn = webDrWait.Until(e => e.FindElement(Id(id_btn_login)));
-        elemBtnLogIn.Click();
-        _logger.WrLog(shdwName, "Logged!");
+        webDrWait?.Until(e => e?.FindElement(Id(id_btn_login)))?.Click();
+        _logger?.WrInfo(shdwName, "Logged!");
         Sleep(TIME_OUT);
     }
 
@@ -103,9 +97,8 @@ internal class FyanBot
         var webElem = new WebDriverWait(drv, WAIT_SPAN);
         ShdwLogin(shdwName, drv, webElem, acctIns);
         // check click
-        var elemBtnChk = IsCheckIn ? webElem.Until(e => e.FindElement(Id(id_btn_chkin))) : webElem.Until(e => e.FindElement(Id(id_btn_chkout)));
-        elemBtnChk.Click();
-        _logger.WrLog(shdwName, IsCheckIn ? "Checked in!" : "Checked out!");
+        (IsCheckIn? webElem?.Until(e => e?.FindElement(Id(id_btn_chkin))) : webElem?.Until(e => e?.FindElement(Id(id_btn_chkout))))?.Click();
+        _logger?.WrInfo(shdwName, IsCheckIn ? "Checked in!" : "Checked out!");
         Sleep(DELAY);
     }
 
@@ -120,23 +113,19 @@ internal class FyanBot
         var webElem = new WebDriverWait(drv, WAIT_SPAN);
         ShdwLogin(shdwName, drv, webElem, acctIns);
         // forward
-        drv.Navigate().GoToUrl(link_ins_chg_pwd);
+        drv?.Navigate()?.GoToUrl(link_ins_chg_pwd);
         // enter old password
-        var elemOldPwd = webElem.Until(e => e.FindElement(Id(id_old_pwd)));
-        elemOldPwd.SendKeys(acctIns.Pwd);
+        webElem?.Until(e => e?.FindElement(Id(id_old_pwd)))?.SendKeys(acctIns?.Pwd);
         Sleep(DELAY);
         // enter new password
-        var elemNewPwd = webElem.Until(e => e.FindElement(Id(id_new_pwd)));
-        elemNewPwd.SendKeys(acctIns.PwdPrev);
+        webElem?.Until(e => e?.FindElement(Id(id_new_pwd)))?.SendKeys(acctIns?.PwdPrev);
         Sleep(DELAY);
         // enter confirm password
-        var elemCfmPwd = webElem.Until(e => e.FindElement(Id(id_cfm_pwd)));
-        elemCfmPwd.SendKeys(acctIns.PwdPrev);
+        webElem?.Until(e => e?.FindElement(Id(id_cfm_pwd)))?.SendKeys(acctIns?.PwdPrev);
         Sleep(DELAY);
         // change password
-        var elemBtnChgPwd = webElem.Until(e => e.FindElement(Id(id_btn_chg_pwd)));
-        elemBtnChgPwd.Click();
-        _logger.WrLog(shdwName, "Password changed!");
+        webElem?.Until(e => e?.FindElement(Id(id_btn_chg_pwd)))?.Click();
+        _logger?.WrInfo(shdwName, "Password changed!");
         Sleep(TIME_OUT);
     }
     #endregion

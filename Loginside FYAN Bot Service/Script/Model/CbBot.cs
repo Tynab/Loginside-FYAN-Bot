@@ -32,18 +32,18 @@ internal class CbBot : ShdwBot
     {
         var acctIns = new AccountInside
         {
-            Id = _appConfig.Getter(id_ins),
-            Pwd = _appConfig.Getter(pwd_ins),
-            SecKey = _appConfig.Getter(sec_key)
+            Id = _appConfig?.Getter(id_ins),
+            Pwd = _appConfig?.Getter(pwd_ins),
+            SecKey = _appConfig?.Getter(sec_key)
         };
-        if (HasVals(acctIns.Id, acctIns.Pwd, acctIns.SecKey))
+        if (HasVals(acctIns?.Id, acctIns?.Pwd, acctIns?.SecKey))
         {
             var ctr = 0;
         Attack:
             try
             {
                 SetEnvironmentVariable(ENV_VAR_WEB_DRV_CR, CR_DRV_ADR);
-                new DriverManager().SetUpDriver(new ChromeConfig());
+                new DriverManager()?.SetUpDriver(new ChromeConfig());
                 var opts = new ChromeOptions
                 {
                     BinaryLocation = BRV_ADR
@@ -54,7 +54,7 @@ internal class CbBot : ShdwBot
             catch (Exception ex)
             {
                 ctr++;
-                _logger.WrLog($"{Name} error", ex.Message);
+                _logger?.WrErr($"{Name} error", ex);
                 // limit attack
                 if (ctr is > 0 and < LMT_ATK)
                 {
@@ -64,7 +64,7 @@ internal class CbBot : ShdwBot
         }
         else
         {
-            _logger.WrLog(Name, "Missing value!");
+            _logger?.WrInfo(Name, "Missing value!");
         }
     }
 
@@ -72,17 +72,17 @@ internal class CbBot : ShdwBot
     {
         var acctIns = new AccountInside
         {
-            Id = _appConfig.Getter(id_ins),
-            Pwd = _appConfig.Getter(pwd_ins),
-            PwdPrev = _appConfig.Getter(pwd_prev),
-            SecKey = _appConfig.Getter(sec_key)
+            Id = _appConfig?.Getter(id_ins),
+            Pwd = _appConfig?.Getter(pwd_ins),
+            PwdPrev = _appConfig?.Getter(pwd_prev),
+            SecKey = _appConfig?.Getter(sec_key)
         };
-        if (HasVals(acctIns.Id, acctIns.Pwd, acctIns.PwdPrev, acctIns.SecKey))
+        if (HasVals(acctIns?.Id, acctIns?.Pwd, acctIns?.PwdPrev, acctIns?.SecKey))
         {
             try
             {
                 SetEnvironmentVariable(ENV_VAR_WEB_DRV_CR, CR_DRV_ADR);
-                new DriverManager().SetUpDriver(new ChromeConfig());
+                new DriverManager()?.SetUpDriver(new ChromeConfig());
                 var opts = new ChromeOptions
                 {
                     BinaryLocation = BRV_ADR
@@ -93,13 +93,13 @@ internal class CbBot : ShdwBot
             }
             catch (Exception ex)
             {
-                _logger.WrLog($"{Name} error", ex.Message);
+                _logger?.WrErr($"{Name} error", ex);
                 return false;
             }
         }
         else
         {
-            _logger.WrLog(Name, "Missing value!");
+            _logger?.WrInfo(Name, "Missing value!");
             return false;
         }
     }

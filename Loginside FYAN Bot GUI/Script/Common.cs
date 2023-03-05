@@ -1,9 +1,8 @@
 ﻿using AnimatorNS;
 using System;
-using System.Linq;
 using System.Security.Principal;
 using System.ServiceProcess;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
@@ -11,7 +10,6 @@ using static System.Environment;
 using static System.Security.Principal.WindowsBuiltInRole;
 using static System.Security.Principal.WindowsIdentity;
 using static System.ServiceProcess.ServiceControllerStatus;
-using static System.Threading.Tasks.Task;
 using static System.TimeSpan;
 using static System.Windows.Forms.MessageBoxButtons;
 using static System.Windows.Forms.MessageBoxIcon;
@@ -73,7 +71,7 @@ internal static class Common
     {
         try
         {
-            return new ServiceController(name).Status == Running ? Started : Stoped;
+            return new ServiceController(name)?.Status == Running ? Started : Stoped;
         }
         catch
         {
@@ -89,22 +87,21 @@ internal static class Common
     /// <returns>Is success.</returns>
     internal static bool StrtServ(string name, int ms)
     {
-        var isScs = true;
         try
         {
             var servCtrl = new ServiceController(name);
-            if (servCtrl.Status != Running)
+            if (servCtrl?.Status != Running)
             {
-                servCtrl.Start();
-                servCtrl.WaitForStatus(Running, FromMilliseconds(ms));
+                servCtrl?.Start();
+                servCtrl?.WaitForStatus(Running, FromMilliseconds(ms));
             }
+            return true;
         }
         catch (Exception ex)
         {
-            _ = MsgEFree(ex.Message);
-            isScs = false;
+            _ = MsgEFree(ex?.Message);
+            return false;
         }
-        return isScs;
     }
 
     /// <summary>
@@ -115,22 +112,21 @@ internal static class Common
     /// <returns>Is success.</returns>
     internal static bool StopServ(string name, int ms)
     {
-        var isScs = true;
         try
         {
             var servCtrl = new ServiceController(name);
-            if (servCtrl.Status == Running)
+            if (servCtrl?.Status == Running)
             {
-                servCtrl.Stop();
-                servCtrl.WaitForStatus(Stopped, FromMilliseconds(ms));
+                servCtrl?.Stop();
+                servCtrl?.WaitForStatus(Stopped, FromMilliseconds(ms));
             }
+            return true;
         }
         catch (Exception ex)
         {
-            _ = MsgEFree(ex.Message);
-            isScs = false;
+            _ = MsgEFree(ex?.Message);
+            return false;
         }
-        return isScs;
     }
 
     /// <summary>
@@ -141,33 +137,32 @@ internal static class Common
     /// <returns>Is success.</returns>
     internal static bool RstServ(string name, int ms)
     {
-        var isScs = true;
         try
         {
             var servCtrl = new ServiceController(name);
             var timeout = FromMilliseconds(ms);
-            if (servCtrl.Status == Running)
+            if (servCtrl?.Status == Running)
             {
                 var msStop = TickCount;
-                servCtrl.Stop();
-                servCtrl.WaitForStatus(Stopped, timeout);
+                servCtrl?.Stop();
+                servCtrl?.WaitForStatus(Stopped, timeout);
                 var msStart = TickCount;
                 timeout = FromMilliseconds(ms - (msStart - msStop));
-                servCtrl.Start();
-                servCtrl.WaitForStatus(Running, timeout);
+                servCtrl?.Start();
+                servCtrl?.WaitForStatus(Running, timeout);
             }
             else
             {
-                servCtrl.Start();
-                servCtrl.WaitForStatus(Running, timeout);
+                servCtrl?.Start();
+                servCtrl?.WaitForStatus(Running, timeout);
             }
+            return true;
         }
         catch (Exception ex)
         {
-            _ = MsgEFree(ex.Message);
-            isScs = false;
+            _ = MsgEFree(ex?.Message);
+            return false;
         }
-        return isScs;
     }
 
     /// <summary>
@@ -183,60 +178,44 @@ internal static class Common
     /// </summary>
     /// <param name="type">Effect type.</param>
     /// <param name="spd">Frame per milisecond.</param>
-    internal static void ShowAnimat(this Control ctrl, AnimationType type, float spd)
+    internal static void ShowAnimat(this Control ctrl, AnimationType type, float spd) => new Animator
     {
-        var animat = new Animator
-        {
-            TimeStep = spd,
-            AnimationType = type
-        };
-        animat.ShowSync(ctrl);
-    }
+        TimeStep = spd,
+        AnimationType = type
+    }?.ShowSync(ctrl);
 
     /// <summary>
     /// Hide animation.
     /// </summary>
     /// <param name="type">Effect type.</param>
     /// <param name="spd">Frame per milisecond.</param>
-    internal static void HideAnimat(this Control ctrl, AnimationType type, float spd)
+    internal static void HideAnimat(this Control ctrl, AnimationType type, float spd) => new Animator
     {
-        var animat = new Animator
-        {
-            TimeStep = spd,
-            AnimationType = type
-        };
-        animat.HideSync(ctrl);
-    }
+        TimeStep = spd,
+        AnimationType = type
+    }?.HideSync(ctrl);
 
     /// <summary>
     /// Show animation async.
     /// </summary>
     /// <param name="type">Effect type.</param>
     /// <param name="spd">Frame per milisecond.</param>
-    internal static void ShowAnimatAsync(this Control ctrl, AnimationType type, float spd)
+    internal static void ShowAnimatAsync(this Control ctrl, AnimationType type, float spd) => new Animator
     {
-        var animat = new Animator
-        {
-            TimeStep = spd,
-            AnimationType = type
-        };
-        animat.Show(ctrl);
-    }
+        TimeStep = spd,
+        AnimationType = type
+    }?.Show(ctrl);
 
     /// <summary>
     /// Hide animation async.
     /// </summary>
     /// <param name="type">Effect type.</param>
     /// <param name="spd">Frame per milisecond.</param>
-    internal static void HideAnimatAsync(this Control ctrl, AnimationType type, float spd)
+    internal static void HideAnimatAsync(this Control ctrl, AnimationType type, float spd) => new Animator
     {
-        var animat = new Animator
-        {
-            TimeStep = spd,
-            AnimationType = type
-        };
-        animat.Hide(ctrl);
-    }
+        TimeStep = spd,
+        AnimationType = type
+    }?.Hide(ctrl);
     #endregion
 
     #region MsgBox
@@ -272,69 +251,6 @@ internal static class Common
     /// </summary>
     /// <param name="s">Password.</param>
     /// <returns>Is valid.</returns>
-    internal static bool IsVldPwd(string s)
-    {
-        if (!s.HasVal())
-        {
-            return false;
-        }
-        if (s.Length < MIN_CHAR_PWD)
-        {
-            return false;
-        }
-        var tasks = new Task<bool>[4];
-        // has lower case
-        tasks[0] = Run(() =>
-        {
-            foreach (var c in s)
-            {
-                var str = c.ToString();
-                if (str == str.ToLower())
-                {
-                    return true;
-                }
-            }
-            return false;
-        });
-        // has upper case
-        tasks[1] = Run(() =>
-        {
-            foreach (var c in s)
-            {
-                var str = c.ToString();
-                if (str == str.ToUpper())
-                {
-                    return true;
-                }
-            }
-            return false;
-        });
-        // has number
-        tasks[2] = Run(() =>
-        {
-            foreach (var c in s)
-            {
-                if (int.TryParse(c.ToString(), out var _))
-                {
-                    return true;
-                }
-            }
-            return false;
-        });
-        // has special character
-        tasks[3] = Run(() =>
-        {
-            foreach (var c in s)
-            {
-                if (PWD_SPL_CHAR.Contains(c))
-                {
-                    return true;
-                }
-            }
-            return false;
-        });
-        WaitAll(tasks);
-        return tasks[0].Result && tasks[1].Result && tasks[2].Result && tasks[3].Result;
-    }
+    internal static bool IsVldPwd(string s) => s.HasVal() && s?.Length >= 8 && new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).+$").IsMatch(s);
     #endregion
 }

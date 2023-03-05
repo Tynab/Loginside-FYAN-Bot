@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using static Loginside_FYAN_Bot_Service.Script.Constant;
 using static OtpNet.Base32Encoding;
 using static System.Diagnostics.Process;
-using static System.IO.Directory;
+using static System.Threading.CancellationTokenSource;
 using static System.Threading.Tasks.Task;
 using static System.Threading.Tasks.TaskStatus;
 using static System.Threading.Thread;
@@ -15,20 +16,6 @@ namespace Loginside_FYAN_Bot_Service.Script;
 
 internal static class Common
 {
-    #region Directory
-    /// <summary>
-    /// Create folder advanced.
-    /// </summary>
-    /// <param name="path">Folder path.</param>
-    internal static void CrtDirAdv(string path)
-    {
-        if (!Exists(path))
-        {
-            CreateDirectory(path);
-        }
-    }
-    #endregion
-
     #region OTP
     /// <summary>
     /// Get OTP.
@@ -39,11 +26,11 @@ internal static class Common
     {
         try
         {
-            return new Totp(ToBytes(secKey)).ComputeTotp();
+            return new Totp(ToBytes(secKey))?.ComputeTotp();
         }
         catch (Exception ex)
         {
-            new Logger().WrLog("Getter OTP error", ex.Message);
+            new Logger()?.WrErr("Getter OTP error", ex);
             return string.Empty;
         }
     }
@@ -100,13 +87,23 @@ internal static class Common
     /// <param name="name">Process name.</param>
     internal static void KillPrcs(string name)
     {
-        if (GetProcessesByName(name).Count() > 0)
+        // normal close
+        var procs = GetProcessesByName(name);
+        foreach (var proc in procs)
         {
-            foreach (var prc in GetProcessesByName(name))
+            if (!proc.CloseMainWindow())
             {
-                prc.Kill();
                 Sleep(TMR_INTVL_DFLT);
+                proc?.Kill();
             }
+        }
+        Sleep(TMR_INTVL_DFLT * 10);
+        // kill
+        procs = GetProcessesByName(name);
+        foreach (var proc in procs)
+        {
+            Sleep(TMR_INTVL_DFLT);
+            proc?.Kill();
         }
     }
     #endregion
@@ -118,25 +115,28 @@ internal static class Common
     /// <typeparam name="T">Datatype.</typeparam>
     /// <param name="tasks">Tasks.</param>
     /// <param name="goodRslt">Good result.</param>
-    /// <returns></returns>
-    internal static async Task<T> WaitAnyWithCond<T>(this IEnumerable<Task<T>> tasks, T goodRslt)
+    /// <param name="cancTk">Cancellation token.</param>
+    /// <returns>First task complete with condition.</returns>
+    internal static async Task<T> WaitAnyWithCond<T>(this IEnumerable<Task<T>> tasks, T goodRslt, CancellationToken cancTk)
     {
+        using var cts = CreateLinkedTokenSource(cancTk);
         var taskList = new List<Task<T>>(tasks);
-        var fstCmpl = default(Task<T>);
-        while (taskList.Count > 0)
+        var completedTask = default(Task<T>);
+        while (taskList?.Count > 0)
         {
-            var curCmpl = await WhenAny(taskList);
-            if (curCmpl.Status == RanToCompletion && curCmpl.Result.Equals(goodRslt))
+            var curCmpl = await WhenAny(taskList).ConfigureAwait(false);
+            if (curCmpl?.Status == RanToCompletion && curCmpl.Result.Equals(goodRslt))
             {
-                fstCmpl = curCmpl;
+                completedTask = curCmpl;
+                cts?.Cancel();
                 break;
             }
             else
             {
-                taskList.Remove(curCmpl);
+                taskList?.Remove(curCmpl);
             }
         }
-        return (fstCmpl != default(Task<T>)) ? fstCmpl.Result : default;
+        return completedTask != null ? completedTask.Result : default;
     }
     #endregion
 }

@@ -25,16 +25,15 @@ public partial class ServiceMain : ServiceBase
     #region Overridden
     protected override void OnStart(string[] args)
     {
-        _logger.WrLog(BOT_NAME, "Started!");
-        var tmrBot = new Timer
+        _logger?.WrInfo(BOT_NAME, "Started!");
+        new Timer
         {
             Interval = TMR_INTVL,
             Enabled = true
-        };
-        tmrBot.Elapsed += OnTmrBotEvent;
+        }.Elapsed += OnTmrBotEvent;
     }
 
-    protected override void OnStop() => _logger.WrLog(BOT_NAME, "Stopped!");
+    protected override void OnStop() => _logger?.WrInfo(BOT_NAME, "Stopped!");
     #endregion
 
     #region Events
@@ -47,32 +46,25 @@ public partial class ServiceMain : ServiceBase
         // for time
         if (Today.DayOfWeek != Sunday && Now.Hour > 0)
         {
-            var sInHour = GetHourConfig(tmr_in);
-            var sInMin = GetMinConfig(tmr_in);
-            var sOutHour = GetHourConfig(tmr_out);
-            var sOutMin = GetMinConfig(tmr_out);
-            // on time
-            if (Now.Hour == HourPrs(sInHour) && Now.Minute == MinPrs(sInMin))
+            if (Now.Hour == HourPrs(GetHourConfig(tmr_in)) && Now.Minute == MinPrs(GetMinConfig(tmr_in)))
             {
-                var fyanBot = new FyanBot
+                new FyanBot
                 {
                     IsCheckIn = true
-                };
-                fyanBot.BotChk();
+                }?.BotChk();
             }
-            else if (Now.Hour == HourPrs(sOutHour) && Now.Minute == MinPrs(sOutMin))
+            else if (Now.Hour == HourPrs(GetHourConfig(tmr_out)) && Now.Minute == MinPrs(GetMinConfig(tmr_out)))
             {
-                var fyanBot = new FyanBot
+                new FyanBot
                 {
                     IsCheckIn = false
-                };
-                fyanBot.BotChk();
+                }?.BotChk();
             }
         }
         // for date
-        if (!_isPwdChgd && Today.Day == MinDayPrs(_appConfig.Getter(day_chg_pwd)))
+        if (!_isPwdChgd && Today.Day == MinDayPrs(_appConfig?.Getter(day_chg_pwd)))
         {
-            new FyanBot().BotPwd();
+            new FyanBot()?.BotPwd();
             _isPwdChgd = true;
         }
     }
@@ -82,14 +74,14 @@ public partial class ServiceMain : ServiceBase
     // Get hour from config
     private string GetHourConfig(string key)
     {
-        var rslt = _appConfig.Getter(key).Split(':')[0];
+        var rslt = _appConfig?.Getter(key)?.Split(':')[0];
         return int.TryParse(rslt, out var _) ? rslt : "00";
     }
 
     // Get minute from config
     private string GetMinConfig(string key)
     {
-        var rslt = _appConfig.Getter(key).Split(':')[1];
+        var rslt = _appConfig?.Getter(key)?.Split(':')[1];
         return int.TryParse(rslt, out var _) ? rslt : "00";
     }
     #endregion

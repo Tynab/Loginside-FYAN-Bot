@@ -9,7 +9,7 @@ internal class AppConfig
 {
     #region Fields
     private readonly Logger _logger = new();
-    private readonly Configuration _cfg = OpenExeConfiguration(GetExecutingAssembly().Location);
+    private readonly Configuration _cfg = OpenExeConfiguration(GetExecutingAssembly()?.Location);
     #endregion
 
     #region Methods
@@ -18,7 +18,7 @@ internal class AppConfig
     /// </summary>
     /// <param name="key">Key.</param>
     /// <returns>Value as string.</returns>
-    internal string Getter(string key) => _cfg.AppSettings.Settings[key].Value?.ToString();
+    internal string Getter(string key) => _cfg?.AppSettings?.Settings[key]?.Value?.ToString();
 
     /// <summary>
     /// Set value to app config.
@@ -31,20 +31,19 @@ internal class AppConfig
         try
         {
             _cfg.AppSettings.Settings[key].Value = value?.ToString();
-            _cfg.Save();
+            _cfg?.Save();
         }
         catch (Exception ex1)
         {
-            _logger.WrLog("Bot error", ex1.Message);
-            // try add new
+            _logger?.WrErr("Bot error", ex1);
             try
             {
-                _cfg.AppSettings.Settings.Add(key, value?.ToString());
-                _cfg.Save();
+                _cfg?.AppSettings?.Settings?.Add(key, value?.ToString());
+                _cfg?.Save();
             }
             catch (Exception ex2)
             {
-                _logger.WrLog("Bot error", ex2.Message);
+                _logger?.WrErr("Bot error", ex2);
             }
         }
     }

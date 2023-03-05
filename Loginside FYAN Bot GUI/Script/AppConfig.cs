@@ -14,14 +14,10 @@ internal class AppConfig
     #endregion
 
     #region Constructors
-    internal AppConfig()
+    internal AppConfig() => _cfg = OpenMappedExeConfiguration(new ExeConfigurationFileMap
     {
-        var exeCfgFileMap = new ExeConfigurationFileMap
-        {
-            ExeConfigFilename = CONFIG_ADR
-        };
-        _cfg = OpenMappedExeConfiguration(exeCfgFileMap, ConfigurationUserLevel.None);
-    }
+        ExeConfigFilename = CONFIG_ADR
+    }, ConfigurationUserLevel.None);
     #endregion
 
     #region Methods
@@ -30,7 +26,7 @@ internal class AppConfig
     /// </summary>
     /// <param name="key">Key.</param>
     /// <returns>Value as string.</returns>
-    internal string Getter(string key) => Exists(CONFIG_ADR) ? _cfg.AppSettings.Settings[key].Value?.ToString() : null;
+    internal string Getter(string key) => Exists(CONFIG_ADR) ? _cfg?.AppSettings?.Settings[key]?.Value?.ToString() : null;
 
     /// <summary>
     /// Set value to app config.
@@ -41,28 +37,27 @@ internal class AppConfig
     /// <returns>Is success.</returns>
     internal bool Setter<T>(string key, T value)
     {
-        var isScs = true;
         try
         {
             _cfg.AppSettings.Settings[key].Value = value?.ToString();
-            _cfg.Save();
+            _cfg?.Save();
+            return true;
         }
         catch (Exception ex)
         {
-            _ = MsgEFree(ex.Message);
-            // try add new
+            _ = MsgEFree(ex?.Message);
             try
             {
                 _cfg.AppSettings.Settings.Add(key, value?.ToString());
-                _cfg.Save();
+                _cfg?.Save();
+                return true;
             }
             catch (Exception e)
             {
-                _ = MsgEFree(e.Message);
-                isScs = false;
+                _ = MsgEFree(e?.Message);
+                return false;
             }
         }
-        return isScs;
     }
     #endregion
 }

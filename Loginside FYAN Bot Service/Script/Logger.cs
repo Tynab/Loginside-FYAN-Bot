@@ -1,7 +1,8 @@
-﻿using static Loginside_FYAN_Bot_Service.Script.Common;
+﻿using Serilog;
+using System;
 using static Loginside_FYAN_Bot_Service.Script.Constant;
+using static Serilog.Log;
 using static System.DateTime;
-using static System.IO.File;
 
 namespace Loginside_FYAN_Bot_Service.Script;
 
@@ -9,25 +10,27 @@ internal class Logger
 {
     #region Methods
     /// <summary>
-    /// Write log.
+    /// Write log infomation.
     /// </summary>
     /// <param name="cap">Caption.</param>
     /// <param name="msg">Message.</param>
-    internal void WrLog(string cap, string msg)
+    internal void WrInfo(string cap, string msg)
     {
-        CrtDirAdv(LOG_PATH);
-        var logAdr = $@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".txt";
-        // create or mod
-        if (Exists(logAdr))
-        {
-            using var writer = AppendText(logAdr);
-            writer.WriteLine(Now.ToString("HH:mm:ss") + $" {cap}: {msg}");
-        }
-        else
-        {
-            using var writer = CreateText(logAdr);
-            writer.WriteLine(Now.ToString("HH:mm:ss") + $" {cap}: {msg}");
-        }
+        Log.Logger = new LoggerConfiguration()?.WriteTo?.File($@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".log")?.CreateLogger();
+        Information($"{cap}: {msg}");
+        CloseAndFlush();
+    }
+
+    /// <summary>
+    /// Write log error.
+    /// </summary>
+    /// <param name="cap">Caption.</param>
+    /// <param name="exc">Exception.</param>
+    internal void WrErr(string cap, Exception exc)
+    {
+        Log.Logger = new LoggerConfiguration()?.WriteTo?.File($@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".log")?.CreateLogger();
+        Error(exc, cap);
+        CloseAndFlush();
     }
     #endregion
 }

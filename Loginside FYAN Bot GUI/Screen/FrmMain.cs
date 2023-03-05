@@ -34,14 +34,14 @@ public partial class FrmMain : Form
     private void FrmMain_Shown(object sender, EventArgs e)
     {
         // display effect
-        pnlMain.ShowAnimat(ScaleAndRotate, ANIMAT_SPD);
-        pnlIn.ShowAnimatAsync(VertSlide, ANIMAT_SPD);
-        pnlOut.ShowAnimatAsync(VertSlide, ANIMAT_SPD);
-        btnCl.ShowAnimatAsync(Rotate, ANIMAT_SPD);
-        pnlIns.ShowAnimatAsync(ScaleAndHorizSlide, ANIMAT_SPD);
+        pnlMain?.ShowAnimat(ScaleAndRotate, ANIMAT_SPD);
+        pnlIn?.ShowAnimatAsync(VertSlide, ANIMAT_SPD);
+        pnlOut?.ShowAnimatAsync(VertSlide, ANIMAT_SPD);
+        btnCl?.ShowAnimatAsync(Rotate, ANIMAT_SPD);
+        pnlIns?.ShowAnimatAsync(ScaleAndHorizSlide, ANIMAT_SPD);
         GetServSyncDisp();
         //sound
-        SND_PRS.Play();
+        SND_PRS?.Play();
         // is missing data
         if (!Exists(CONFIG_ADR))
         {
@@ -53,35 +53,35 @@ public partial class FrmMain : Form
     }
 
     // frm closing
-    private void FrmMain_FormClosing(object sender, FormClosingEventArgs e) => pnlMain.HideAnimat(Leaf, ANIMAT_SPD);
+    private void FrmMain_FormClosing(object sender, FormClosingEventArgs e) => pnlMain?.HideAnimat(Leaf, ANIMAT_SPD);
 
     // btn Apply click
     private void BtnAdm_Click(object sender, EventArgs e)
     {
         // sound
-        SND_NEXT.Play();
+        SND_NEXT?.Play();
         // main
         var isScs = true;
         // set timer in
-        isScs = isScs && _appConfig.Setter(tmr_in, nbInHour.Value.ToString("00") + ":" + nbInMin.Value.ToString("00"));
+        isScs = isScs && _appConfig.Setter(tmr_in, nbInHour?.Value.ToString("00") + ":" + nbInMin?.Value.ToString("00"));
         // set timer out
-        isScs = isScs && _appConfig.Setter(tmr_out, nbOutHour.Value.ToString("00") + ":" + nbOutMin.Value.ToString("00"));
+        isScs = isScs && _appConfig.Setter(tmr_out, nbOutHour?.Value.ToString("00") + ":" + nbOutMin?.Value.ToString("00"));
         // set id
-        var sId = txtId.String;
+        var sId = txtId?.String;
         if (sId.HasVal())
         {
             isScs = isScs && _appConfig.Setter(id_ins, sId);
         }
         // set secret key
-        var sSecKey = txtSecKey.String;
+        var sSecKey = txtSecKey?.String;
         if (sSecKey.HasVal())
         {
             isScs = isScs && _appConfig.Setter(sec_key, sSecKey);
         }
         // set day changed
-        isScs = isScs && _appConfig.Setter(day_chg_pwd, nbDayChgPwd.Value.ToString());
+        isScs = isScs && _appConfig.Setter(day_chg_pwd, nbDayChgPwd?.Value.ToString());
         // set password
-        var sPwd = txtPwd.String;
+        var sPwd = txtPwd?.String;
         if (IsVldPwd(sPwd))
         {
             isScs = isScs && _appConfig.Setter(pwd_ins, sPwd);
@@ -89,12 +89,12 @@ public partial class FrmMain : Form
         else
         {
             _ = MsgEPwdFail();
-            txtPwd.ResetText();
-            txtPwd.Select();
+            txtPwd?.ResetText();
+            txtPwd?.Select();
             return;
         }
         // set password preventive
-        var sPwdPrev = txtPwdPrev.String;
+        var sPwdPrev = txtPwdPrev?.String;
         if (IsVldPwd(sPwdPrev))
         {
             isScs = isScs && _appConfig.Setter(pwd_prev, sPwdPrev);
@@ -102,8 +102,8 @@ public partial class FrmMain : Form
         else
         {
             _ = MsgEPwdFail();
-            txtPwdPrev.ResetText();
-            txtPwdPrev.Select();
+            txtPwdPrev?.ResetText();
+            txtPwdPrev?.Select();
             return;
         }
         // apply
@@ -119,21 +119,21 @@ public partial class FrmMain : Form
     private void BtnAct_Click(object sender, EventArgs e)
     {
         // sound
-        SND_NEXT.Play();
+        SND_NEXT?.Play();
         // check status for action
         var isScs = true;
         switch (GetServSts(bot_name))
         {
             case Started:
-            {
-                isScs = StopServ(bot_name, TIME_OUT);
-                break;
-            }
+                {
+                    isScs = StopServ(bot_name, TIME_OUT);
+                    break;
+                }
             case Stoped:
-            {
-                isScs = StrtServ(bot_name, TIME_OUT);
-                break;
-            }
+                {
+                    isScs = StrtServ(bot_name, TIME_OUT);
+                    break;
+                }
         }
         // re-sync
         if (isScs)
@@ -149,7 +149,7 @@ public partial class FrmMain : Form
         // action
         Close();
         // sound
-        SND_NEXT.PlaySync();
+        SND_NEXT?.PlaySync();
     }
     #endregion
 
@@ -179,10 +179,11 @@ public partial class FrmMain : Form
             lbl.MouseUp += MoveFrm_MouseUp;
         }
         // txt password
-        _txtPwd.ForEach(x =>
+        _txtPwd?.ForEach(x =>
         {
             x.KeyDown += TxtPwd_KeyDown;
             x.KeyUp += TxtPwd_KeyUp;
+            x.StringChanged += TxtPwd_StringChanged;
         });
     }
 
@@ -193,13 +194,13 @@ public partial class FrmMain : Form
         nbInMin.Value = GetMinConfig(tmr_in);
         nbOutHour.Value = GetHourConfig(tmr_out);
         nbOutMin.Value = GetMinConfig(tmr_out);
-        txtId.String = _appConfig.Getter(id_ins);
-        txtPwd.String = _appConfig.Getter(pwd_ins);
-        txtSecKey.String = _appConfig.Getter(sec_key);
-        txtPwdPrev.String = _appConfig.Getter(pwd_prev);
-        var dayChgPwd = _appConfig.Getter(day_chg_pwd);
+        txtId.String = _appConfig?.Getter(id_ins);
+        txtPwd.String = _appConfig?.Getter(pwd_ins);
+        txtSecKey.String = _appConfig?.Getter(sec_key);
+        txtPwdPrev.String = _appConfig?.Getter(pwd_prev);
+        var dayChgPwd = _appConfig?.Getter(day_chg_pwd);
         nbDayChgPwd.Value = !dayChgPwd.HasVal() ? DFLT_DAY : dayChgPwd.IntPrs(DFLT_DAY);
-        pnlMain.Select();
+        pnlMain?.Select();
     }
 
     // Get service sync display
@@ -211,12 +212,12 @@ public partial class FrmMain : Form
             // show btn apply
             if (!btnAdm.Visible)
             {
-                btnAdm.ShowAnimatAsync(VertBlind, ANIMAT_SPD);
+                btnAdm?.ShowAnimatAsync(VertBlind, ANIMAT_SPD);
             }
             // show btn active
             if (!btnAct.Visible)
             {
-                btnAct.ShowAnimatAsync(VertBlind, ANIMAT_SPD);
+                btnAct?.ShowAnimatAsync(VertBlind, ANIMAT_SPD);
             }
         }
     }
@@ -239,14 +240,14 @@ public partial class FrmMain : Form
     // Get hour from config
     private decimal GetHourConfig(string key)
     {
-        var val = _appConfig.Getter(key);
+        var val = _appConfig?.Getter(key);
         return val.HasVal() ? val.Split(':')[0].IntPrs(0) : 0;
     }
 
     // Get minute from config
     private decimal GetMinConfig(string key)
     {
-        var val = _appConfig.Getter(key);
+        var val = _appConfig?.Getter(key);
         return val.HasVal() ? val.Split(':')[1].IntPrs(0) : 0;
     }
     #endregion

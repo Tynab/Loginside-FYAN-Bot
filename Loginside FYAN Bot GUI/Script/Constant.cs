@@ -10,7 +10,7 @@ namespace Loginside_FYAN_Bot_GUI.Script;
 internal static class Constant
 {
     // path
-    internal static readonly string CONFIG_ADR = $@"{GetParent(CurrentDomain.BaseDirectory)}\{serv_name}.exe.config";
+    internal static readonly string CONFIG_ADR = $@"{GetParent(CurrentDomain?.BaseDirectory)}\{serv_name}.exe.config";
 
     // sound
     internal static readonly SoundPlayer SND_BACK = new(sBack);

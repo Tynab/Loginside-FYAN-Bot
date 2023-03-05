@@ -235,7 +235,7 @@
             // 
             this.txtPwd.BackColor = System.Drawing.Color.White;
             this.txtPwd.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtPwd.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.txtPwd.BorderFocusColor = System.Drawing.Color.OrangeRed;
             this.txtPwd.BorderRadius = 10;
             this.txtPwd.BorderSize = 1;
             this.txtPwd.Font = new System.Drawing.Font("Tahoma", 12F);
@@ -260,7 +260,7 @@
             // 
             this.txtPwdPrev.BackColor = System.Drawing.Color.White;
             this.txtPwdPrev.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtPwdPrev.BorderFocusColor = System.Drawing.Color.DarkOrange;
+            this.txtPwdPrev.BorderFocusColor = System.Drawing.Color.OrangeRed;
             this.txtPwdPrev.BorderRadius = 10;
             this.txtPwdPrev.BorderSize = 1;
             this.txtPwdPrev.Font = new System.Drawing.Font("Tahoma", 12F);
