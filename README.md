@@ -64,7 +64,7 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/9.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- AngleSharp » 0.17.1
+- AngleSharp » 1.0.1
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
@@ -76,19 +76,19 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/5.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Otp.NET » 1.2.2
+- Otp.NET » 1.3.0
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/6.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Selenium.WebDriver » 4.6.0
+- Selenium.WebDriver » 4.8.1
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/7.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Selenium.WebDriver.ChromeDriver » 107.0.5304.6200
+- Selenium.WebDriver.ChromeDriver » 110.0.5481.7700
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/2.png" align="left" width="3%" height="3%"></img>
@@ -100,7 +100,7 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/3.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- Selenium.WebDriver.IEDriver » 4.6.0
+- Selenium.WebDriver.IEDriver » 4.8.1
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/12.png" align="left" width="3%" height="3%"></img>
@@ -118,7 +118,7 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/10.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- SharpZipLib » 1.4.1
+- SharpZipLib » 1.4.2
 
 </div>
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
@@ -172,6 +172,6 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/4.png" align="left" width="3%" height="3%"></img>
 <div style="display:flex;">
 
-- WebDriverManager » 2.16.0
+- WebDriverManager » 2.16.2
 
 </div>
