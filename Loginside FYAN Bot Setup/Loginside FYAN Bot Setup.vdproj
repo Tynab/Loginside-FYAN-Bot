@@ -39,6 +39,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0C6EEB02BD4D45178256BD79726F0A81"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0E6C67AA58E24899B9B991C3BEAD6CCE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_246D9D8F25928554FBDF9A729D09ECF3"
         "OwnerKey" = "8:_47CA871AEAB6F33C734BBF4E502E4F1D"
         "MsmSig" = "8:_UNDEFINED"
@@ -117,13 +129,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_626367C1C4C44F4B9C3081715AC6E0CC"
+        "MsmKey" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_73C40252195641C8A795B96AC84136CE"
+        "MsmKey" = "8:_626367C1C4C44F4B9C3081715AC6E0CC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -225,6 +237,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_BC335EC2E4B74AC6B60DC19CF6522F1F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BE78BC51C3014087B45E08A3495E7A9B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -251,6 +269,12 @@
         {
         "MsmKey" = "8:_CC6B4CCFD471144386BE1577D2E53646"
         "OwnerKey" = "8:_B12696E855D8445D8AF8001D43B6B955"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CDF1F3C9CF964DACAE031802C2F62CA5"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -353,12 +377,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_972121B4852844B7A09248F8105D4D28"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_12C3CDC201BC403EB60E3C7CF87E6CE4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -511,6 +529,12 @@
         "OwnerKey" = "8:_F72E53B95E2CCD54F704305FA13371DF"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_12C3CDC201BC403EB60E3C7CF87E6CE4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -583,6 +607,20 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_0E6C8B7711814AC3895D77E6BB370E76"
+            {
+            "Name" = "8:startup.exe"
+            "Condition" = "8:"
+            "Object" = "8:_0C6EEB02BD4D45178256BD79726F0A81"
+            "FileType" = "3:2"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:/Commit"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_BF9C02C2_6CA8_48C5_B409_EA50A561EABB"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
             "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_687125CB82084CFFB5571E171374AF5E"
             {
             "Name" = "8:Primary output from Loginside FYAN Bot Service (Active)"
@@ -725,6 +763,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0C6EEB02BD4D45178256BD79726F0A81"
+            {
+            "SourcePath" = "8:..\\startup.exe"
+            "TargetName" = "8:startup.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E6C67AA58E24899B9B991C3BEAD6CCE"
+            {
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\geckodriver.exe"
+            "TargetName" = "8:geckodriver.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_246D9D8F25928554FBDF9A729D09ECF3"
@@ -944,10 +1022,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_626367C1C4C44F4B9C3081715AC6E0CC"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_61BF6600F532427EB83DF0F682A6BF8C"
             {
-            "SourcePath" = "8:..\\res\\BSZoro.bmp"
-            "TargetName" = "8:BSZoro.bmp"
+            "SourcePath" = "8:..\\res\\ic.ico"
+            "TargetName" = "8:ic.ico"
             "Tag" = "8:"
             "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
             "Condition" = "8:"
@@ -964,10 +1042,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_73C40252195641C8A795B96AC84136CE"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_626367C1C4C44F4B9C3081715AC6E0CC"
             {
-            "SourcePath" = "8:..\\res\\ic.ico"
-            "TargetName" = "8:ic.ico"
+            "SourcePath" = "8:..\\res\\BSZoro.bmp"
+            "TargetName" = "8:BSZoro.bmp"
             "Tag" = "8:"
             "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
             "Condition" = "8:"
@@ -1148,6 +1226,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC335EC2E4B74AC6B60DC19CF6522F1F"
+            {
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\IEDriverServer.exe"
+            "TargetName" = "8:IEDriverServer.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BE78BC51C3014087B45E08A3495E7A9B"
             {
             "SourcePath" = "8:..\\res\\BSLaw.bmp"
@@ -1259,6 +1357,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDF1F3C9CF964DACAE031802C2F62CA5"
+            {
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\chromedriver.exe"
+            "TargetName" = "8:chromedriver.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D3BACA704CB0351CC970E5AC91C0012F"
@@ -1546,6 +1664,17 @@
                 {
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_7D8376A0E4244C169D0E1DC3094FDC56"
+            {
+            "Name" = "8:#1928"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:StartupFolder"
+                "Folders"
+                {
+                }
+            }
             "{1525181F-901A-416C-8A58-119130FE478E}:_A944EB2DFC5F40EDB294A2BE04EF879A"
             {
             "Name" = "8:#1919"
@@ -1585,15 +1714,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Loginside FYAN Bot"
-        "ProductCode" = "8:{5F0EC7FD-F410-4152-86E6-21CC3BA7451E}"
-        "PackageCode" = "8:{D86BE13B-C014-4AFD-8EB0-CA94DDED5292}"
+        "ProductCode" = "8:{DC340A09-677B-4312-AA55-2D39A5D0B086}"
+        "PackageCode" = "8:{0543523A-9068-4C1C-9268-6FF1984C8C32}"
         "UpgradeCode" = "8:{56CD67B1-B094-41C2-86D0-E7E756F1B831}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.4.1"
+        "ProductVersion" = "8:2.0.0"
         "Manufacturer" = "8:YAN"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1603,7 +1732,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_73C40252195641C8A795B96AC84136CE"
+        "ARPPRODUCTICON" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -1706,7 +1835,21 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F1E33D78BAC1435294319712229973FB"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9C42A82AE09243C994393BC99E92516D"
+            {
+            "Name" = "8:Loginside FYAN Bot"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_12C3CDC201BC403EB60E3C7CF87E6CE4"
+            "Folder" = "8:_7D8376A0E4244C169D0E1DC3094FDC56"
+            "WorkingFolder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Icon" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C59953F5D5DC42118D23123C9E899F6A"
             {
             "Name" = "8:Loginside FYAN Bot"
             "Arguments" = "8:"
@@ -1717,10 +1860,10 @@
             "Target" = "8:_972121B4852844B7A09248F8105D4D28"
             "Folder" = "8:_466E06651DF7409AAEB3BC45E00A1BAD"
             "WorkingFolder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
-            "Icon" = "8:_73C40252195641C8A795B96AC84136CE"
+            "Icon" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_FB347C9EF5704619B119D2D5B95D9ECC"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EB227312E4DD4252AA57DDEB4A40E5AD"
             {
             "Name" = "8:Loginside FYAN Bot"
             "Arguments" = "8:"
@@ -1731,7 +1874,7 @@
             "Target" = "8:_972121B4852844B7A09248F8105D4D28"
             "Folder" = "8:_A944EB2DFC5F40EDB294A2BE04EF879A"
             "WorkingFolder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
-            "Icon" = "8:_73C40252195641C8A795B96AC84136CE"
+            "Icon" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
             "Feature" = "8:"
             }
         }
@@ -1827,42 +1970,6 @@
                             "Setting" = "3:1"
                             "Value" = "8:#1203"
                             "DefaultValue" = "8:#1203"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_DDACA053F1C84F329E9628B657B7543D"
-                    {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdFolderDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:2"
-                            "Value" = "8:_626367C1C4C44F4B9C3081715AC6E0CC"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                            "InstallAllUsersVisible"
-                            {
-                            "Name" = "8:InstallAllUsersVisible"
-                            "DisplayName" = "8:#1059"
-                            "Description" = "8:#1159"
-                            "Type" = "3:5"
-                            "ContextData" = "8:1;True=1;False=0"
-                            "Attributes" = "3:0"
-                            "Setting" = "3:0"
-                            "Value" = "3:1"
-                            "DefaultValue" = "3:1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -2040,29 +2147,6 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
-                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_12BDF2A6B64249FAA801EDAC23C7258E"
-                    {
-                    "Sequence" = "3:200"
-                    "DisplayName" = "8:Installation Folder"
-                    "UseDynamicProperties" = "11:TRUE"
-                    "IsDependency" = "11:FALSE"
-                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminFolderDlg.wid"
-                        "Properties"
-                        {
-                            "BannerBitmap"
-                            {
-                            "Name" = "8:BannerBitmap"
-                            "DisplayName" = "8:#1001"
-                            "Description" = "8:#1101"
-                            "Type" = "3:8"
-                            "ContextData" = "8:Bitmap"
-                            "Attributes" = "3:4"
-                            "Setting" = "3:2"
-                            "Value" = "8:_626367C1C4C44F4B9C3081715AC6E0CC"
-                            "UsePlugInResources" = "11:TRUE"
-                            }
-                        }
-                    }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_81CC00D53BE44821B310C7F62B2442FB"
                     {
                     "Sequence" = "3:300"

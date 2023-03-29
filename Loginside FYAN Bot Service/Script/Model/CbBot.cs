@@ -48,7 +48,7 @@ internal class CbBot : ShdwBot
                 {
                     BinaryLocation = BRV_ADR
                 };
-                using IWebDriver drv = new ChromeDriver(BASE_PATH, opts);
+                using IWebDriver drv = new ChromeDriver(CurrentDirectory, opts);
                 ShdwChkIO(Name, drv, acctIns);
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ internal class CbBot : ShdwBot
                 {
                     BinaryLocation = BRV_ADR
                 };
-                using IWebDriver drv = new ChromeDriver(BASE_PATH, opts);
+                using IWebDriver drv = new ChromeDriver(CurrentDirectory, opts);
                 ShdwChgPwd(Name, drv, acctIns);
                 return true;
             }

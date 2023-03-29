@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Loginside_FYAN_Bot.Script;
 
-internal class Root
+internal static class Root
 {
     // Fields
     private const byte SW_HIDE = 0;

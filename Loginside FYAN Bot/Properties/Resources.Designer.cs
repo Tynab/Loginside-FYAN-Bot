@@ -97,7 +97,7 @@ namespace Loginside_FYAN_Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://raw.githubusercontent.com/Tynab/Tynab/main/app/Sumirin%20Beta%20(Falling%20Apart)%20Slab.
+        ///   Looks up a localized string similar to https://raw.githubusercontent.com/Tynab/Tynab/main/app/Loginside%20FYAN%20Bot.
         /// </summary>
         internal static string link_app {
             get {
@@ -115,11 +115,20 @@ namespace Loginside_FYAN_Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://raw.githubusercontent.com/Tynab/Tynab/main/ver/Sumirin%20Beta%20(Falling%20Apart)%20Slab.
+        ///   Looks up a localized string similar to https://raw.githubusercontent.com/Tynab/Tynab/main/ver/Loginside%20FYAN%20Bot.
         /// </summary>
         internal static string link_ver {
             get {
                 return ResourceManager.GetString("link_ver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to startup.
+        /// </summary>
+        internal static string tool_name {
+            get {
+                return ResourceManager.GetString("tool_name", resourceCulture);
             }
         }
     }

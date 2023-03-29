@@ -134,7 +134,7 @@
     <comment>tên doanh nghiệp</comment>
   </data>
   <data name="link_app" xml:space="preserve">
-    <value>https://raw.githubusercontent.com/Tynab/Tynab/main/app/Sumirin%20Beta%20(Falling%20Apart)%20Slab</value>
+    <value>https://raw.githubusercontent.com/Tynab/Tynab/main/app/Loginside%20FYAN%20Bot</value>
     <comment>đường dẫn tải phần mềm trên server</comment>
   </data>
   <data name="link_base" xml:space="preserve">
@@ -142,7 +142,11 @@
     <comment>đường dẫn cơ bản</comment>
   </data>
   <data name="link_ver" xml:space="preserve">
-    <value>https://raw.githubusercontent.com/Tynab/Tynab/main/ver/Sumirin%20Beta%20(Falling%20Apart)%20Slab</value>
+    <value>https://raw.githubusercontent.com/Tynab/Tynab/main/ver/Loginside%20FYAN%20Bot</value>
     <comment>đường dẫn kiểm tra phiên bản trên server</comment>
+  </data>
+  <data name="tool_name" xml:space="preserve">
+    <value>startup</value>
+    <comment>tên công cụ khởi động</comment>
   </data>
 </root>
