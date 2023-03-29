@@ -8,8 +8,8 @@
 - Auto change password bypass rule inside
 
 ## IMAGE DEMO
-<p align="center">
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/0.jpg"></img>
+<p align='center'>
+<img src='pic/0.jpg'></img>
 </p>
 
 ## CODE DEMO
@@ -49,128 +49,128 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 ```
 
 ### PACKAGE
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/4.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/4.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Animator » 1.0.3
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/1.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/1.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Tynab.YANF » 1.0.1
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/9.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/9.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - AngleSharp » 1.0.1
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Microsoft.Win32.Registry » 5.0.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/5.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/5.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Otp.NET » 1.3.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/6.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/6.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Selenium.WebDriver » 4.8.1
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/7.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/7.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Selenium.WebDriver.ChromeDriver » 110.0.5481.7700
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/2.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/2.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Selenium.WebDriver.GeckoDriver » 0.32.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/3.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/3.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Selenium.WebDriver.IEDriver » 4.8.1
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/12.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/12.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Serilog » 2.12.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/11.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/11.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - Serilog.Sinks.File » 5.0.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/10.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/10.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - SharpZipLib » 1.4.2
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Buffers » 4.5.1
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Memory » 4.5.5
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Numerics.Vectors » 4.5.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Runtime.CompilerServices.Unsafe » 6.0.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Security.AccessControl » 6.0.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Security.Principal.Windows » 5.0.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Text.Encoding.CodePages » 7.0.0
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/8.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - System.Threading.Tasks.Extensions » 4.5.4
 
 </div>
-<img src="https://raw.githubusercontent.com/Tynab/Loginside-FYAN-Bot/main/pic/4.png" align="left" width="3%" height="3%"></img>
-<div style="display:flex;">
+<img src='pic/4.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
 
 - WebDriverManager » 2.16.2
 

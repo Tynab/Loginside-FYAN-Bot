@@ -11,7 +11,6 @@ using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
 using static System.IO.File;
 using static System.Math;
-using static System.Windows.Forms.Keys;
 using static YANF.Script.YANEvent;
 
 namespace Loginside_FYAN_Bot_GUI.Screen;
@@ -30,22 +29,6 @@ public partial class FrmMain : Form
         OptEvt();
         OptDisp();
     }
-    #endregion
-
-    #region Overridden
-    //hide sub windows
-    protected override CreateParams CreateParams
-    {
-        get
-        {
-            var cp = base.CreateParams;
-            cp.ExStyle |= 0x80;
-            return cp;
-        }
-    }
-
-    //disable close
-    protected override bool ProcessCmdKey(ref Message msg, Keys keyData) => keyData == (Alt | F4) || base.ProcessCmdKey(ref msg, keyData);
     #endregion
 
     #region Events
@@ -70,6 +53,9 @@ public partial class FrmMain : Form
 #endif
         }
     }
+
+    // frm closed
+    private void FrmMain_FormClosed(object sender, FormClosedEventArgs e) => pnlMain?.HideAnimat(Leaf, ANIMAT_SPD);
 
     // btn Apply click
     private void BtnAdm_Click(object sender, EventArgs e)
@@ -152,15 +138,15 @@ public partial class FrmMain : Form
         switch (GetServSts(bot_name))
         {
             case Started:
-            {
-                isScs = StopServ(bot_name, TIME_OUT);
-                break;
-            }
+                {
+                    isScs = StopServ(bot_name, TIME_OUT);
+                    break;
+                }
             case Stoped:
-            {
-                isScs = StrtServ(bot_name, TIME_OUT);
-                break;
-            }
+                {
+                    isScs = StrtServ(bot_name, TIME_OUT);
+                    break;
+                }
         }
         // re-sync
         if (isScs)
@@ -174,8 +160,7 @@ public partial class FrmMain : Form
     private void BtnCl_Click(object sender, EventArgs e)
     {
         // action
-        pnlMain?.HideAnimat(Leaf, ANIMAT_SPD);
-        Hide();
+        Close();
         // sound
         SND_NEXT?.PlaySync();
     }

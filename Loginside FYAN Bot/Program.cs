@@ -1,15 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Loginside_FYAN_Bot.Screen;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
+using static Loginside_FYAN_Bot.Properties.Resources;
+using static Loginside_FYAN_Bot.Script.Constant;
+using static Loginside_FYAN_Bot.Script.EventHandler;
+using static Loginside_FYAN_Bot.Script.Root;
+using static System.Diagnostics.Process;
+using static System.IO.File;
+using static System.Windows.Forms.Application;
 
-namespace Loginside_FYAN_Bot
+HideConsole();
+// check manager running
+if (GetProcessesByName(bot_name).Count() > 1)
 {
-    internal class Program
+    Exit();
+}
+else
+{
+    new Timer
     {
-        private static void Main(string[] args)
+        Interval = TMR_INTVL,
+        Enabled = true
+    }.Tick += OnTmrMainEvent;
+    // check app running
+    if (GetProcessesByName(app_name).Count() < 1)
+    {
+        if (Exists(APP_ADR))
         {
+            Start(APP_ADR);
+        }
+        else
+        {
+            new Manager().Show();
         }
     }
+    Run();
 }
