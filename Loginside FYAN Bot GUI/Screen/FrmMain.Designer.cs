@@ -54,6 +54,7 @@
             this.btnAct = new YANF.Control.YANBtn();
             this.btnAdm = new YANF.Control.YANBtn();
             this.tipMain = new System.Windows.Forms.ToolTip(this.components);
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
             this.pnlMain.SuspendLayout();
             this.pnlIns.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -581,6 +582,10 @@
             this.btnAdm.Visible = false;
             this.btnAdm.Click += new System.EventHandler(this.BtnAdm_Click);
             // 
+            // tmrMain
+            // 
+            this.tmrMain.Interval = 60000;
+            // 
             // FrmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -594,10 +599,11 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmMain";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loginside FYAN Bot GUI";
+            this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
             this.pnlMain.ResumeLayout(false);
             this.pnlIns.ResumeLayout(false);
@@ -636,5 +642,6 @@
         private YANF.Control.YANBtn btnCl;
         private YANF.Control.YANNb nbDayChgPwd;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer tmrMain;
     }
 }

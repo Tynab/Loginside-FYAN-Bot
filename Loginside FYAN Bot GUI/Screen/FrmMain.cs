@@ -5,10 +5,13 @@ using YANF.Control;
 using YANF.Script;
 using static AnimatorNS.AnimationType;
 using static Loginside_FYAN_Bot_GUI.Properties.Resources;
+using static Loginside_FYAN_Bot_GUI.Properties.Settings;
 using static Loginside_FYAN_Bot_GUI.Script.Common;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
 using static System.IO.File;
+using static System.Math;
+using static System.Windows.Forms.Keys;
 using static YANF.Script.YANEvent;
 
 namespace Loginside_FYAN_Bot_GUI.Screen;
@@ -27,6 +30,22 @@ public partial class FrmMain : Form
         OptEvt();
         OptDisp();
     }
+    #endregion
+
+    #region Overridden
+    //hide sub windows
+    protected override CreateParams CreateParams
+    {
+        get
+        {
+            var cp = base.CreateParams;
+            cp.ExStyle |= 0x80;
+            return cp;
+        }
+    }
+
+    //disable close
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData) => keyData == (Alt | F4) || base.ProcessCmdKey(ref msg, keyData);
     #endregion
 
     #region Events
@@ -52,9 +71,6 @@ public partial class FrmMain : Form
         }
     }
 
-    // frm closing
-    private void FrmMain_FormClosing(object sender, FormClosingEventArgs e) => pnlMain?.HideAnimat(Leaf, ANIMAT_SPD);
-
     // btn Apply click
     private void BtnAdm_Click(object sender, EventArgs e)
     {
@@ -63,28 +79,37 @@ public partial class FrmMain : Form
         // main
         var isScs = true;
         // set timer in
-        isScs = isScs && _appConfig.Setter(tmr_in, nbInHour?.Value.ToString("00") + ":" + nbInMin?.Value.ToString("00"));
+        var tmrIn = $"{nbInHour?.Value:00}:{nbInMin?.Value:00}";
+        isScs = isScs && _appConfig.Setter(tmr_in, tmrIn);
+        Default.Tmr_In = tmrIn;
         // set timer out
-        isScs = isScs && _appConfig.Setter(tmr_out, nbOutHour?.Value.ToString("00") + ":" + nbOutMin?.Value.ToString("00"));
+        var tmrOut = $"{nbOutHour?.Value:00}:{nbOutMin?.Value:00}";
+        isScs = isScs && _appConfig.Setter(tmr_out, tmrOut);
+        Default.Tmr_Out = tmrOut;
         // set id
         var sId = txtId?.String;
         if (sId.HasVal())
         {
             isScs = isScs && _appConfig.Setter(id_ins, sId);
+            Default.Id_Ins = sId;
         }
         // set secret key
         var sSecKey = txtSecKey?.String;
         if (sSecKey.HasVal())
         {
             isScs = isScs && _appConfig.Setter(sec_key, sSecKey);
+            Default.Sec_Key = sSecKey;
         }
         // set day changed
-        isScs = isScs && _appConfig.Setter(day_chg_pwd, nbDayChgPwd?.Value.ToString());
+        var dayChgPwd = nbDayChgPwd?.Value.ToString();
+        isScs = isScs && _appConfig.Setter(day_chg_pwd, dayChgPwd);
+        Default.Day_Chg_Pwd = dayChgPwd;
         // set password
         var sPwd = txtPwd?.String;
         if (IsVldPwd(sPwd))
         {
             isScs = isScs && _appConfig.Setter(pwd_ins, sPwd);
+            Default.Pwd_Ins = sPwd;
         }
         else
         {
@@ -98,6 +123,7 @@ public partial class FrmMain : Form
         if (IsVldPwd(sPwdPrev))
         {
             isScs = isScs && _appConfig.Setter(pwd_prev, sPwdPrev);
+            Default.Pwd_Prev = sPwdPrev;
         }
         else
         {
@@ -113,6 +139,7 @@ public partial class FrmMain : Form
             _ = MsgIDone();
         }
         GetServStsSyncBtn();
+        Default.Save();
     }
 
     // btn Active click
@@ -125,15 +152,15 @@ public partial class FrmMain : Form
         switch (GetServSts(bot_name))
         {
             case Started:
-                {
-                    isScs = StopServ(bot_name, TIME_OUT);
-                    break;
-                }
+            {
+                isScs = StopServ(bot_name, TIME_OUT);
+                break;
+            }
             case Stoped:
-                {
-                    isScs = StrtServ(bot_name, TIME_OUT);
-                    break;
-                }
+            {
+                isScs = StrtServ(bot_name, TIME_OUT);
+                break;
+            }
         }
         // re-sync
         if (isScs)
@@ -147,7 +174,8 @@ public partial class FrmMain : Form
     private void BtnCl_Click(object sender, EventArgs e)
     {
         // action
-        Close();
+        pnlMain?.HideAnimat(Leaf, ANIMAT_SPD);
+        Hide();
         // sound
         SND_NEXT?.PlaySync();
     }
@@ -190,15 +218,15 @@ public partial class FrmMain : Form
     // Option display
     private void OptDisp()
     {
-        nbInHour.Value = GetHourConfig(tmr_in);
-        nbInMin.Value = GetMinConfig(tmr_in);
-        nbOutHour.Value = GetHourConfig(tmr_out);
-        nbOutMin.Value = GetMinConfig(tmr_out);
-        txtId.String = _appConfig?.Getter(id_ins);
-        txtPwd.String = _appConfig?.Getter(pwd_ins);
-        txtSecKey.String = _appConfig?.Getter(sec_key);
-        txtPwdPrev.String = _appConfig?.Getter(pwd_prev);
-        var dayChgPwd = _appConfig?.Getter(day_chg_pwd);
+        nbInHour.Value = Max(GetHourConfig(tmr_in), GetHourConfigLocal(Default.Tmr_In));
+        nbInMin.Value = Max(GetMinConfig(tmr_in), GetMinConfigLocal(Default.Tmr_In));
+        nbOutHour.Value = Max(GetHourConfig(tmr_out), GetHourConfigLocal(Default.Tmr_Out));
+        nbOutMin.Value = Max(GetMinConfig(tmr_out), GetMinConfigLocal(Default.Tmr_In));
+        txtId.String = _appConfig?.Getter(id_ins).Dflt4(Default.Id_Ins);
+        txtPwd.String = _appConfig?.Getter(pwd_ins).Dflt4(Default.Pwd_Ins);
+        txtSecKey.String = _appConfig?.Getter(sec_key).Dflt4(Default.Sec_Key);
+        txtPwdPrev.String = _appConfig?.Getter(pwd_prev).Dflt4(Default.Pwd_Prev);
+        var dayChgPwd = _appConfig?.Getter(day_chg_pwd).Dflt4(Default.Day_Chg_Pwd);
         nbDayChgPwd.Value = !dayChgPwd.HasVal() ? DFLT_DAY : dayChgPwd.IntPrs(DFLT_DAY);
         pnlMain?.Select();
     }
@@ -250,5 +278,11 @@ public partial class FrmMain : Form
         var val = _appConfig?.Getter(key);
         return val.HasVal() ? val.Split(':')[1].IntPrs(0) : 0;
     }
+
+    // Get hour from config local
+    private decimal GetHourConfigLocal(string val) => val.HasVal() ? val.Split(':')[0].IntPrs(0) : 0;
+
+    // Get minute from config local
+    private decimal GetMinConfigLocal(string val) => val.HasVal() ? val.Split(':')[1].IntPrs(0) : 0;
     #endregion
 }

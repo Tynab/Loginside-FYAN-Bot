@@ -125,7 +125,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ic.ico" />
     <None Include="Resources\pClose.png" />
     <None Include="Resources\sPress.wav" />
     <None Include="Resources\sNext.wav" />
@@ -145,6 +144,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ic.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

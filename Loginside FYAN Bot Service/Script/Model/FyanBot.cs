@@ -59,8 +59,9 @@ internal class FyanBot
             Run(() => new CbBot().ShdwBotPwd())
         }.WaitAnyWithCond(true, None).Result)
         {
+            var pwdOld = _appConfig?.Getter(pwd_ins);
             _appConfig?.Setter(pwd_ins, _appConfig?.Getter(pwd_prev));
-            _appConfig?.Setter(pwd_prev, _appConfig?.Getter(pwd_ins));
+            _appConfig?.Setter(pwd_prev, pwdOld);
         }
     }
 

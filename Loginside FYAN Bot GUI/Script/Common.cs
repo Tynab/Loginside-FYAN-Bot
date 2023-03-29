@@ -27,6 +27,14 @@ internal static class Common
     /// <param name="s">String.</param>
     /// <returns>String has value or not.</returns>
     internal static bool HasVal(this string s) => !string.IsNullOrWhiteSpace(s);
+
+    /// <summary>
+    /// Default for string.
+    /// </summary>
+    /// <param name="s">String.</param>
+    /// <param name="dflt">Default string.</param>
+    /// <returns>String has value.</returns>
+    internal static string Dflt4(this string s, string dflt) => string.IsNullOrWhiteSpace(s) ? dflt : s;
     #endregion
 
     #region Numeric

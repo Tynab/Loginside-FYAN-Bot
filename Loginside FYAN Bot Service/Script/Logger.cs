@@ -16,7 +16,7 @@ internal class Logger
     /// <param name="msg">Message.</param>
     internal void WrInfo(string cap, string msg)
     {
-        Log.Logger = new LoggerConfiguration()?.WriteTo?.File($@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".log")?.CreateLogger();
+        Log.Logger = new LoggerConfiguration()?.WriteTo?.File($@"{LOG_PATH}\{Today:dd-MM-yyyy}.log")?.CreateLogger();
         Information($"{cap}: {msg}");
         CloseAndFlush();
     }
@@ -28,7 +28,7 @@ internal class Logger
     /// <param name="exc">Exception.</param>
     internal void WrErr(string cap, Exception exc)
     {
-        Log.Logger = new LoggerConfiguration()?.WriteTo?.File($@"{LOG_PATH}\" + Today.ToString("dd-MM-yyyy") + ".log")?.CreateLogger();
+        Log.Logger = new LoggerConfiguration()?.WriteTo?.File($@"{LOG_PATH}\{Today:dd-MM-yyyy}.log")?.CreateLogger();
         Error(exc, cap);
         CloseAndFlush();
     }
