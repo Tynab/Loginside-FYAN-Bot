@@ -10,7 +10,7 @@
 
 ## AVATAR
 <p align='center'>
-<img src='pic/13.PNG'></img>
+<img src='pic/13.png'></img>
 </p>
 
 ## IMAGE DEMO
