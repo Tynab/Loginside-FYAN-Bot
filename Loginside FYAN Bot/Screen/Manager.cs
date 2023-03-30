@@ -24,6 +24,7 @@ internal class Manager : Form
 {
     #region Fields
     private IYANDlvScrService _dlvScrService;
+    private readonly Timer _tmrMain;
     private readonly Timer _tmrUp;
     private int _pct;
     #endregion
@@ -31,6 +32,19 @@ internal class Manager : Form
     #region Constructors
     internal Manager()
     {
+        InitializeComponent();
+        _tmrUp = new Timer
+        {
+            Interval = TMR_INTVL_DFLT,
+            Enabled = true
+        };
+        _tmrUp.Tick += TmrUpd_Tick;
+        Load += Manager_Load;
+    }
+
+    internal Manager(Timer tmrMain)
+    {
+        _tmrMain = tmrMain;
         InitializeComponent();
         _tmrUp = new Timer
         {
@@ -102,6 +116,7 @@ internal class Manager : Form
             using var wc = new WebClient();
             if (!wc.DownloadString(link_ver).Contains(app_ver))
             {
+                _tmrMain?.StopAdv();
                 _ = MessageBox.Show($"{bot_name} đã có phiên bản mới!", "CẬP NHẬT", OK, Information);
                 _dlvScrService = new YANUpdScrService();
                 _dlvScrService.OnLoader(this);

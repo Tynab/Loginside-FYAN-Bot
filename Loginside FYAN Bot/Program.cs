@@ -20,7 +20,8 @@ if (GetProcessesByName(app_name).Count() < 1)
     }
     else
     {
-        new Manager().Show();
+        mMgr ??= new Manager();
+        mMgr.Show();
     }
 }
 // check manager running

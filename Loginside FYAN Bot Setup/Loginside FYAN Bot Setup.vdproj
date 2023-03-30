@@ -22,7 +22,7 @@
         "Entry"
         {
         "MsmKey" = "8:_05D4DD410610E02E546DD713E052FF52"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -33,14 +33,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0E6C67AA58E24899B9B991C3BEAD6CCE"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_14A4F569657385E931F47AC651ACF9C0"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_31F03374107F54826933A6B6B88BC7B4"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -87,6 +81,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3EFDD2392215402DB875C6C25D43D85E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_41EC5ABB3EBD4185BA263D3E206CDCF2"
         "OwnerKey" = "8:_518559664C5CCC3A03D9A37C9671B091"
         "MsmSig" = "8:_UNDEFINED"
@@ -94,19 +94,19 @@
         "Entry"
         {
         "MsmKey" = "8:_41EC5ABB3EBD4185BA263D3E206CDCF2"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_454C1BB53CDBC0B38EC95BE471064B7A"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_47CA871AEAB6F33C734BBF4E502E4F1D"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -118,7 +118,7 @@
         "Entry"
         {
         "MsmKey" = "8:_518559664C5CCC3A03D9A37C9671B091"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,13 +130,19 @@
         "Entry"
         {
         "MsmKey" = "8:_56414850EBBFDC13C5744D04746C792F"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_56414850EBBFDC13C5744D04746C792F"
         "OwnerKey" = "8:_E7CEDA87B916EE617DFA598D3B0096AD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_57B3A4603F9C6CC128B5DF122B4CCF75"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -166,25 +172,43 @@
         "Entry"
         {
         "MsmKey" = "8:_6267F412577121703C41F88E7E5A13AD"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_7211C6F0FA7766DFE895E5FCD4D72A07"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_75DE7FB1BE828DEFEBFB2A9F2075BC64"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8695645928AD48C7AB58C2761E96102E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_874A32B17BB877CBEAF7DD6B8F255224"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_89D9A694CE504928B5C42C421B932012"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -226,13 +250,13 @@
         "Entry"
         {
         "MsmKey" = "8:_A4165D513537F41A286B3930A2172B5F"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_AA90DE7ACB9E721B22F87CD63BA2018E"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -244,7 +268,7 @@
         "Entry"
         {
         "MsmKey" = "8:_AFEFAD30446ACE65EDA84919818D8B8D"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -268,7 +292,7 @@
         "Entry"
         {
         "MsmKey" = "8:_B2B8429AA5711A898AF4375A100BAB83"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -285,13 +309,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_BC335EC2E4B74AC6B60DC19CF6522F1F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
+        "MsmKey" = "8:_B8D49833D8DC4C3DAC1AC7700EED1289"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -304,25 +322,25 @@
         "Entry"
         {
         "MsmKey" = "8:_C082529BB1F2A1B227C5CE3FC1A2AB88"
-        "OwnerKey" = "8:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
+        "OwnerKey" = "8:_CCCBF31911DE48D1A2A74E5716249BA2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C082529BB1F2A1B227C5CE3FC1A2AB88"
-        "OwnerKey" = "8:_ED7EAE126EFD4A218E626115B9EFA51D"
+        "OwnerKey" = "8:_E154EA06B50F480D80F08BB10D5C2DA1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_CDF1F3C9CF964DACAE031802C2F62CA5"
+        "MsmKey" = "8:_CCCBF31911DE48D1A2A74E5716249BA2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D3BACA704CB0351CC970E5AC91C0012F"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -333,20 +351,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E154EA06B50F480D80F08BB10D5C2DA1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E5E22E3790313BFAD840E1DF403FA37C"
-        "OwnerKey" = "8:_ED7EAE126EFD4A218E626115B9EFA51D"
+        "OwnerKey" = "8:_E154EA06B50F480D80F08BB10D5C2DA1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E7CEDA87B916EE617DFA598D3B0096AD"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_ED7EAE126EFD4A218E626115B9EFA51D"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -358,49 +376,79 @@
         "Entry"
         {
         "MsmKey" = "8:_F72E53B95E2CCD54F704305FA13371DF"
-        "OwnerKey" = "8:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_F72E53B95E2CCD54F704305FA13371DF"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_E154EA06B50F480D80F08BB10D5C2DA1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_F72E53B95E2CCD54F704305FA13371DF"
-        "OwnerKey" = "8:_ED7EAE126EFD4A218E626115B9EFA51D"
+        "OwnerKey" = "8:_CCCBF31911DE48D1A2A74E5716249BA2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_F72E53B95E2CCD54F704305FA13371DF"
+        "OwnerKey" = "8:_89D9A694CE504928B5C42C421B932012"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_FD0BDA6876686566023C65AB616D7E72"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
+        "OwnerKey" = "8:_CCCBF31911DE48D1A2A74E5716249BA2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F7C5D04142594625A3CD362C9B9731F7"
+        "OwnerKey" = "8:_E154EA06B50F480D80F08BB10D5C2DA1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E5E22E3790313BFAD840E1DF403FA37C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C082529BB1F2A1B227C5CE3FC1A2AB88"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_89D9A694CE504928B5C42C421B932012"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E7CEDA87B916EE617DFA598D3B0096AD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_57B3A4603F9C6CC128B5DF122B4CCF75"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -490,6 +538,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F72E53B95E2CCD54F704305FA13371DF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D3BACA704CB0351CC970E5AC91C0012F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -521,36 +575,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_97249F0A1D7039C90422FB59E5C4B128"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_ED7EAE126EFD4A218E626115B9EFA51D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E5E22E3790313BFAD840E1DF403FA37C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C082529BB1F2A1B227C5CE3FC1A2AB88"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F72E53B95E2CCD54F704305FA13371DF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B1B855EDDE5141368EF04612952A91F3"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -625,46 +649,46 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_08F3B0F1DFFE4C4FAD525001371E6036"
-            {
-            "Name" = "8:Primary output from Loginside FYAN Bot Service (Active)"
-            "Condition" = "8:"
-            "Object" = "8:_F7C5D04142594625A3CD362C9B9731F7"
-            "FileType" = "3:2"
-            "InstallAction" = "3:4"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_42DC2532_9234_418E_82FE_5954794C48A3"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_25EF4B478C53418F83171CD833D7EF53"
-            {
-            "Name" = "8:Primary output from Loginside FYAN Bot Service (Active)"
-            "Condition" = "8:NOT PREVIOUSVERSIONSINSTALLED"
-            "Object" = "8:_F7C5D04142594625A3CD362C9B9731F7"
-            "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_FDFAD560_F750_4FCE_88FA_10F702557147"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_BD982077511A4041BBDCF81898510167"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_106D2077832345CEBC9FB790E639D87B"
             {
             "Name" = "8:Primary output from trigger (Active)"
             "Condition" = "8:"
-            "Object" = "8:_B1B855EDDE5141368EF04612952A91F3"
+            "Object" = "8:_89D9A694CE504928B5C42C421B932012"
             "FileType" = "3:2"
             "InstallAction" = "3:2"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_89B07EF8_1AD4_40E4_AF95_0C933DE5101D"
+            "Identifier" = "8:_FC175E82_928A_4F10_89BC_B38B7480EA4E"
             "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_2D9FBB807B664FB983CBFA136340CB80"
+            {
+            "Name" = "8:Primary output from Loginside FYAN Bot Service (Active)"
+            "Condition" = "8:NOT PREVIOUSVERSIONSINSTALLED"
+            "Object" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_84CF7803_9FAC_4DBB_A375_E33D1ED70F31"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_58EF02D9D3484027BA6A8C24A1BE1B7B"
+            {
+            "Name" = "8:Primary output from Loginside FYAN Bot Service (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_87C87631B1444557B107E3AA3F8FDA0F"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_C167E324_FE43_41AF_A982_36D5E9E2BF64"
+            "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
         }
@@ -719,26 +743,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0E6C67AA58E24899B9B991C3BEAD6CCE"
-            {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\geckodriver.exe"
-            "TargetName" = "8:geckodriver.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_14A4F569657385E931F47AC651ACF9C0"
@@ -832,6 +836,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3EFDD2392215402DB875C6C25D43D85E"
+            {
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\IEDriverServer.exe"
+            "TargetName" = "8:IEDriverServer.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_41EC5ABB3EBD4185BA263D3E206CDCF2"
@@ -972,6 +996,37 @@
                     }
                 }
             "SourcePath" = "8:AngleSharp.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_57B3A4603F9C6CC128B5DF122B4CCF75"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_57B3A4603F9C6CC128B5DF122B4CCF75"
+                    {
+                    "Name" = "8:System.ValueTuple.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.ValueTuple.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
@@ -1151,6 +1206,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8695645928AD48C7AB58C2761E96102E"
+            {
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\geckodriver.exe"
+            "TargetName" = "8:geckodriver.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_874A32B17BB877CBEAF7DD6B8F255224"
@@ -1379,10 +1454,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC335EC2E4B74AC6B60DC19CF6522F1F"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B8D49833D8DC4C3DAC1AC7700EED1289"
             {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\IEDriverServer.exe"
-            "TargetName" = "8:IEDriverServer.exe"
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\chromedriver.exe"
+            "TargetName" = "8:chromedriver.exe"
             "Tag" = "8:"
             "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
             "Condition" = "8:"
@@ -1448,26 +1523,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDF1F3C9CF964DACAE031802C2F62CA5"
-            {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\bin\\Release\\chromedriver.exe"
-            "TargetName" = "8:chromedriver.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D3BACA704CB0351CC970E5AC91C0012F"
@@ -1833,7 +1888,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0A26717CBFF54A87823F7FC3534C5CE0"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_37C5038A70FE4AE4BA72640D836B7717"
             {
             "Name" = "8:Loginside FYAN Bot"
             "Arguments" = "8:"
@@ -1841,13 +1896,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
-            "Folder" = "8:_7D8376A0E4244C169D0E1DC3094FDC56"
+            "Target" = "8:_CCCBF31911DE48D1A2A74E5716249BA2"
+            "Folder" = "8:_A944EB2DFC5F40EDB294A2BE04EF879A"
             "WorkingFolder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
             "Icon" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D3785E0D9858419D8D0000A2C8001DA3"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9BFBB73F10384B8A85D6FFEC6E79D4A7"
             {
             "Name" = "8:Loginside FYAN Bot"
             "Arguments" = "8:"
@@ -1855,13 +1910,13 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
+            "Target" = "8:_CCCBF31911DE48D1A2A74E5716249BA2"
             "Folder" = "8:_466E06651DF7409AAEB3BC45E00A1BAD"
             "WorkingFolder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
             "Icon" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F4EC82E5078040058B85488012380508"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E9AB3A1CFCA54038ADB6B8492837C8CE"
             {
             "Name" = "8:Loginside FYAN Bot"
             "Arguments" = "8:"
@@ -1869,8 +1924,8 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
-            "Folder" = "8:_A944EB2DFC5F40EDB294A2BE04EF879A"
+            "Target" = "8:_CCCBF31911DE48D1A2A74E5716249BA2"
+            "Folder" = "8:_7D8376A0E4244C169D0E1DC3094FDC56"
             "WorkingFolder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
             "Icon" = "8:_61BF6600F532427EB83DF0F682A6BF8C"
             "Feature" = "8:"
@@ -2225,7 +2280,35 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B1B855EDDE5141368EF04612952A91F3"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_87C87631B1444557B107E3AA3F8FDA0F"
+            {
+            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\obj\\Release\\Loginside FYAN Bot Service.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{B527E614-0D50-4B87-A426-8A0532C51648}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_89D9A694CE504928B5C42C421B932012"
             {
             "SourcePath" = "8:..\\trigger\\obj\\Release\\trigger.exe"
             "TargetName" = "8:"
@@ -2253,7 +2336,7 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_BC8C99C995C24BC6BD3E5AB6B7C93DBC"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_CCCBF31911DE48D1A2A74E5716249BA2"
             {
             "SourcePath" = "8:..\\Loginside FYAN Bot\\obj\\Release\\Loginside FYAN Bot.exe"
             "TargetName" = "8:"
@@ -2281,7 +2364,7 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_ED7EAE126EFD4A218E626115B9EFA51D"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E154EA06B50F480D80F08BB10D5C2DA1"
             {
             "SourcePath" = "8:..\\Loginside FYAN Bot GUI\\obj\\Release\\Loginside FYAN Bot GUI.exe"
             "TargetName" = "8:"
@@ -2304,34 +2387,6 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{A8C78128-A831-497E-8C67-BAE923E76459}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F7C5D04142594625A3CD362C9B9731F7"
-            {
-            "SourcePath" = "8:..\\Loginside FYAN Bot Service\\obj\\Release\\Loginside FYAN Bot Service.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_BE22EF210C6E4E07B2CD06A4B98C9C04"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{B527E614-0D50-4B87-A426-8A0532C51648}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {

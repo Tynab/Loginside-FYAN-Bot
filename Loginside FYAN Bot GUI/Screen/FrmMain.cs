@@ -48,10 +48,8 @@ public partial class FrmMain : Form
         // is missing data
         if (!Exists(CONFIG_ADR))
         {
-#if !DEBUG
             _ = MsgEServNotFd();
             Close();
-#endif
         }
     }
 
@@ -211,7 +209,7 @@ public partial class FrmMain : Form
         nbInHour.Value = Max(GetHourConfig(tmr_in), GetHourConfigLocal(Default.Tmr_In));
         nbInMin.Value = Max(GetMinConfig(tmr_in), GetMinConfigLocal(Default.Tmr_In));
         nbOutHour.Value = Max(GetHourConfig(tmr_out), GetHourConfigLocal(Default.Tmr_Out));
-        nbOutMin.Value = Max(GetMinConfig(tmr_out), GetMinConfigLocal(Default.Tmr_In));
+        nbOutMin.Value = Max(GetMinConfig(tmr_out), GetMinConfigLocal(Default.Tmr_Out));
         txtId.String = _appConfig?.Getter(id_ins).Dflt4(Default.Id_Ins);
         txtPwd.String = _appConfig?.Getter(pwd_ins).Dflt4(Default.Pwd_Ins);
         txtSecKey.String = _appConfig?.Getter(sec_key).Dflt4(Default.Sec_Key);
