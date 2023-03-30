@@ -16,7 +16,7 @@ using static System.Windows.Forms.MessageBoxIcon;
 
 namespace Loginside_FYAN_Bot.Script;
 
-internal class Common
+internal static class Common
 {
     #region Connect
     /// <summary>

@@ -9,6 +9,7 @@ using static Loginside_FYAN_Bot_GUI.Properties.Settings;
 using static Loginside_FYAN_Bot_GUI.Script.Common;
 using static Loginside_FYAN_Bot_GUI.Script.Constant;
 using static Loginside_FYAN_Bot_GUI.Script.Constant.ServSts;
+using static System.Diagnostics.Process;
 using static System.IO.File;
 using static System.Math;
 using static YANF.Script.YANEvent;
@@ -55,7 +56,11 @@ public partial class FrmMain : Form
     }
 
     // frm closed
-    private void FrmMain_FormClosed(object sender, FormClosedEventArgs e) => pnlMain?.HideAnimat(Leaf, ANIMAT_SPD);
+    private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+    {
+        pnlMain?.HideAnimat(Leaf, ANIMAT_SPD);
+        Start(BOT_ADR);
+    }
 
     // btn Apply click
     private void BtnAdm_Click(object sender, EventArgs e)
@@ -138,15 +143,15 @@ public partial class FrmMain : Form
         switch (GetServSts(bot_name))
         {
             case Started:
-                {
-                    isScs = StopServ(bot_name, TIME_OUT);
-                    break;
-                }
+            {
+                isScs = StopServ(bot_name, TIME_OUT);
+                break;
+            }
             case Stoped:
-                {
-                    isScs = StrtServ(bot_name, TIME_OUT);
-                    break;
-                }
+            {
+                isScs = StrtServ(bot_name, TIME_OUT);
+                break;
+            }
         }
         // re-sync
         if (isScs)

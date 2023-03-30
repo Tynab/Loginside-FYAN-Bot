@@ -3,7 +3,7 @@ using System;
 
 namespace Loginside_FYAN_Bot.Script;
 
-internal class EventHandler
+internal static class EventHandler
 {
     /// <summary>
     /// On timer main event.

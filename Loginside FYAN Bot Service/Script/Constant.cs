@@ -1,6 +1,6 @@
 ﻿using System;
+using static System.AppDomain;
 using static System.Environment;
-using static System.Environment.SpecialFolder;
 using static System.TimeSpan;
 
 namespace Loginside_FYAN_Bot_Service.Script;
@@ -9,9 +9,9 @@ internal static class Constant
 {
     // path
     internal const string BOT_NAME = "Fyan Bot";
-    internal static readonly string BRV_ADR = $@"{GetFolderPath(ProgramFiles)}\BraveSoftware\Brave-Browser\Application\brave.exe";
-    internal static readonly string LOG_PATH = $@"{CurrentDirectory}\log";
-    internal static readonly string CR_DRV_ADR = $@"{CurrentDirectory}\chromedriver.exe";
+    internal static readonly string BRV_ADR = $@"{ExpandEnvironmentVariables("%ProgramW6432%")}\BraveSoftware\Brave-Browser\Application\brave.exe";
+    internal static readonly string LOG_PATH = $@"{CurrentDomain.BaseDirectory}\log";
+    internal static readonly string CR_DRV_ADR = $@"{CurrentDomain.BaseDirectory}\chromedriver.exe";
 
     // other
     internal const int SHDW_BOT_CNT = 5;

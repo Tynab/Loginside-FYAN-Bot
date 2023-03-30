@@ -1,8 +1,8 @@
 ﻿using System.Drawing;
 using System.Media;
 using static Loginside_FYAN_Bot_GUI.Properties.Resources;
+using static System.AppDomain;
 using static System.Drawing.Color;
-using static System.Environment;
 using static System.IO.Directory;
 
 namespace Loginside_FYAN_Bot_GUI.Script;
@@ -10,7 +10,8 @@ namespace Loginside_FYAN_Bot_GUI.Script;
 internal static class Constant
 {
     // path
-    internal static readonly string CONFIG_ADR = $@"{GetParent(CurrentDirectory)}\{serv_name}.exe.config";
+    internal static readonly string CONFIG_ADR = $@"{GetParent(CurrentDomain.BaseDirectory)}\{serv_name}.exe.config";
+    internal static readonly string BOT_ADR = $@"{CurrentDomain.BaseDirectory}\{bot_name}.exe";
 
     // sound
     internal static readonly SoundPlayer SND_BACK = new(sBack);

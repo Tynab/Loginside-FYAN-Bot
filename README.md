@@ -6,6 +6,12 @@
 - Checkin at the set time on GUI
 - Checkout at the set time on GUI
 - Auto change password bypass rule inside
+- Auto update new version
+
+## AVATAR
+<p align='center'>
+<img src='pic/13.PNG'></img>
+</p>
 
 ## IMAGE DEMO
 <p align='center'>
@@ -49,22 +55,16 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 ```
 
 ### PACKAGE
-<img src='pic/4.png' align='left' width='3%' height='3%'></img>
-<div style='display:flex;'>
-
-- Animator » 1.0.3
-
-</div>
-<img src='pic/1.png' align='left' width='3%' height='3%'></img>
-<div style='display:flex;'>
-
-- Tynab.YANF » 1.0.1
-
 </div>
 <img src='pic/9.png' align='left' width='3%' height='3%'></img>
 <div style='display:flex;'>
 
 - AngleSharp » 1.0.1
+
+<img src='pic/4.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
+
+- Animator » 1.0.3
 
 </div>
 <img src='pic/8.png' align='left' width='3%' height='3%'></img>
@@ -82,19 +82,19 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <img src='pic/6.png' align='left' width='3%' height='3%'></img>
 <div style='display:flex;'>
 
-- Selenium.WebDriver » 4.8.1
+- Selenium.WebDriver » 4.8.2
 
 </div>
 <img src='pic/7.png' align='left' width='3%' height='3%'></img>
 <div style='display:flex;'>
 
-- Selenium.WebDriver.ChromeDriver » 110.0.5481.7700
+- Selenium.WebDriver.ChromeDriver » 111.0.5563.6400
 
 </div>
 <img src='pic/2.png' align='left' width='3%' height='3%'></img>
 <div style='display:flex;'>
 
-- Selenium.WebDriver.GeckoDriver » 0.32.0
+- Selenium.WebDriver.GeckoDriver » 0.32.2
 
 </div>
 <img src='pic/3.png' align='left' width='3%' height='3%'></img>
@@ -167,6 +167,18 @@ internal static void HideAnimatAsync(this Control ctrl, AnimationType type, floa
 <div style='display:flex;'>
 
 - System.Threading.Tasks.Extensions » 4.5.4
+
+</div>
+<img src='pic/8.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
+
+- System.ValueTuple » 4.5.0
+
+</div>
+<img src='pic/1.png' align='left' width='3%' height='3%'></img>
+<div style='display:flex;'>
+
+- Tynab.YANF » 1.0.1
 
 </div>
 <img src='pic/4.png' align='left' width='3%' height='3%'></img>

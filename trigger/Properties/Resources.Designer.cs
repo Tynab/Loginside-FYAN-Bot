@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Loginside_FYAN_Bot.Properties {
+namespace trigger.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Loginside_FYAN_Bot.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Loginside_FYAN_Bot.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("trigger.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,15 +70,6 @@ namespace Loginside_FYAN_Bot.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2.0.0.
-        /// </summary>
-        internal static string app_ver {
-            get {
-                return ResourceManager.GetString("app_ver", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Loginside FYAN Bot.
         /// </summary>
         internal static string bot_name {
@@ -93,33 +84,6 @@ namespace Loginside_FYAN_Bot.Properties {
         internal static string co_name {
             get {
                 return ResourceManager.GetString("co_name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://raw.githubusercontent.com/Tynab/Tynab/main/app/Loginside%20FYAN%20Bot.
-        /// </summary>
-        internal static string link_app {
-            get {
-                return ResourceManager.GetString("link_app", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to google.com.
-        /// </summary>
-        internal static string link_base {
-            get {
-                return ResourceManager.GetString("link_base", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://raw.githubusercontent.com/Tynab/Tynab/main/ver/Loginside%20FYAN%20Bot.
-        /// </summary>
-        internal static string link_ver {
-            get {
-                return ResourceManager.GetString("link_ver", resourceCulture);
             }
         }
     }

@@ -29,21 +29,18 @@ internal class FyanBot
     /// <summary>
     /// Bot check in/out.
     /// </summary>
-    internal void BotChk()
+    internal void BotChk() => new List<ShdwBot>
     {
-        new List<ShdwBot>
-        {
-            new GcBot(this),
-            new FfBot(this),
-            new MeBot(this),
-            new IeBot(this),
-            new CbBot(this)
-        }?.ForEach(x =>
-        {
-            new Thread(() => x?.ShdwBotChk())?.Start();
-            Sleep(TMR_INTVL_DFLT);
-        });
-    }
+        new GcBot(this),
+        new FfBot(this),
+        new MeBot(this),
+        new IeBot(this),
+        new CbBot(this)
+    }?.ForEach(x =>
+    {
+        new Thread(() => x?.ShdwBotChk())?.Start();
+        Sleep(TMR_INTVL_DFLT);
+    });
 
     /// <summary>
     /// Bot change password.
@@ -98,7 +95,7 @@ internal class FyanBot
         var webElem = new WebDriverWait(drv, WAIT_SPAN);
         ShdwLogin(shdwName, drv, webElem, acctIns);
         // check click
-        (IsCheckIn? webElem?.Until(e => e?.FindElement(Id(id_btn_chkin))) : webElem?.Until(e => e?.FindElement(Id(id_btn_chkout))))?.Click();
+        (IsCheckIn ? webElem?.Until(e => e?.FindElement(Id(id_btn_chkin))) : webElem?.Until(e => e?.FindElement(Id(id_btn_chkout))))?.Click();
         _logger?.WrInfo(shdwName, IsCheckIn ? "Checked in!" : "Checked out!");
         Sleep(DELAY);
     }

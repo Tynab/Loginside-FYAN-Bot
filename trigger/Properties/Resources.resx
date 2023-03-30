@@ -121,10 +121,6 @@
     <value>Loginside FYAN Bot GUI</value>
     <comment>tên phần mềm</comment>
   </data>
-  <data name="app_ver" xml:space="preserve">
-    <value>2.0.0</value>
-    <comment>phiên bản phần mềm</comment>
-  </data>
   <data name="bot_name" xml:space="preserve">
     <value>Loginside FYAN Bot</value>
     <comment>tên bot</comment>
@@ -132,17 +128,5 @@
   <data name="co_name" xml:space="preserve">
     <value>YAN</value>
     <comment>tên doanh nghiệp</comment>
-  </data>
-  <data name="link_app" xml:space="preserve">
-    <value>https://raw.githubusercontent.com/Tynab/Tynab/main/app/Loginside%20FYAN%20Bot</value>
-    <comment>đường dẫn tải phần mềm trên server</comment>
-  </data>
-  <data name="link_base" xml:space="preserve">
-    <value>google.com</value>
-    <comment>đường dẫn cơ bản</comment>
-  </data>
-  <data name="link_ver" xml:space="preserve">
-    <value>https://raw.githubusercontent.com/Tynab/Tynab/main/ver/Loginside%20FYAN%20Bot</value>
-    <comment>đường dẫn kiểm tra phiên bản trên server</comment>
   </data>
 </root>

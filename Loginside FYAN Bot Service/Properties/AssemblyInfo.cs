@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Loginside FYAN Bot Service")]
-[assembly: AssemblyDescription("FPT Retail Inside autobot YAN")]
+[assembly: AssemblyDescription("FPT Retail Inside autobot YAN service")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("YAN")]
 [assembly: AssemblyProduct("Loginside FYAN Bot Service")]
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.2.2.2")]
+[assembly: AssemblyVersion("3.3.3.3")]
 [assembly: AssemblyFileVersion("2.0.0.0")]
 [assembly: NeutralResourcesLanguage("vi")]

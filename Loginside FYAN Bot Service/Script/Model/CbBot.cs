@@ -6,6 +6,7 @@ using WebDriverManager.DriverConfigs.Impl;
 using static Loginside_FYAN_Bot_Service.Properties.Resources;
 using static Loginside_FYAN_Bot_Service.Script.Common;
 using static Loginside_FYAN_Bot_Service.Script.Constant;
+using static System.AppDomain;
 using static System.Environment;
 
 namespace Loginside_FYAN_Bot_Service.Script.Model;
@@ -48,7 +49,7 @@ internal class CbBot : ShdwBot
                 {
                     BinaryLocation = BRV_ADR
                 };
-                using IWebDriver drv = new ChromeDriver(CurrentDirectory, opts);
+                using IWebDriver drv = new ChromeDriver(CurrentDomain.BaseDirectory, opts);
                 ShdwChkIO(Name, drv, acctIns);
             }
             catch (Exception ex)
@@ -87,7 +88,7 @@ internal class CbBot : ShdwBot
                 {
                     BinaryLocation = BRV_ADR
                 };
-                using IWebDriver drv = new ChromeDriver(CurrentDirectory, opts);
+                using IWebDriver drv = new ChromeDriver(CurrentDomain.BaseDirectory, opts);
                 ShdwChgPwd(Name, drv, acctIns);
                 return true;
             }

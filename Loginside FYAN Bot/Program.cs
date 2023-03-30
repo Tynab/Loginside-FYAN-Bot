@@ -11,6 +11,18 @@ using static System.IO.File;
 using static System.Windows.Forms.Application;
 
 HideConsole();
+// check app running
+if (GetProcessesByName(app_name).Count() < 1)
+{
+    if (Exists(APP_ADR))
+    {
+        Start(APP_ADR);
+    }
+    else
+    {
+        new Manager().Show();
+    }
+}
 // check manager running
 if (GetProcessesByName(bot_name).Count() > 1)
 {
@@ -18,24 +30,6 @@ if (GetProcessesByName(bot_name).Count() > 1)
 }
 else
 {
-    // startup
-    if (CurrentDirectory != STD_PATH)
-    {
-        Start(TOOL_ADR);
-        Exit();
-    }
-    // check app running
-    if (GetProcessesByName(app_name).Count() < 1)
-    {
-        if (Exists(APP_ADR))
-        {
-            Start(APP_ADR);
-        }
-        else
-        {
-            new Manager().Show();
-        }
-    }
     new Timer
     {
         Interval = TMR_INTVL,

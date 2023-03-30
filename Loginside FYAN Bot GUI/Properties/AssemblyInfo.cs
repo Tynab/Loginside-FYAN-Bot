@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Loginside FYAN Bot GUI")]
-[assembly: AssemblyDescription("FPT Retail Inside autobot YAN")]
+[assembly: AssemblyDescription("FPT Retail Inside autobot YAN GUI")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("YAN")]
 [assembly: AssemblyProduct("Loginside FYAN Bot GUI")]
