@@ -91,7 +91,7 @@ internal class Manager : Form
             StopServ(bot_name, TIME_OUT);
             KillPrcs(app_name);
             _dlvScrService.OffLoader();
-            Start(FILE_SETUP_ADR);
+            _ = Start(FILE_SETUP_ADR);
             Exit();
         }
     }

@@ -41,7 +41,7 @@ internal class IeBot : ShdwBot
         Attack:
             try
             {
-                new DriverManager()?.SetUpDriver(new InternetExplorerConfig());
+                _ = (new DriverManager()?.SetUpDriver(new InternetExplorerConfig()));
                 using IWebDriver drv = new InternetExplorerDriver();
                 ShdwChkIO(Name, drv, acctIns);
             }
@@ -75,7 +75,7 @@ internal class IeBot : ShdwBot
         {
             try
             {
-                new DriverManager()?.SetUpDriver(new InternetExplorerConfig());
+                _ = (new DriverManager()?.SetUpDriver(new InternetExplorerConfig()));
                 using IWebDriver drv = new InternetExplorerDriver();
                 ShdwChgPwd(Name, drv, acctIns);
                 return true;

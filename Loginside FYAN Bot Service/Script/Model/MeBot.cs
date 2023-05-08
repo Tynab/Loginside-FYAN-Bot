@@ -41,7 +41,7 @@ internal class MeBot : ShdwBot
         Attack:
             try
             {
-                new DriverManager()?.SetUpDriver(new EdgeConfig());
+                _ = (new DriverManager()?.SetUpDriver(new EdgeConfig()));
                 using IWebDriver drv = new EdgeDriver();
                 ShdwChkIO(Name, drv, acctIns);
             }
@@ -75,7 +75,7 @@ internal class MeBot : ShdwBot
         {
             try
             {
-                new DriverManager()?.SetUpDriver(new EdgeConfig());
+                _ = (new DriverManager()?.SetUpDriver(new EdgeConfig()));
                 using IWebDriver drv = new EdgeDriver();
                 ShdwChgPwd(Name, drv, acctIns);
                 return true;

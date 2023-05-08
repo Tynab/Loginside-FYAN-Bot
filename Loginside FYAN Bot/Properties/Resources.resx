@@ -122,7 +122,7 @@
     <comment>tên phần mềm</comment>
   </data>
   <data name="app_ver" xml:space="preserve">
-    <value>2.0.0</value>
+    <value>2.0.1</value>
     <comment>phiên bản phần mềm</comment>
   </data>
   <data name="bot_name" xml:space="preserve">

@@ -71,7 +71,7 @@ internal static class Common
     {
         if (!Exists(path))
         {
-            CreateDirectory(path);
+            _ = CreateDirectory(path);
         }
     }
 

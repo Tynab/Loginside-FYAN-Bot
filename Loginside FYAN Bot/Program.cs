@@ -12,7 +12,7 @@ HideConsole();
 // check app running
 if (GetProcessesByName(app_name).Count() < 1)
 {
-    Start(APP_ADR);
+    _ = Start(APP_ADR);
 }
 // check manager running
 if (GetProcessesByName(bot_name).Count() > 1)

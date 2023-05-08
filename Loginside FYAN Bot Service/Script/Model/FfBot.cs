@@ -41,7 +41,7 @@ internal class FfBot : ShdwBot
         Attack:
             try
             {
-                new DriverManager()?.SetUpDriver(new FirefoxConfig());
+                _ = (new DriverManager()?.SetUpDriver(new FirefoxConfig()));
                 using IWebDriver drv = new FirefoxDriver();
                 ShdwChkIO(Name, drv, acctIns);
             }
@@ -75,7 +75,7 @@ internal class FfBot : ShdwBot
         {
             try
             {
-                new DriverManager()?.SetUpDriver(new FirefoxConfig());
+                _ = (new DriverManager()?.SetUpDriver(new FirefoxConfig()));
                 using IWebDriver drv = new FirefoxDriver();
                 ShdwChgPwd(Name, drv, acctIns);
                 return true;

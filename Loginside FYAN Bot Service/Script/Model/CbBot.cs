@@ -44,7 +44,7 @@ internal class CbBot : ShdwBot
             try
             {
                 SetEnvironmentVariable(ENV_VAR_WEB_DRV_CR, CR_DRV_ADR);
-                new DriverManager()?.SetUpDriver(new ChromeConfig());
+                _ = (new DriverManager()?.SetUpDriver(new ChromeConfig()));
                 var opts = new ChromeOptions
                 {
                     BinaryLocation = BRV_ADR
@@ -83,7 +83,7 @@ internal class CbBot : ShdwBot
             try
             {
                 SetEnvironmentVariable(ENV_VAR_WEB_DRV_CR, CR_DRV_ADR);
-                new DriverManager()?.SetUpDriver(new ChromeConfig());
+                _ = (new DriverManager()?.SetUpDriver(new ChromeConfig()));
                 var opts = new ChromeOptions
                 {
                     BinaryLocation = BRV_ADR

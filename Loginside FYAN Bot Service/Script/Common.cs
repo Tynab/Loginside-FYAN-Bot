@@ -133,7 +133,7 @@ internal static class Common
             }
             else
             {
-                taskList?.Remove(curCmpl);
+                _ = (taskList?.Remove(curCmpl));
             }
         }
         return completedTask != null ? completedTask.Result : default;

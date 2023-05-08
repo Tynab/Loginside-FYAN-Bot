@@ -41,7 +41,7 @@ internal class GcBot : ShdwBot
         Attack:
             try
             {
-                new DriverManager()?.SetUpDriver(new ChromeConfig());
+                _ = (new DriverManager()?.SetUpDriver(new ChromeConfig()));
                 using IWebDriver drv = new ChromeDriver();
                 ShdwChkIO(Name, drv, acctIns);
             }
@@ -75,7 +75,7 @@ internal class GcBot : ShdwBot
         {
             try
             {
-                new DriverManager()?.SetUpDriver(new ChromeConfig());
+                _ = (new DriverManager()?.SetUpDriver(new ChromeConfig()));
                 using IWebDriver drv = new ChromeDriver();
                 ShdwChgPwd(Name, drv, acctIns);
                 return true;
